@@ -5,7 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Go Watch Go</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Fontawesome css  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- For Bootstarp Link  CSS 1-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -13,6 +20,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- Progress Bar Css  -->
+    <link href="css-circular-prog-bar.css" rel="stylesheet" type="text/css" />
+    <!-- Custom css -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- START NAVBAR SECTION -->
@@ -41,7 +52,18 @@
     <!-- ______________________________________END BANNER______________________________________________ -->
 
     <!-- START POPULAR ANIME SECTION  -->
-    <div></div>
+    <section class="popular">
+      <div class="container-fluid">
+        <h6 class="sectiontitle">Popular Anime</h6>
+
+        <div class="popularcontainers">
+          <div class="popularcards"></div>
+
+          <i class="fas fa-chevron-right arrow popularright"></i>
+          <i class="fas fa-chevron-left arrow popularleft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END POPULAR ANIME SECTION -->
 
     <!-- ______________________________________END POPULAR ANIME______________________________________________ -->
@@ -65,7 +87,18 @@
     <!-- ______________________________________END MOVIE______________________________________________ -->
 
     <!-- START MANGA SECTION -->
-    <div></div>
+    <section class="movie popular">
+      <div class="container-fluid">
+        <h6 class="sectiontitle">Movie</h6>
+
+        <div class="moviecontainers">
+          <div class="moviecards"></div>
+
+          <i class="fas fa-chevron-right arrow movieright"></i>
+          <i class="fas fa-chevron-left arrow movieleft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END MANGA SECITON -->
 
     <!-- ______________________________________END MANGA______________________________________________ -->
