@@ -26,9 +26,75 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <!-- START NAVBAR SECTION -->
-    <nav></nav>
-    <!-- END NAVBAR SECTION -->
+    <!-- START NAVBAR SECTION (Black Bear & Hiddan) -->
+    <nav class="navbar navbar-expand-sm bg-dark">
+      <div class="container-fluid">
+        <!-- for brand log  -->
+        <a href="index.html" class="logolink"
+          ><img
+            src="https://s3-alpha-sig.figma.com/img/0128/59eb/192b1c254923404a556769fee7ab1525?Expires=1648425600&Signature=QBbSwfJmJxfldQhNce8BoYpg0babv0MQYXrKGeAAcuRo7iPokVd~hTgv2NlE--3CnY0kkLyaBi8KGXieYwcBkKU6vPtFrefphLBUtvK2GZsy1ADVziE0-FntoeXXfhNn2OCyLUjEdbUDS7WYt1YXbprNgo2Yl-gSiby3rWKGupcyHwC~01vbmPdrDAhK2rZFN974rgKPNYe6Tkq7NEUaxNdA--iuYACGyheTRkam9nD2q7RWtaY8lK-55GTcTtyh4BLEAbOJT~8DfHhx1Qa4drms3lLd3r1B1w~~UotgzJrKgxT6B8Obcp6nJCwb~0KCOnIKP9HtG1IFddlwIYD1EA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+            alt="logo"
+            width="48"
+            height="48"
+          />
+          <span class="logotitle">GowatchGo</span>
+        </a>
+
+        <!-- toogle btn div -->
+        <div class="ms-auto">
+          <!-- btn for search btn  -->
+          <button
+            class="navbar-toggler ms-auto searchmobilebtns"
+            data-bs-toggle="collapse"
+            data-bs-target="#searchToggler"
+          >
+            <span class="searchtogglers"><i class="fas fa-search"></i></span>
+          </button>
+
+          <!-- btn for hambergur menu  -->
+          <button
+            class="navbar-toggler me-auto menus"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggler"
+          >
+            <span class="navbar-toggler-icon bars"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+          </button>
+        </div>
+
+        <!-- for navbar menu  -->
+        <div id="navbarToggler" class="navbar-collapse collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Anime</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Movie</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Manga</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Light Novel</a>
+            </li>
+          </ul>
+        </div>
+        <!-- for search bar -->
+        <div class="navbar-collapse collapse" id="searchToggler">
+          <div class="d-flex ms-auto searchs">
+            <input
+              type="text"
+              class="form-control searchbars"
+              placeholder="Search ..."
+            />
+            <button class="searchbtns" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
@@ -54,7 +120,7 @@
     <!-- START POPULAR ANIME SECTION  -->
     <section class="popular">
       <div class="container-fluid">
-        <h6 class="sectiontitle">Popular Anime</h6>
+        <h4 class="sectiontitle">Popular Anime</h4>
 
         <div class="popularcontainers">
           <div class="popularcards"></div>
@@ -69,27 +135,43 @@
     <!-- ______________________________________END POPULAR ANIME______________________________________________ -->
 
     <!-- START LAST ANIME UPDATE SECTION  -->
-    <div></div>
+    <section class="lastupdate">
+      <div class="container-fluid">
+        <h4 class="sectiontitle">Last Anime Update</h4>
+
+        <div class="lastupdatecontainers">
+          <div class="lastupdatecards"></div>
+
+          <i class="fas fa-chevron-right arrow lastupdateright"></i>
+          <i class="fas fa-chevron-left arrow lastupdateleft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END LAST ANIME UPDATE SRCTION  -->
 
     <!-- ______________________________________END LAST ANIME UPDATE______________________________________________ -->
 
     <!-- START ANIME SECTION  -->
-    <div></div>
+    <section class="anime">
+      <div class="container-fluid">
+        <h4 class="sectiontitle">Anime</h4>
+
+        <div class="animecontainers">
+          <div class="animecards"></div>
+
+          <i class="fas fa-chevron-right arrow animeright"></i>
+          <i class="fas fa-chevron-left arrow animeleft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END ANIME SECTION  -->
 
     <!-- ______________________________________END ANIME______________________________________________ -->
 
     <!-- START MOVIES SECTION  -->
-    <div></div>
-    <!-- END MOVIES SECTION  -->
-
-    <!-- ______________________________________END MOVIE______________________________________________ -->
-
-    <!-- START MANGA SECTION -->
-    <section class="movie popular">
+    <section class="movie">
       <div class="container-fluid">
-        <h6 class="sectiontitle">Movie</h6>
+        <h4 class="sectiontitle">Movie</h4>
 
         <div class="moviecontainers">
           <div class="moviecards"></div>
@@ -99,6 +181,12 @@
         </div>
       </div>
     </section>
+    <!-- END MOVIES SECTION  -->
+    <div></div>
+    <!-- ______________________________________END MOVIE______________________________________________ -->
+
+    <!-- START MANGA SECTION -->
+
     <!-- END MANGA SECITON -->
 
     <!-- ______________________________________END MANGA______________________________________________ -->
@@ -183,7 +271,22 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <!-- firebase js -->
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"
+    ></script>
     <!-- Custom Js  -->
-    <script src="app.js" type="text/javascript"></script>
+    <script type="text/javascript" defer src="app.js"></script>
+
+    <!-- <script src="app.js" type="text/javascript"></script> -->
   </body>
 </html>

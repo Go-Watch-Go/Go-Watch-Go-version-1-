@@ -1,3 +1,580 @@
+// nav section
+const menu = document.querySelector(".menus");
+const bar = document.querySelector(".bars i");
+const searchbtn = document.querySelector(".searchbtns");
+const searchbtnicon = document.querySelector(".searchbtns i");
+const searchmobile = document.querySelector(".searchmobilebtns");
+
+menu.addEventListener("click", () => {
+  if (bar.classList.contains("fa-bars")) {
+    bar.classList.remove("fa-bars");
+    bar.classList.add("fa-times");
+  } else {
+    bar.classList.remove("fa-times");
+    bar.classList.add("fa-bars");
+  }
+});
+
+searchmobile.addEventListener("click", () => {
+  searchmobile.style.display = "none";
+  searchbtn.setAttribute("data-bs-toggle", "collapse");
+  searchbtn.setAttribute("data-bs-target", "#searchToggler");
+  searchbtnicon.classList.remove("fa-bars");
+  searchbtnicon.classList.add("fa-times");
+});
+
+searchbtn.addEventListener("click", () => {
+  if (searchbtnicon.classList.contains("fa-times")) {
+    searchmobile.style.display = "inline-block";
+    searchbtnicon.classList.remove("fa-times");
+    searchbtnicon.classList.add("fa-bars");
+  }
+});
+
+// Firebase section
+const firebaseConfig = {
+  apiKey: "AIzaSyBz6icw-tMMpgqeVDgMNTAIt-FaLNPXyzE",
+  authDomain: "index-ui-7c2c9.firebaseapp.com",
+  databaseURL:
+    "https://index-ui-7c2c9-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "index-ui-7c2c9",
+  storageBucket: "index-ui-7c2c9.appspot.com",
+  messagingSenderId: "201752924778",
+  appId: "1:201752924778:web:2b2c5a421f2427cb9a3013",
+  measurementId: "G-V4PK7STEM8",
+};
+
+firebase.initializeApp(firebaseConfig);
+const databasefire = firebase.database();
+
+const rootref = databasefire.ref("popularanime");
+const movref = databasefire.ref("movie");
+const animeref = databasefire.ref("anime");
+const lastref = databasefire.ref("lastanime");
+
+// for popular row
+rootref.orderByKey().on("value", (snapshot) => {
+  let populararrays = snapshot.val();
+  // console.log(populararrays);
+
+  // a.push(populararrays);
+
+  for (popular of populararrays) {
+    let popularcard = document.createElement("div");
+    popularcard.className = "cards";
+    popularcard.innerHTML = `
+      <img src="" class="popularimgs" />
+      <div class="popularinfo">
+        <p class="populartitle">Jujutsu Kaisen</p>
+        <div class="progresscontainer">
+          <div class="progress-circle over50 p80">
+            <span class="percent">80<span>%</span></span>
+            <div class="left-half-clipper">
+              <div class="first50-bar"></div>
+              <div class="value-bar"></div>
+            </div>
+          </div>
+  
+          <span class="score">User Score</span>
+        </div>
+  
+        <p class="populargernes">Action.Supernatural</p>
+      </div>
+      `;
+
+    popularcards.appendChild(popularcard);
+
+    const popularimgs = popularcards.querySelectorAll(".popularimgs"),
+      populartite = popularcards.querySelectorAll(".populartitle"),
+      popularpercent = popularcards.querySelectorAll(".percent"),
+      populargernes = popularcards.querySelectorAll(".populargernes");
+
+    function insertdata(Id, idx) {
+      let animeid = Id;
+
+      async function getanime() {
+        let resource = await fetch(url + animeid + api);
+
+        let data = await resource.json();
+
+        return data;
+      }
+
+      getanime().then((data) => {
+        // console.log(data);
+        let datapercent = data.vote_average * 10;
+        if (datapercent > 50) {
+          popularpercent[
+            idx
+          ].parentElement.className = `progress-circle over50 p${datapercent}`;
+        } else {
+          popularpercent[
+            idx
+          ].parentElement.className = `progress-circle p${datapercent}`;
+        }
+        popularimgs[idx].src = imgurl + data.poster_path;
+        populartite[idx].innerText = data.name;
+        popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
+        populargernes[idx].innerText = data.genres[1].name;
+      });
+    }
+
+    populararrays.forEach((popary, index) => {
+      insertdata(popary, index);
+    });
+  }
+
+  const cardcontainer = document.querySelector(".popularcards");
+  const cards = document.querySelectorAll(".cards");
+  const poprightbtn = document.querySelector(".popularright"),
+    popleftbtn = document.querySelector(".popularleft");
+
+  poprightbtn.addEventListener("click", goright);
+  popleftbtn.addEventListener("click", goleft);
+
+  function getwidth() {
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      cardcontainer.style.width = `${160 * populararrays.length}px`;
+    } else {
+      cardcontainer.style.width = `${240 * populararrays.length}px`;
+      // console.log(260 * populararrays.length);
+    }
+  }
+
+  getwidth();
+
+  let x = 0;
+  // console.log(cards.length);
+
+  function goright() {
+    x++;
+    let y = 260 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    popleftbtn.style.display = "block";
+
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      poprightbtn.style.display = "none";
+      poprightbtn.style.display = "none";
+    } else if (windowwidth > 600 && windowwidth < 992) {
+      if (x === cards.length - 3) {
+        poprightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 992 && windowwidth < 1200) {
+      if (x === cards.length - 4) {
+        poprightbtn.style.display = "none";
+      }
+    } else {
+      if (x === cards.length - 5) {
+        poprightbtn.style.display = "none";
+      }
+    }
+  }
+
+  function goleft() {
+    x--;
+    let y = 280 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    poprightbtn.style.display = "block";
+    if (x === 0) {
+      popleftbtn.style.display = "none";
+    }
+  }
+});
+
+// for movie row
+movref.orderByKey().on("value", (snapshot) => {
+  let moviearrays = snapshot.val();
+
+  for (movie of moviearrays) {
+    let moviecard = document.createElement("div");
+    moviecard.className = "movcards";
+    moviecard.innerHTML = `
+      <img src="" class="movieimgs" />
+      <div class="movieinfo">
+        <p class="movietitle">Jujutsu Kaisen</p>
+        <div class="progresscontainer">
+          <div class="progress-circle over50 p80">
+            <span class="percent">80<span>%</span></span>
+            <div class="left-half-clipper">
+              <div class="first50-bar"></div>
+              <div class="value-bar"></div>
+            </div>
+          </div>
+  
+          <span class="score">User Score</span>
+        </div>
+  
+        <p class="moviegernes">Action.Supernatural</p>
+      </div>
+      `;
+
+    moviecards.appendChild(moviecard);
+
+    const movieimgs = moviecards.querySelectorAll(".movieimgs"),
+      movietite = moviecards.querySelectorAll(".movietitle"),
+      moviepercent = moviecards.querySelectorAll(".percent"),
+      moviegernes = moviecards.querySelectorAll(".moviegernes");
+
+    function insertmoviedata(Id, idx) {
+      let movieid = Id;
+
+      async function getmovie() {
+        let resource = await fetch(movieurl + movieid + api);
+
+        let data = await resource.json();
+
+        return data;
+      }
+
+      getmovie().then((data) => {
+        // console.log(data);
+        let datapercent = data.vote_average * 10;
+        if (datapercent > 50) {
+          moviepercent[
+            idx
+          ].parentElement.className = `progress-circle over50 p${datapercent}`;
+        } else {
+          moviepercent[
+            idx
+          ].parentElement.className = `progress-circle p${datapercent}`;
+        }
+        movieimgs[idx].src = imgurl + data.poster_path;
+        movietite[idx].innerText = data.title;
+        moviepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+        moviegernes[idx].innerText = data.genres[1].name;
+      });
+    }
+
+    moviearrays.forEach((movary, index) => {
+      insertmoviedata(movary, index);
+    });
+  }
+
+  const moviecontainer = document.querySelector(".moviecards");
+  const cards = document.querySelectorAll(".movcards");
+  const movrightbtn = document.querySelector(".movieright"),
+    movleftbtn = document.querySelector(".movieleft");
+
+  movrightbtn.addEventListener("click", gomoviearrowright);
+  movleftbtn.addEventListener("click", gomoviearrowleft);
+
+  function getwidth() {
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      moviecontainer.style.width = `${200 * moviearrays.length}px`;
+    } else {
+      moviecontainer.style.width = `${360 * moviearrays.length}px`;
+      // console.log(260 * populararrays.length);
+    }
+  }
+
+  getwidth();
+
+  let x = 0;
+
+  function gomoviearrowright() {
+    x++;
+    let y = 330 * x;
+    moviecontainer.style.transform = `translateX(-${y}px)`;
+
+    movleftbtn.style.display = "block";
+
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      if (x === cards.length - 2) {
+        movrightbtn.style.display = "none";
+        // lastrightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 600 && windowwidth < 992) {
+      if (x === cards.length - 1) {
+        movrightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 992 && windowwidth < 1200) {
+      if (x === cards.length - 2) {
+        movrightbtn.style.display = "none";
+      }
+    } else {
+      if (x === cards.length - 3) {
+        movrightbtn.style.display = "none";
+      }
+    }
+  }
+
+  function gomoviearrowleft() {
+    x--;
+    let y = 330 * x;
+    moviecontainer.style.transform = `translateX(-${y}px)`;
+
+    movrightbtn.style.display = "block";
+    if (x === 0) {
+      movleftbtn.style.display = "none";
+    }
+  }
+});
+
+// for anime row
+animeref.orderByKey().on("value", (snapshot) => {
+  let animearrays = snapshot.val();
+  // console.log(animearrays);
+
+  // a.push(populararrays);
+
+  for (anime of animearrays) {
+    let animecard = document.createElement("div");
+    animecard.className = "anicards";
+    animecard.innerHTML = `
+      <img src="" class="animeimgs" />
+      <div class="animeinfo">
+        <p class="animetitle">Jujutsu Kaisen</p>
+        <div class="progresscontainer">
+          <div class="progress-circle over50 p80">
+            <span class="percent">80<span>%</span></span>
+            <div class="left-half-clipper">
+              <div class="first50-bar"></div>
+              <div class="value-bar"></div>
+            </div>
+          </div>
+  
+          <span class="score">User Score</span>
+        </div>
+  
+        <p class="animegernes">Action.Supernatural</p>
+      </div>
+      `;
+
+    animecards.appendChild(animecard);
+
+    const animeimgs = animecards.querySelectorAll(".animeimgs"),
+      animetite = animecards.querySelectorAll(".animetitle"),
+      animepercent = animecards.querySelectorAll(".percent"),
+      animegernes = animecards.querySelectorAll(".animegernes");
+
+    function insertdata(Id, idx) {
+      let animeid = Id;
+
+      async function getanime() {
+        let resource = await fetch(url + animeid + api);
+
+        let data = await resource.json();
+
+        return data;
+      }
+
+      getanime().then((data) => {
+        // console.log(data);
+        let datapercent = data.vote_average * 10;
+        if (datapercent > 50) {
+          animepercent[
+            idx
+          ].parentElement.className = `progress-circle over50 p${datapercent}`;
+        } else {
+          animepercent[
+            idx
+          ].parentElement.className = `progress-circle p${datapercent}`;
+        }
+        animeimgs[idx].src = imgurl + data.poster_path;
+        animetite[idx].innerText = data.name;
+        animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+        animegernes[idx].innerText = data.genres[1].name;
+      });
+    }
+
+    animearrays.forEach((aniary, index) => {
+      insertdata(aniary, index);
+    });
+  }
+
+  const cardcontainer = document.querySelector(".animecards");
+  const cards = document.querySelectorAll(".anicards");
+  const poprightbtn = document.querySelector(".animeright"),
+    popleftbtn = document.querySelector(".animeleft");
+
+  poprightbtn.addEventListener("click", goright);
+  popleftbtn.addEventListener("click", goleft);
+
+  function getwidth() {
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      cardcontainer.style.width = `${160 * animearrays.length}px`;
+    } else {
+      cardcontainer.style.width = `${260 * animearrays.length}px`;
+      // console.log(260 * populararrays.length);
+    }
+  }
+
+  getwidth();
+
+  let x = 0;
+  // console.log(cards.length);
+
+  function goright() {
+    x++;
+    let y = 260 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    popleftbtn.style.display = "block";
+
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      poprightbtn.style.display = "none";
+      poprightbtn.style.display = "none";
+    } else if (windowwidth > 600 && windowwidth < 992) {
+      if (x === cards.length - 3) {
+        poprightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 992 && windowwidth < 1200) {
+      if (x === cards.length - 4) {
+        poprightbtn.style.display = "none";
+      }
+    } else {
+      if (x === cards.length - 5) {
+        poprightbtn.style.display = "none";
+      }
+    }
+  }
+
+  function goleft() {
+    x--;
+    let y = 280 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    poprightbtn.style.display = "block";
+    if (x === 0) {
+      popleftbtn.style.display = "none";
+    }
+  }
+});
+
+// for lastupdate row
+lastref.orderByKey().on("value", (snapshot) => {
+  let val1 = snapshot.val();
+  // console.log(val1[0].id);
+
+  let lastupdatearrays = [];
+  for (let i = 0; i < val1.length; i++) {
+    lastupdatearrays.push(val1[i].id);
+    // console.log(lastupdatearrays);
+  }
+  console.log(lastupdatearrays);
+
+  for (lastupdate of lastupdatearrays) {
+    let lastcard = document.createElement("div");
+    lastcard.className = "lastcards";
+    lastcard.innerHTML = `
+    <img
+    src="https://www.gstatic.com/webp/gallery/4.sm.jpg"
+    class="lastimgs"
+  />
+  <div class="lastinfo">
+    <p class="lasttitle">Jujutsu Kaisen</p>
+    <p class="lastep">Episode 7</p>
+  </div>
+      `;
+
+    lastupdaecards.appendChild(lastcard);
+
+    const lastimgs = lastupdaecards.querySelectorAll(".lastimgs"),
+      lasttitle = lastupdaecards.querySelectorAll(".lasttitle"),
+      lastep = lastupdaecards.querySelectorAll(".lastep");
+
+    function insertdata(Id, idx) {
+      let animeid = Id;
+
+      async function getanime() {
+        let resource = await fetch(url + animeid + api);
+
+        let data = await resource.json();
+
+        return data;
+      }
+
+      getanime().then((data) => {
+        // console.log(data);
+        lastimgs[idx].src = imgurl + data.backdrop_path;
+        lasttitle[idx].innerText = data.name;
+        lastep[idx].innerText = "Episode" + val1[idx].ep;
+      });
+    }
+
+    lastupdatearrays.forEach((lastary, index) => {
+      insertdata(lastary, index);
+    });
+  }
+
+  const moviecontainer = document.querySelector(".lastupdatecards");
+  const cards = document.querySelectorAll(".lastcards");
+  const movrightbtn = document.querySelector(".lastupdateright"),
+    movleftbtn = document.querySelector(".lastupdateleft");
+
+  movrightbtn.addEventListener("click", gomoviearrowright);
+  movleftbtn.addEventListener("click", gomoviearrowleft);
+
+  function getwidth() {
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      moviecontainer.style.width = `${200 * lastupdatearrays.length}px`;
+    } else {
+      moviecontainer.style.width = `${360 * lastupdatearrays.length}px`;
+      // console.log(260 * populararrays.length);
+    }
+  }
+
+  getwidth();
+
+  let x = 0;
+
+  function gomoviearrowright() {
+    x++;
+    let y = 330 * x;
+    moviecontainer.style.transform = `translateX(-${y}px)`;
+
+    movleftbtn.style.display = "block";
+
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      if (x === cards.length - 2) {
+        movrightbtn.style.display = "none";
+        // lastrightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 600 && windowwidth < 992) {
+      if (x === cards.length - 1) {
+        movrightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 992 && windowwidth < 1200) {
+      if (x === cards.length - 2) {
+        movrightbtn.style.display = "none";
+      }
+    } else {
+      if (x === cards.length - 3) {
+        movrightbtn.style.display = "none";
+      }
+    }
+  }
+
+  function gomoviearrowleft() {
+    x--;
+    let y = 330 * x;
+    moviecontainer.style.transform = `translateX(-${y}px)`;
+
+    movrightbtn.style.display = "block";
+    if (x === 0) {
+      movleftbtn.style.display = "none";
+    }
+  }
+});
+
 // api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
 const url = "https://api.themoviedb.org/3/tv/";
@@ -6,240 +583,5 @@ const imgurl = "https://image.tmdb.org/t/p/w500";
 
 const popularcards = document.querySelector(".popularcards");
 const moviecards = document.querySelector(".moviecards");
-
-let populararrays = [94664, 118821, 123525, 135292, 115911, 120142];
-let moviearrays = [568160, 198375, 8392, 568160, 198375, 8392];
-
-for (popular of populararrays) {
-  let popularcard = document.createElement("div");
-  popularcard.className = "cards";
-  popularcard.innerHTML = `
-    <img src="" class="popularimgs" />
-    <div class="popularinfo">
-      <p class="populartitle">Jujutsu Kaisen</p>
-      <div class="progresscontainer">
-        <div class="progress-circle over50 p80">
-          <span class="percent">80<span>%</span></span>
-          <div class="left-half-clipper">
-            <div class="first50-bar"></div>
-            <div class="value-bar"></div>
-          </div>
-        </div>
-
-        <span class="score">User Score</span>
-      </div>
-
-      <p class="populargernes">Action.Supernatural</p>
-    </div>
-    `;
-
-  popularcards.appendChild(popularcard);
-
-  const popularimgs = popularcards.querySelectorAll(".popularimgs"),
-    populartite = popularcards.querySelectorAll(".populartitle"),
-    popularpercent = popularcards.querySelectorAll(".percent"),
-    populargernes = popularcards.querySelectorAll(".populargernes");
-
-  function insertdata(Id, idx) {
-    let animeid = Id;
-
-    async function getanime() {
-      let resource = await fetch(url + animeid + api);
-
-      let data = await resource.json();
-
-      return data;
-    }
-
-    getanime().then((data) => {
-      // console.log(data);
-      let datapercent = data.vote_average * 10;
-      if (datapercent > 50) {
-        popularpercent[
-          idx
-        ].parentElement.className = `progress-circle over50 p${datapercent}`;
-      } else {
-        popularpercent[
-          idx
-        ].parentElement.className = `progress-circle p${datapercent}`;
-      }
-      popularimgs[idx].src = imgurl + data.poster_path;
-      populartite[idx].innerText = data.name;
-      popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
-      populargernes[idx].innerText = data.genres[1].name;
-    });
-  }
-
-  populararrays.forEach((popary, index) => {
-    insertdata(popary, index);
-  });
-}
-
-for (movie of moviearrays) {
-  let moviecard = document.createElement("div");
-  moviecard.className = "movcards";
-  moviecard.innerHTML = `
-    <img src="" class="movieimgs" />
-    <div class="movieinfo">
-      <p class="movietitle">Jujutsu Kaisen</p>
-      <div class="progresscontainer">
-        <div class="progress-circle over50 p80">
-          <span class="percent">80<span>%</span></span>
-          <div class="left-half-clipper">
-            <div class="first50-bar"></div>
-            <div class="value-bar"></div>
-          </div>
-        </div>
-
-        <span class="score">User Score</span>
-      </div>
-
-      <p class="moviegernes">Action.Supernatural</p>
-    </div>
-    `;
-
-  moviecards.appendChild(moviecard);
-
-  const movieimgs = moviecards.querySelectorAll(".movieimgs"),
-    movietite = moviecards.querySelectorAll(".movietitle"),
-    moviepercent = moviecards.querySelectorAll(".percent"),
-    moviegernes = moviecards.querySelectorAll(".moviegernes");
-
-  function insertmoviedata(Id, idx) {
-    let movieid = Id;
-
-    async function getmovie() {
-      let resource = await fetch(movieurl + movieid + api);
-
-      let data = await resource.json();
-
-      return data;
-    }
-
-    getmovie().then((data) => {
-      // console.log(data);
-      let datapercent = data.vote_average * 10;
-      if (datapercent > 50) {
-        moviepercent[
-          idx
-        ].parentElement.className = `progress-circle over50 p${datapercent}`;
-      } else {
-        moviepercent[
-          idx
-        ].parentElement.className = `progress-circle p${datapercent}`;
-      }
-      movieimgs[idx].src = imgurl + data.poster_path;
-      movietite[idx].innerText = data.title;
-      moviepercent[idx].innerHTML = datapercent + `<span>%</span>`;
-      moviegernes[idx].innerText = data.genres[1].name;
-    });
-  }
-
-  moviearrays.forEach((movary, index) => {
-    insertmoviedata(movary, index);
-  });
-}
-
-// popular arrow move section
-const cardcontainer = document.querySelector(".popularcards");
-const moviecontainer = document.querySelector(".moviecards");
-const cards = document.querySelectorAll(".cards");
-const lastrightbtn = document.querySelector(".popularright"),
-  lastleftbtn = document.querySelector(".popularleft");
-
-const movrightbtn = document.querySelector(".movieright"),
-  movleftbtn = document.querySelector(".movieleft");
-
-lastrightbtn.addEventListener("click", goright);
-lastleftbtn.addEventListener("click", goleft);
-movrightbtn.addEventListener("click", gomoviearrowright);
-movleftbtn.addEventListener("click", gomoviearrowleft);
-
-function getwidth() {
-  cardcontainer.style.width = `${260 * populararrays.length}px`;
-  moviecontainer.style.width = `${360 * moviearrays.length}px`;
-  console.log(260 * populararrays.length);
-}
-
-getwidth();
-
-let x = 0;
-// console.log(cards.length);
-
-function goright() {
-  x++;
-  let y = 280 * x;
-  cardcontainer.style.transform = `translateX(-${y}px)`;
-
-  lastleftbtn.style.display = "block";
-
-  const windowwidth = window.outerWidth;
-
-  if (windowwidth < 600) {
-    lastrightbtn.style.display = "none";
-    lastrightbtn.style.display = "none";
-  } else if (windowwidth > 600 && windowwidth < 992) {
-    if (x === cards.length - 3) {
-      lastrightbtn.style.display = "none";
-    }
-  } else if (windowwidth > 992 && windowwidth < 1200) {
-    if (x === cards.length - 4) {
-      lastrightbtn.style.display = "none";
-    }
-  } else {
-    if (x === cards.length - 5) {
-      lastrightbtn.style.display = "none";
-    }
-  }
-}
-
-function goleft() {
-  x--;
-  let y = 280 * x;
-  cardcontainer.style.transform = `translateX(-${y}px)`;
-
-  lastrightbtn.style.display = "block";
-  if (x === 0) {
-    lastleftbtn.style.display = "none";
-  }
-}
-
-function gomoviearrowright() {
-  x++;
-  let y = 330 * x;
-  moviecontainer.style.transform = `translateX(-${y}px)`;
-
-  movleftbtn.style.display = "block";
-
-  const windowwidth = window.outerWidth;
-
-  if (windowwidth < 600) {
-    if (x === cards.length - 2) {
-      movrightbtn.style.display = "none";
-      // lastrightbtn.style.display = "none";
-    }
-  } else if (windowwidth > 600 && windowwidth < 992) {
-    if (x === cards.length - 1) {
-      movrightbtn.style.display = "none";
-    }
-  } else if (windowwidth > 992 && windowwidth < 1200) {
-    if (x === cards.length - 2) {
-      movrightbtn.style.display = "none";
-    }
-  } else {
-    if (x === cards.length - 3) {
-      movrightbtn.style.display = "none";
-    }
-  }
-}
-
-function gomoviearrowleft() {
-  x--;
-  let y = 330 * x;
-  moviecontainer.style.transform = `translateX(-${y}px)`;
-
-  movrightbtn.style.display = "block";
-  if (x === 0) {
-    movleftbtn.style.display = "none";
-  }
-}
+const animecards = document.querySelector(".animecards");
+const lastupdaecards = document.querySelector(".lastupdatecards");
