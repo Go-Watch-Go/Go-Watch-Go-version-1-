@@ -18,6 +18,24 @@
   box-sizing: border-box;
 }
 
+/*start for banner section  */
+
+.carousel {
+  width: 800px;
+  height: 400px;
+  background-color: var(--bg-color);
+}
+
+.bannerBgImage {
+  width: 800px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* end for banner section  */
+
 /* for footer section  */
 
 .footer {
@@ -30,6 +48,7 @@
 }
 
 .footerBox {
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
 }
@@ -56,4 +75,9 @@
 .footer ul li a {
   color: var(--textFixed-color);
   text-decoration: none;
+}
+
+.copyright{
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
 }
