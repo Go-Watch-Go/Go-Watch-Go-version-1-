@@ -1,4 +1,7 @@
 // nav section
+const nav = document.querySelector(".navs");
+const navbar = document.querySelector(".navbars");
+const searchdiv = document.querySelector(".searchdivs");
 const menu = document.querySelector(".menus");
 const bar = document.querySelector(".bars i");
 const searchbtn = document.querySelector(".searchbtns");
@@ -6,24 +9,31 @@ const searchbtnicon = document.querySelector(".searchbtns i");
 const searchmobile = document.querySelector(".searchmobilebtns");
 
 menu.addEventListener("click", () => {
-  if (bar.classList.contains("fa-bars")) {
+  // nav.classList.toggle("fixed-top");
+  if (bar.classList.contains("fa-bars") && navbar.id) {
+    searchdiv.removeAttribute("id");
     bar.classList.remove("fa-bars");
     bar.classList.add("fa-times");
   } else {
+    searchdiv.setAttribute("id", "searchToggler");
     bar.classList.remove("fa-times");
     bar.classList.add("fa-bars");
   }
 });
 
 searchmobile.addEventListener("click", () => {
-  searchmobile.style.display = "none";
-  searchbtn.setAttribute("data-bs-toggle", "collapse");
-  searchbtn.setAttribute("data-bs-target", "#searchToggler");
-  searchbtnicon.classList.remove("fa-bars");
-  searchbtnicon.classList.add("fa-times");
+  if (searchdiv.id) {
+    navbar.removeAttribute("id");
+    searchmobile.style.display = "none";
+    searchbtn.setAttribute("data-bs-toggle", "collapse");
+    searchbtn.setAttribute("data-bs-target", "#searchToggler");
+    searchbtnicon.classList.remove("fa-bars");
+    searchbtnicon.classList.add("fa-times");
+  }
 });
 
 searchbtn.addEventListener("click", () => {
+  navbar.setAttribute("id", "navbarToggler");
   if (searchbtnicon.classList.contains("fa-times")) {
     searchmobile.style.display = "inline-block";
     searchbtnicon.classList.remove("fa-times");
@@ -100,23 +110,25 @@ rootref.orderByKey().on("value", (snapshot) => {
         return data;
       }
 
-      getanime().then((data) => {
-        // console.log(data);
-        let datapercent = data.vote_average * 10;
-        if (datapercent > 50) {
-          popularpercent[
-            idx
-          ].parentElement.className = `progress-circle over50 p${datapercent}`;
-        } else {
-          popularpercent[
-            idx
-          ].parentElement.className = `progress-circle p${datapercent}`;
-        }
-        popularimgs[idx].src = imgurl + data.poster_path;
-        populartite[idx].innerText = data.name;
-        popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
-        populargernes[idx].innerText = data.genres[1].name;
-      });
+      getanime()
+        .then((data) => {
+          // console.log(data);
+          let datapercent = data.vote_average * 10;
+          if (datapercent > 50) {
+            popularpercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else {
+            popularpercent[
+              idx
+            ].parentElement.className = `progress-circle p${datapercent}`;
+          }
+          popularimgs[idx].src = imgurl + data.poster_path;
+          populartite[idx].innerText = data.name;
+          popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
+          populargernes[idx].innerText = data.genres[1].name;
+        })
+        .catch((err) => {});
     }
 
     populararrays.forEach((popary, index) => {
@@ -232,23 +244,27 @@ movref.orderByKey().on("value", (snapshot) => {
         return data;
       }
 
-      getmovie().then((data) => {
-        // console.log(data);
-        let datapercent = data.vote_average * 10;
-        if (datapercent > 50) {
-          moviepercent[
-            idx
-          ].parentElement.className = `progress-circle over50 p${datapercent}`;
-        } else {
-          moviepercent[
-            idx
-          ].parentElement.className = `progress-circle p${datapercent}`;
-        }
-        movieimgs[idx].src = imgurl + data.poster_path;
-        movietite[idx].innerText = data.title;
-        moviepercent[idx].innerHTML = datapercent + `<span>%</span>`;
-        moviegernes[idx].innerText = data.genres[1].name;
-      });
+      getmovie()
+        .then((data) => {
+          // console.log(data);
+          let datapercent = data.vote_average * 10;
+          if (datapercent > 50) {
+            moviepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else {
+            moviepercent[
+              idx
+            ].parentElement.className = `progress-circle p${datapercent}`;
+          }
+          movieimgs[idx].src = imgurl + data.poster_path;
+          movietite[idx].innerText = data.title;
+          moviepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+          moviegernes[idx].innerText = data.genres[1].name;
+        })
+        .catch((err) => {
+          // console.log(err);
+        });
     }
 
     moviearrays.forEach((movary, index) => {
@@ -368,23 +384,25 @@ animeref.orderByKey().on("value", (snapshot) => {
         return data;
       }
 
-      getanime().then((data) => {
-        // console.log(data);
-        let datapercent = data.vote_average * 10;
-        if (datapercent > 50) {
-          animepercent[
-            idx
-          ].parentElement.className = `progress-circle over50 p${datapercent}`;
-        } else {
-          animepercent[
-            idx
-          ].parentElement.className = `progress-circle p${datapercent}`;
-        }
-        animeimgs[idx].src = imgurl + data.poster_path;
-        animetite[idx].innerText = data.name;
-        animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
-        animegernes[idx].innerText = data.genres[1].name;
-      });
+      getanime()
+        .then((data) => {
+          // console.log(data);
+          let datapercent = data.vote_average * 10;
+          if (datapercent > 50) {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle p${datapercent}`;
+          }
+          animeimgs[idx].src = imgurl + data.poster_path;
+          animetite[idx].innerText = data.name;
+          animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+          animegernes[idx].innerText = data.genres[1].name;
+        })
+        .catch((err) => {});
     }
 
     animearrays.forEach((aniary, index) => {
@@ -465,7 +483,7 @@ lastref.orderByKey().on("value", (snapshot) => {
     lastupdatearrays.push(val1[i].id);
     // console.log(lastupdatearrays);
   }
-  console.log(lastupdatearrays);
+  // console.log(lastupdatearrays);
 
   for (lastupdate of lastupdatearrays) {
     let lastcard = document.createElement("div");
@@ -498,12 +516,14 @@ lastref.orderByKey().on("value", (snapshot) => {
         return data;
       }
 
-      getanime().then((data) => {
-        // console.log(data);
-        lastimgs[idx].src = imgurl + data.backdrop_path;
-        lasttitle[idx].innerText = data.name;
-        lastep[idx].innerText = "Episode" + val1[idx].ep;
-      });
+      getanime()
+        .then((data) => {
+          // console.log(data);
+          lastimgs[idx].src = imgurl + data.backdrop_path;
+          lasttitle[idx].innerText = data.name;
+          lastep[idx].innerText = "Episode" + val1[idx].ep;
+        })
+        .catch((err) => {});
     }
 
     lastupdatearrays.forEach((lastary, index) => {
