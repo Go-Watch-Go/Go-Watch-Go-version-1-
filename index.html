@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- START NAVBAR SECTION (BlackBear & Hiddan) -->
-    <nav class="navbar navbar-expand-sm bg-dark">
+    <nav class="navbar navbar-expand-sm d-none bg-dark">
       <div class="container-fluid">
         <!-- for brand log  -->
         <a href="index.html"><img src="" alt="logo" /></a>
@@ -65,38 +65,58 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <div class="d-none">
-      <div class="carousel">
-        <ol class="carousel-indicator">
-          <li class="active" data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
+    <div class="bannerParentContainer">
+      <div
+        id="mycarousel"
+        class="carousel slide mainCarousel"
+        data-bs-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            class="active"
+            data-bs-target="mycarousel"
+            data-bs-slide-to="0"
+          ></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="1"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="2"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="3"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="4"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="5"></li>
         </ol>
 
         <div class="carousel-inner">
+          <!--for  banner slide 1  -->
           <div class="carousel-item active carouselimages">
-            <img class="bannerBgImage" src="./img/bearlogo.png" />
+            <div class="container">
+              <!-- <img class="bannerBgImage" src="./image/bearlogo.png" /> -->
 
-            <div class="contentContainer">
-              <!-- for content data description  -->
-              <div class="bannerContentContainer">
-                <h2 class="bannerSeriesTitle"></h2>
-                <p class="bannerSeriesSummary"></p>
-              </div>
+              <div class="contentContainer">
+                <!-- for content data description  -->
+                <div class="col-8 bannerContentContainer bg-danger">
+                  <h2 class="bannerSeriesTitle">Genius Price</h2>
+                  <p class="bannerSeriesSummary">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestiae aliquid sint rem sit alias, reiciendis, ullam eum
+                    labore dignissimos nisi dolorum ut. Harum illum nesciunt at
+                    consectetur maiores! Animi, vitae.
+                  </p>
+                </div>
 
-              <!-- for image  -->
-              <div class="d-md-block d-none bannerSmallImageContainer">
-                <img src="#" />
+                <!-- for image  -->
+                <div class="bannerSmallImageContainer bg-danger">
+                  <img src="#" class="bannerSmImage" />
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <a href=""></a>
-        <a href=""></a>
+        <a href="#mycarousel" class="carousel-control-prev" data-bs-slide="prev"
+          ><span class="carousel-control-prev-icon"></span
+        ></a>
+        <a href="#mycarousel" class="carousel-control-next" data-bs-slide="next"
+          ><span class="carousel-control-next-icon"></span
+        ></a>
       </div>
     </div>
     <!-- END BANNER SECTION  -->
@@ -140,7 +160,7 @@
     <!-- ______________________________________END LIGHT NOVEL______________________________________________ -->
 
     <!-- START FOOTER SRCTION -->
-    <footer class="footer">
+    <footer class="footer d-none">
       <div class="row container-fluid footerBox">
         <!-- start description & about us section  -->
         <div class="row col-12 col-lg-6 col-md-6">
@@ -195,7 +215,7 @@
     <!-- ______________________________________END FOOTER______________________________________________ -->
 
     <!-- START COPYRIGHT SECTION  -->
-    <div class="col-12 copyright text-center">
+    <div class="d-none col-12 copyright text-center">
       <p>GowatchGo 2022 | All Right Reserved.</p>
     </div>
     <!-- END COPYRIGHT SECTION  -->
