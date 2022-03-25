@@ -8,6 +8,17 @@ const searchbtn = document.querySelector(".searchbtns");
 const searchbtnicon = document.querySelector(".searchbtns i");
 const searchmobile = document.querySelector(".searchmobilebtns");
 
+// api
+const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
+const url = "https://api.themoviedb.org/3/tv/";
+const movieurl = "https://api.themoviedb.org/3/movie/";
+const imgurl = "https://image.tmdb.org/t/p/w500";
+
+const popularcards = document.querySelector(".popularcards");
+const moviecards = document.querySelector(".moviecards");
+const animecards = document.querySelector(".animecards");
+const lastupdaecards = document.querySelector(".lastupdatecards");
+
 menu.addEventListener("click", () => {
   // nav.classList.toggle("fixed-top");
   if (bar.classList.contains("fa-bars") && navbar.id) {
@@ -231,7 +242,10 @@ movref.orderByKey().on("value", (snapshot) => {
     const movieimgs = moviecards.querySelectorAll(".movieimgs"),
       movietite = moviecards.querySelectorAll(".movietitle"),
       moviepercent = moviecards.querySelectorAll(".percent"),
-      moviegernes = moviecards.querySelectorAll(".moviegernes");
+      moviegernes = moviecards.querySelectorAll(".moviegernes"),
+      movcards = moviecards.querySelectorAll(".movcards");
+
+    // console.log(movcards);
 
     function insertmoviedata(Id, idx) {
       let movieid = Id;
@@ -257,6 +271,7 @@ movref.orderByKey().on("value", (snapshot) => {
               idx
             ].parentElement.className = `progress-circle p${datapercent}`;
           }
+          movcards[idx].id = Id;
           movieimgs[idx].src = imgurl + data.poster_path;
           movietite[idx].innerText = data.title;
           moviepercent[idx].innerHTML = datapercent + `<span>%</span>`;
@@ -269,6 +284,12 @@ movref.orderByKey().on("value", (snapshot) => {
 
     moviearrays.forEach((movary, index) => {
       insertmoviedata(movary, index);
+    });
+
+    movcards.forEach((movcard) => {
+      movcard.addEventListener("click", function (e) {
+        window.open("moviedetail.html" + "?movieid=" + movcard.id, "_self");
+      });
     });
   }
 
@@ -594,14 +615,3 @@ lastref.orderByKey().on("value", (snapshot) => {
     }
   }
 });
-
-// api
-const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-const url = "https://api.themoviedb.org/3/tv/";
-const movieurl = "https://api.themoviedb.org/3/movie/";
-const imgurl = "https://image.tmdb.org/t/p/w500";
-
-const popularcards = document.querySelector(".popularcards");
-const moviecards = document.querySelector(".moviecards");
-const animecards = document.querySelector(".animecards");
-const lastupdaecards = document.querySelector(".lastupdatecards");
