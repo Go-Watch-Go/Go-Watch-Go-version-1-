@@ -43,7 +43,7 @@ async function getanime() {
 
 getanime()
   .then((data) => {
-    console.log(data);
+    // console.log(data);
     document.querySelector(".titles").innerText = data.title;
   })
   .catch((err) => {
