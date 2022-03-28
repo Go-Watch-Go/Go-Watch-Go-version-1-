@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manga Section Test</title>
+  </head>
+  <style>
+    .container {
+      background-color: tomato;
+      height: 250px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <section class="manga">
+        <div class="container-fluid">
+          <h4 class="sectiontitle">Manga</h4>
+
+          <div class="mangacontainers">
+            <div class="mangacards"></div>
+
+            <i class="fas fa-chevron-right arrow mangaRight"></i>
+            <i class="fas fa-chevron-left arrow mangaLeft"></i>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // const mangacards = document.querySelectorAll(".mangacards");
+
+      function catchManga() {
+        fetch("manga.json")
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            appendData(data);
+            console.log("here is data");
+          })
+          .catch(function (err) {
+            console.log("There is no data");
+            console.log("error: " + err);
+          });
+      }
+
+      catchManga();
+
+      function appendData(data) {
+        const mangacards = document.querySelectorAll(".mangacards");
+        const mangaImages = document.querySelectorAll(".mangaimgs");
+        console.log(data.length);
+        for (let i = 0; i < data.length; i++) {
+          function insertData() {
+            let mangacard = document.createElement("div");
+            mangacard.className = "singleMangaCard";
+            mangacard.innerHTML = `
+              <img src="" class="mangaimgs" />
+            `;
+
+            mangacards.appendChild(mangacard);
+            mangaImages.src = data[i].image;
+          }
+        }
+      }
+
+      // function insertManga() {
+      //   let mangacard = document.createElement("div");
+      //   mangacard.className = "singleMangaCard";
+      //   mangacard.innerHTML = `
+      //           <img src="" class="mangaimgs" />
+      //           <div class="mangaInfo">
+      //           <p class="mangaTitle">Jobless Reincernation</p>
+      //           <p class="mangaGrenes">Action</p>
+      //           </div>
+      //         `;
+
+      //   mangacards.appendChild(mangacard);
+
+      //   const mangaImgs = document.querySelectorAll(".mangaimgs");
+      //   const mangaTitles = document.querySelectorAll(".mangaTitle");
+      //   const mangaGrenes = document.querySelectorAll(".mangaGrenes");
+      // }
+    </script>
+  </body>
+</html>
