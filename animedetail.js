@@ -1,6 +1,9 @@
 const querystring = window.location.search;
 const urlParams = new URLSearchParams(querystring);
 
+const animeid = urlParams.get("animeid");
+// const animeid = "94664";
+
 // firebase api
 const firebaseConfig = {
   apiKey: "AIzaSyCjIdGk7N1_EFygPZuion7NKJ5Q0PFqhhg",
@@ -24,7 +27,6 @@ const databasefire = firebase.database();
 
 // const movieid = urlParams.get("movieid");
 let seasoncontiner = document.querySelector(".seasoncontainers");
-const animeid = "82684";
 
 const epcontainrs = Vue.createApp({
   data() {
@@ -38,7 +40,11 @@ const epcontainrs = Vue.createApp({
 
     rootref.orderByKey().on("value", (snapshot) => {
       let val1 = snapshot.val();
-      for (v in val1) {
+      let val2 = val1.season;
+      let val3 = val1.tran;
+      document.querySelector(".traname").innerText = val3;
+      // console.log(val3);
+      for (v in val2) {
         let btn = document.createElement("div");
         btn.classList.add("seasons");
         btn.innerText = "Season" + v;
@@ -57,7 +63,8 @@ const epcontainrs = Vue.createApp({
 
           ss = ssbtn.value;
 
-          this.episodes = val1[ss];
+          this.episodes = val2[ss];
+          console.log(this.episodes);
 
           async function getanime() {
             let resource = await fetch(url + animeid + "/season/" + ss + api);
@@ -83,7 +90,7 @@ const epcontainrs = Vue.createApp({
         });
       }
 
-      this.episodes = val1[ss];
+      this.episodes = val2[ss];
 
       async function getanime() {
         let resource = await fetch(url + animeid + "/season/" + ss + api);
@@ -136,8 +143,8 @@ getanime()
     document.querySelector(".movieimg").src = imgurl + data.backdrop_path;
     document.querySelector(".titles").innerText = data.name;
     percent.innerHTML = datapercent + `<span>%</span>`;
-    document.querySelector(".gernes").innerText =
-      data.genres[0].name + " . " + data.genres[1].name;
+    document.querySelector(".gernes").innerHTML =
+      data.genres[0].name + "<span> & </span>" + data.genres[1].name;
     document.querySelector(".ratings span").innerText = `PG-${age}`;
     document.querySelector(".releasedates").innerText = getyear;
     document.querySelector(".numberofseasons").innerText =

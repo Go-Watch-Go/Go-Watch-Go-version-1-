@@ -68,17 +68,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const databasefire = firebase.database();
 
-// by hiddan
 const rootref = databasefire.ref("popularanime");
 const movref = databasefire.ref("movie");
 const animeref = databasefire.ref("anime");
 const lastref = databasefire.ref("lastanime");
 
-// by blackbear
-const mangaref = databasefire.ref("manga");
-const lightNovel = databasefire.ref("lightnovel");
-
-// for popular row by(hidan)
+// for popular row
 rootref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val();
   // console.log(populararrays);
@@ -215,11 +210,10 @@ rootref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for movie row by(hidan)
-
+// for movie row
 movref.orderByKey().on("value", (snapshot) => {
   let moviearrays = snapshot.val();
-  console.error(moviearrays);
+
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
     moviecard.className = "movcards";
@@ -363,7 +357,7 @@ movref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for anime row by(hidan)
+// for anime row
 animeref.orderByKey().on("value", (snapshot) => {
   let animearrays = snapshot.val();
   // console.log(animearrays);
@@ -398,7 +392,8 @@ animeref.orderByKey().on("value", (snapshot) => {
     const animeimgs = animecards.querySelectorAll(".animeimgs"),
       animetite = animecards.querySelectorAll(".animetitle"),
       animepercent = animecards.querySelectorAll(".percent"),
-      animegernes = animecards.querySelectorAll(".animegernes");
+      animegernes = animecards.querySelectorAll(".animegernes"),
+      animeccs = animecards.querySelectorAll(".anicards");
 
     function insertdata(Id, idx) {
       let animeid = Id;
@@ -424,6 +419,7 @@ animeref.orderByKey().on("value", (snapshot) => {
               idx
             ].parentElement.className = `progress-circle p${datapercent}`;
           }
+          animeccs[idx].id = Id;
           animeimgs[idx].src = imgurl + data.poster_path;
           animetite[idx].innerText = data.name;
           animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
@@ -434,6 +430,12 @@ animeref.orderByKey().on("value", (snapshot) => {
 
     animearrays.forEach((aniary, index) => {
       insertdata(aniary, index);
+    });
+
+    animeccs.forEach((animecard) => {
+      animecard.addEventListener("click", function (e) {
+        window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
+      });
     });
   }
 
@@ -500,7 +502,7 @@ animeref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for lastupdate row by (hidan)
+// for lastupdate row
 lastref.orderByKey().on("value", (snapshot) => {
   let val1 = snapshot.val();
   // console.log(val1[0].id);
@@ -745,15 +747,3 @@ let getLightnovelData = () => {
 };
 
 getLightnovelData();
-
-// api
-// const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-// const url = "https://api.themoviedb.org/3/tv/";
-// const movieurl = "https://api.themoviedb.org/3/movie/";
-// const imgurl = "https://image.tmdb.org/t/p/w500";
-
-// const popularcards = document.querySelector(".popularcards");
-// const moviecards = document.querySelector(".moviecards");
-// const animecards = document.querySelector(".animecards");
-// const lastupdaecards = document.querySelector(".lastupdatecards");
-// const mangacards = document.querySelector(".mangacards");

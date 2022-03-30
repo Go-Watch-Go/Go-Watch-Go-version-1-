@@ -97,11 +97,11 @@ nav {
 .metas {
   width: 100vw;
   background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
-  /* background-color: red; */
+  /* background-colorgb(22, 16, 16)red; */
 
   position: absolute;
   left: 0px;
-  top: 250px;
+  top: 300px;
   padding-bottom: 20px;
 
   overflow: hidden;
@@ -349,7 +349,7 @@ nav {
 
   .metas {
     height: 340px;
-    left: 0px;
+    left: -15px;
     top: 270px;
     /* background-color: red; */
   }

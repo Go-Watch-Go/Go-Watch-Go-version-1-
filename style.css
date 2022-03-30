@@ -238,10 +238,12 @@ section {
   padding: 30px;
 }
 
-.popular {
+.popular,
+.anime {
   width: 100vw;
   height: 450px;
   /* background-color: red; */
+  margin-left: -80px;
 
   overflow: hidden;
 }
@@ -250,12 +252,16 @@ section {
   width: 100vw;
   height: 350px;
 
+  margin-left: -80px;
+
   overflow: hidden;
 }
 
 .movie {
   width: 100vw;
   height: 600px;
+
+  margin-left: -80px;
 
   overflow: hidden;
 }
@@ -557,7 +563,7 @@ section {
   right: 0;
 
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 2;
 }
 
 .popularleft,
@@ -595,17 +601,24 @@ section {
 }
 
 @media (max-width: 500px) {
+  section {
+    padding: 40px 0;
+  }
+
   .popular,
   .anime {
-    height: 250px;
+    height: 300px;
+    margin: -25px;
   }
 
   .lastupdate {
-    height: 180px;
+    height: 230px;
+    margin: -25px;
   }
 
   .movie {
-    height: 320px;
+    height: 380px;
+    margin: -25px;
   }
 
   .sectiontitle {
@@ -677,6 +690,36 @@ section {
 
   .arrow {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .popular,
+  .anime {
+    margin-left: -50px;
+  }
+
+  .lastupdate {
+    margin-left: -50px;
+  }
+
+  .movie {
+    margin-left: -50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .popular,
+  .anime {
+    margin-left: -70px;
+  }
+
+  .lastupdate {
+    margin-left: -70px;
+  }
+
+  .movie {
+    margin-left: -70px;
   }
 }
 
