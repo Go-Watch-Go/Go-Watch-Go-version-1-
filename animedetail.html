@@ -116,7 +116,7 @@
             </button>
           </div>
 
-          <div class="col-10 col-lg-7 my-4 d-flex align-items-center linetwos">
+          <div class="col-10 my-4 d-flex align-items-center linetwos">
             <div class="ratings">
               <span></span>
             </div>
@@ -128,7 +128,7 @@
             <span class="tran ms-5">Encoded & Translated by Anonymous</span>
           </div>
 
-          <div class="col-10 overviews">
+          <div class="col-12 col-lg-10 overviews">
             <span class="article">The summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo, and quickly finds himself pushed to his financial and personal limits. The weather is unusually gloomy and rainy every day, as if taking its cue from his life. After many days of solitude, he finally finds work as a freelance writer for a mysterious occult magazine. Then, one day, Hodaka meets Hina on a busy street corner. This bright and strong-willed girl possesses a strange and wonderful ability: the power to stop the rain and clear the sky.</span>
           </div>
 
@@ -138,99 +138,99 @@
 
     <!--Start season title -->
     <section>
-      <div class="seasoncontainers px-5">
-        <p class="seasons">Season 1</p>
+      <div class="seasoncontainers d-flex">
       </div>
     </section>
     <!--End season title -->
 
-    <!--Start episodes container -->
-    <section id="app" class="episodes"> 
-      <div v-for="(ep,index) in episodes">
-        <div class="col-12 py-4">
-          <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit"> {{datas[index].name}}</h5>
-          <div class="lineones">
-            <div class="imgcontainers">
-              <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
-            </div>
-  
-            <div class="descriptions">
-              <p>{{datas[index].overview}}</p>
-              <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
-            </div>
-  
-            <div class="btncontainers">
-              <button class="btns watchs mx-3">
-                <i class="fa-solid fa-play mx-2"></i>Play Now
-              </button>
-              <button class="btns downloads">
-                <i class="fa-solid fa-download mx-2"></i>Download
-              </button>
-            </div>
-          </div>
-  
-        </div>
-      </div>
-      
-    </section>
-    <!--End episodes container -->
-
-    <!-- Start Footer Section -->
-    <footer>
-      <div class="footer">
-        <div class="row container-fluid footerBox">
-          <!-- start description & about us section  -->
-          <div class="row col-12 col-lg-6 col-md-6">
-            <div class="col-6">
-              <img src="" />
-              <p>
-                Enjoy anime, manga and light novels in both Myanmar and English
-              </p>
-            </div>
-            <div class="col-6 d-flex flex-column text-end">
-              <h6 class="">Company</h6>
-              <ul>
-                <li><a href="#">About Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- end description & about us section -->
-  
-          <!-- start community and social group section  -->
-          <div class="row col-12 col-lg-6 col-md-6">
-            <div class="col-6">
-              <div class="communityBox me-1">
-                <h6>Community</h6>
-                <ul>
-                  <li><a href="#">Handbook</a></li>
-                  <li><a href="#">Terms and Condition</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
+    <div class="epfooter">
+        <!-- Start episodes container -->
+      <section id="app" class="episodes"> 
+        <div v-for="(ep,index) in episodes" :key="ep.epnum">
+          <div class="col-12 py-4 eps" v-if="datas">
+            <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
+            <div class="lineones">
+              <div class="imgcontainers">
+                <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
               </div>
-            </div>
-            <div class="col-6">
-              <div class="socialBox">
-                <h6>Social</h6>
-                <ul>
-                  <li>
-                    <span><i class="fa-brands fa-facebook px-2"></i></span
-                    ><a href="#">Facebook</a>
-                  </li>
-                  <li>
-                    <span><i class="fa-brands fa-telegram px-2"></i></span
-                    ><a href="#">Telegram</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- end community and social group section  -->
-        </div>
-  </div>
-    </footer>
     
-   
-    <!-- End Footer Section -->
+              <div class="col-12 col-md-7 descriptions">
+                <p class="overview">{{datas[index].overview}}</p>
+                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
+              </div>
+    
+              <div class="btncontainers">
+                <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+                <button class="btns downloads mx-1 my-2">
+                  <i class="fa-solid fa-download mx-2"></i>Download
+                </button>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        
+      </section>
+      <!--End episodes container -->
+
+      <!-- Start Footer Section -->
+      <footer>
+        <div class="footer">
+          <div class="row container-fluid footerBox">
+            <!-- start description & about us section  -->
+            <div class="row col-12 col-lg-6 col-md-6">
+              <div class="col-6">
+                <img src="" />
+                <p>
+                  Enjoy anime, manga and light novels in both Myanmar and English
+                </p>
+              </div>
+              <div class="col-6 d-flex flex-column text-end">
+                <h6 class="">Company</h6>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- end description & about us section -->
+    
+            <!-- start community and social group section  -->
+            <div class="row col-12 col-lg-6 col-md-6">
+              <div class="col-6">
+                <div class="communityBox me-1">
+                  <h6>Community</h6>
+                  <ul>
+                    <li><a href="#">Handbook</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="socialBox">
+                  <h6>Social</h6>
+                  <ul>
+                    <li>
+                      <span><i class="fa-brands fa-facebook px-2"></i></span
+                      ><a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <span><i class="fa-brands fa-telegram px-2"></i></span
+                      ><a href="#">Telegram</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- end community and social group section  -->
+          </div>
+    </div>
+      </footer>
+      <!-- End Footer Section -->
+    </div>
+    <
 
     <!-- For Bootstrap Link JS 2 -->
     <script

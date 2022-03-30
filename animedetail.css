@@ -97,11 +97,14 @@ nav {
 .metas {
   width: 100vw;
   background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
+  /* background-color: red; */
 
   position: absolute;
   left: 0px;
-  top: 312px;
+  top: 250px;
   padding-bottom: 20px;
+
+  overflow: hidden;
 }
 
 .titles {
@@ -181,24 +184,41 @@ nav {
 
 /* start seasons */
 .seasoncontainers {
-  height: 43px;
+  position: absolute;
   width: 300px;
-  top: 612px;
-  /* position: absolute; */
-  margin-top: 70px;
+  height: 43px;
+  left: 20px;
+  top: 730px;
 }
 
 .seasons {
   font-family: Varela Round;
   color: var(--textFixed-color);
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 29px;
   letter-spacing: 0em;
-  text-align: left;
+  /* text-align: left; */
+  margin: 0 10px;
+
+  opacity: 0.5;
+
+  cursor: pointer;
+}
+
+.seasons.active {
+  opacity: 1;
+  font-size: 24px;
 }
 /* end seasons */
+
+.epfooter {
+  position: absolute;
+  width: 100vw;
+  left: 10px;
+  top: 780px;
+}
 
 /* start episodes */
 .eptitles {
@@ -210,11 +230,6 @@ nav {
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-}
-
-.episodes {
-  margin-left: 20px;
-  /* position: absolute; */
 }
 
 .lineones {
@@ -234,28 +249,42 @@ nav {
 }
 
 .descriptions {
-  height: 66px;
-  width: 757px;
+  /* height: 66px; */
+  /* width: 757px; */
   margin-left: 10px;
+
+  /* overflow: hidden; */
 }
 
 .descriptions p {
+  font-family: Varela Round;
+  font-style: normal;
+  font-weight: 400;
   color: var(--normalText-color);
+  height: 92px;
+  overflow: hidden;
 }
 
 .subs {
   color: var(--textFixed-color);
 }
+
+.subs span {
+  font-family: Varela Round;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+}
 /* end episodes */
 
 /* start footer */
-/* for footer section  */
-
 .footer {
-  height: 300px;
   width: 100vw;
+  height: 300px;
   left: 0px;
-  border-radius: 0px;
   background: rgba(33, 33, 33, 1);
 
   border: 1px solid rgba(15, 15, 15, 1);
@@ -319,9 +348,10 @@ nav {
   }
 
   .metas {
-    height: 336px;
+    height: 340px;
     left: 0px;
     top: 270px;
+    /* background-color: red; */
   }
 
   .titles {
@@ -346,7 +376,7 @@ nav {
   }
 
   .btns {
-    width: 92px;
+    width: 95px;
     height: 28px;
 
     font-size: 12px;
@@ -379,5 +409,85 @@ nav {
     bottom: -10px;
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .seasoncontainers {
+    position: absolute;
+    width: 300px;
+    height: 43px;
+    left: 0;
+    top: 650px;
+  }
+
+  .epfooter {
+    position: absolute;
+    width: 100vw;
+    left: 10px;
+    top: 680px;
+  }
+
+  .eptitles {
+    font-family: Varela Round;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  .imgcontainers {
+    width: 128px;
+    height: 72px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+  }
+
+  .eps {
+    /* background-color: #08eb69; */
+    margin: 10px 0;
+    overflow: hidden;
+    height: 190px;
+  }
+
+  .descriptions {
+    position: absolute;
+    top: 85px;
+    left: -10px;
+    /* display: none; */
+  }
+
+  .descriptions p {
+    font-size: 12px;
+  }
+
+  .subs {
+    position: absolute;
+    top: -40px;
+    right: 35%;
+  }
+
+  .subs span {
+    font-family: Varela Round;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .btncontainers {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .titles {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .titles {
+    font-size: 72px;
   }
 }

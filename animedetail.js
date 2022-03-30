@@ -1,47 +1,92 @@
 const querystring = window.location.search;
 const urlParams = new URLSearchParams(querystring);
 
+// firebase api
+const firebaseConfig = {
+  apiKey: "AIzaSyCjIdGk7N1_EFygPZuion7NKJ5Q0PFqhhg",
+  authDomain: "animedetails-e879f.firebaseapp.com",
+  databaseURL:
+    "https://animedetails-e879f-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "animedetails-e879f",
+  storageBucket: "animedetails-e879f.appspot.com",
+  messagingSenderId: "626691076375",
+  appId: "1:626691076375:web:8497da34373b66a88cc752",
+  measurementId: "G-PS65V2TC7V",
+};
+
+// TMDB api
+const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
+const url = "https://api.themoviedb.org/3/tv/";
+const imgurl = "https://image.tmdb.org/t/p/w1280";
+
+firebase.initializeApp(firebaseConfig);
+const databasefire = firebase.database();
+
 // const movieid = urlParams.get("movieid");
-const animeid = "95479";
+let seasoncontiner = document.querySelector(".seasoncontainers");
+const animeid = "82684";
 
 const epcontainrs = Vue.createApp({
   data() {
     return {
       episodes: [],
-      datas: [],
-      imgurl: "https://image.tmdb.org/t/p/w500/veG3J8KaBudM8omuGi58fYOMDTz.jpg",
+      datas: null,
     };
   },
   mounted() {
-    const firebaseConfig = {
-      apiKey: "AIzaSyCjIdGk7N1_EFygPZuion7NKJ5Q0PFqhhg",
-      authDomain: "animedetails-e879f.firebaseapp.com",
-      databaseURL:
-        "https://animedetails-e879f-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "animedetails-e879f",
-      storageBucket: "animedetails-e879f.appspot.com",
-      messagingSenderId: "626691076375",
-      appId: "1:626691076375:web:8497da34373b66a88cc752",
-      measurementId: "G-PS65V2TC7V",
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const databasefire = firebase.database();
-
     const rootref = databasefire.ref(animeid);
 
     rootref.orderByKey().on("value", (snapshot) => {
       let val1 = snapshot.val();
-      console.log(val1);
-      this.episodes = val1;
+      for (v in val1) {
+        let btn = document.createElement("div");
+        btn.classList.add("seasons");
+        btn.innerText = "Season" + v;
+        btn.value = v;
+        seasoncontiner.appendChild(btn);
+      }
 
-      // TMBD api
-      const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-      const movieurl = "https://api.themoviedb.org/3/tv/";
-      const imgurl = "https://image.tmdb.org/t/p/w500";
+      let ssbtns = seasoncontiner.querySelectorAll(".seasons");
+      ssbtns[0].classList.add("active");
+      let ss = "1";
+      ssbtns.forEach((ssbtn) => {
+        ssbtn.addEventListener("click", () => {
+          // console.log(ssbtn.value);
+          removeactive();
+          ssbtn.classList.toggle("active");
+
+          ss = ssbtn.value;
+
+          this.episodes = val1[ss];
+
+          async function getanime() {
+            let resource = await fetch(url + animeid + "/season/" + ss + api);
+
+            let data = await resource.json();
+
+            return data;
+          }
+
+          getanime()
+            .then((data) => {
+              this.datas = data.episodes;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        });
+      });
+
+      function removeactive() {
+        ssbtns.forEach((ssbtn) => {
+          ssbtn.classList.remove("active");
+        });
+      }
+
+      this.episodes = val1[ss];
 
       async function getanime() {
-        let resource = await fetch(movieurl + animeid + "/season/1" + api);
+        let resource = await fetch(url + animeid + "/season/" + ss + api);
 
         let data = await resource.json();
 
@@ -50,22 +95,22 @@ const epcontainrs = Vue.createApp({
 
       getanime()
         .then((data) => {
-          console.log(data);
           this.datas = data.episodes;
-          // console.log(this.datas[0].name);
         })
         .catch((err) => {
           console.log(err.message);
         });
     });
   },
+  methods: {
+    senddata(link) {
+      // console.log(epnum);
+      window.open("anime.html" + "?animeid=" + animeid + "&" + "link=" + link);
+    },
+  },
 });
 
 epcontainrs.mount("#app");
-
-const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-const url = "https://api.themoviedb.org/3/tv/";
-const imgurl = "https://image.tmdb.org/t/p/w1280";
 
 async function getanime() {
   let resource = await fetch(url + animeid + api);
