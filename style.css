@@ -19,6 +19,115 @@
   box-sizing: border-box;
 }
 
+/*start for banner section  */
+
+.bannerParentContainer {
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.mainCarousel {
+  width: 90%;
+  height: 300px;
+  background-color: var(--bg-color);
+
+  position: relative;
+}
+
+.carousel-indicators li {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 10px !important;
+  border-radius: 50%;
+}
+
+.carousel-inner {
+  /* width: 800px; */
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.carouselimages {
+  /* width: 800px; */
+  height: 300px;
+  background-color: var(--textFixed-color);
+}
+
+.bannerContentContainer {
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.bannerContentContainer > h2,
+.bannerContentContainer > p {
+  color: var(--normalText-color);
+}
+
+.bannerSeriesTitle {
+  font-size: 26px;
+}
+
+.bannerSeriesSummary {
+  font-size: 14px;
+  text-align: justify;
+}
+
+/* .bannerBgImage {
+  width: 800px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+} */
+
+.bannerSmallImageContainer {
+  border-radius: 20px;
+}
+
+.bannerSmImage {
+  width: 140px;
+  height: 210px;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translateY(-50%);
+}
+
+/* .mainCarousel a {
+  font-size: 100px !important;
+  position: absolute;
+  top: 0;
+} */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 100px !important;
+  width: 50px !important;
+  height: 300px !important;
+  font-weight: 900 !important;
+}
+
+.mainCarousel .carousel-control-prev {
+  left: -10%;
+}
+
+.mainCarousel .carousel-control-next {
+  right: -10%;
+}
+
+.greneContainer {
+  margin-top: 80px !important;
+}
+
 body {
   font-family: "Varela Round", sans-serif;
   background-color: var(--bg-color);
@@ -36,7 +145,7 @@ nav {
 
 .logotitle {
   font-family: Fredoka One;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0em;
@@ -47,6 +156,10 @@ nav {
   position: absolute;
   bottom: 0;
   left: 50%;
+}
+
+.footerLogo {
+  bottom: -100%;
 }
 
 .nav-link {
@@ -125,8 +238,7 @@ section {
   padding: 30px;
 }
 
-.popular,
-.anime {
+.popular {
   width: 100vw;
   height: 450px;
   /* background-color: red; */
@@ -221,7 +333,8 @@ section {
 .cards::after,
 .movcards::after,
 .anicards::after,
-.lastcards::after {
+.lastcards::after,
+.singleMangaCard::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -241,6 +354,156 @@ section {
   width: inherit;
   height: inherit;
 }
+
+/*start manga and light novel section by black bear  */
+
+/* START MANGA SECTION  */
+.manga,
+.lightnovel {
+  position: relative;
+  overflow: hidden;
+}
+
+.mangacards,
+.lightnovelcards {
+  /* background-color: tomato; */
+  margin: 0;
+  display: flex;
+  transition: all 0.2s;
+  transform: translateX(0px);
+}
+
+.mangaCardBox {
+  width: 160px;
+  height: 240px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  border-radius: 16px;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.mangaCardBox::after,
+.lightnovelCardBox::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(rgba(33, 33, 33, 0), rgba(15, 15, 15, 1));
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+}
+
+.mangaImage {
+  width: 160px;
+  height: 240px;
+  border-radius: 16px;
+
+  /* margin: 0 30px; */
+}
+
+.mangaInfo {
+  width: 140px;
+  margin: 0 10px;
+  color: var(--normalText-color);
+
+  position: absolute;
+  bottom: 0;
+
+  z-index: 2;
+}
+
+.mangaName {
+  display: block;
+}
+
+.mangaGrenes {
+  display: block;
+  color: var(--textFixed-color);
+  font-size: 12px;
+}
+
+/* END MANGA SECTION  */
+
+/* START LIGHTNOVEL SECTION  */
+
+.lightnovelCardBox {
+  width: 220px;
+  height: 330px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* border: 1px solid #fff; */
+  border-radius: 16px;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.lightnovelPoster {
+  width: 220px;
+  height: 330px;
+  border-radius: 16px;
+}
+
+.lightnovelInfo {
+  width: 200px;
+
+  margin: 0 10px;
+  color: var(--normalText-color);
+
+  position: absolute;
+  bottom: 0;
+
+  z-index: 2;
+}
+
+.lightnovelGrenes {
+  display: block;
+  color: var(--textFixed-color);
+  font-size: 12px;
+}
+/* END LIGHTNOVEL SECTION  */
+
+/* start arrow section for manga and light novel  */
+
+.mangaArrow {
+  color: #fff;
+
+  position: absolute;
+  font-size: 50px;
+  padding: 5px;
+  opacity: 0.3;
+  cursor: pointer;
+
+  z-index: 3;
+}
+
+.mangaArrow:hover {
+  opacity: 0.8;
+}
+
+.mangaRight {
+  top: 50%;
+  right: 0;
+}
+
+.mangaLeft {
+  top: 50%;
+  left: 2%;
+
+  display: none;
+}
+
+/* end manga and light novel section by black bear */
 
 .popularinfo,
 .movieinfo,
@@ -436,11 +699,19 @@ section {
   justify-content: center;
 }
 
+.communityAndSocialBox {
+  display: flex;
+  right: 0;
+}
+
+.communityContainer {
+  margin-left: 20%;
+}
+
 .communityBox,
 .socialBox {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 
   flex-direction: column;
 }

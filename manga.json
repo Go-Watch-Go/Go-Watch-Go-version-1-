@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "tmdbID": "94664",
+        "name": "Jobless Reincarnation",
+        "image": "https://i.ibb.co/8cV9Mms/mushoku-tensei-jobless-reincarnation.jpg",
+        "grenes": "Action & Advanture"
+    },
+    {
+        "id": "2",
+        "tmdbID": "118821",
+        "name": "World Finest Assasin Gets Reincarnated in Another World as an Aristocrat",
+        "image": "https://i.ibb.co/mBvwHMp/world-s-finest-assassin.jpg",
+        "grenes": "Comedy"
+
+    },
+    {
+        "id": "3",
+        "tmdbID": "123525",
+        "name":"Paladin",
+        "image": "https://i.ibb.co/WsKYvwk/paladin.jpg",
+        "grenes": "Supernatural"
+
+    },
+    {
+        "id":"4",
+        "name":"Kaiju",
+        "image": "https://i.ibb.co/MsV1x0s/kaiju-no-8.jpg",
+        "grenes": "Sci-fi"
+    },
+    {
+        "id":"5",
+        "tmdbID": "95479",
+        "name":"Jujutsu Kaisen",
+        "image": "https://i.ibb.co/RjnGs4c/Jujutsu-Kaisen.jpg",
+        "grenes": "Action & Adventure"
+    },
+    {
+        "id":"6",
+        "tmdbID": "115911",
+        "name":"Orient",
+        "image": "https://i.ibb.co/4N8wkPx/MINEROS-Y-GERREROS.jpg",
+        "grenes": "Action & Adventure"
+    },
+    {
+        "id":"7",
+        "name":"Sakamoto Days",
+        "image": "https://i.ibb.co/D7Q44SP/sakamoto-days.jpg",
+        "grenes": "Comedy"
+    }
+]
+
+
+
+
+
+

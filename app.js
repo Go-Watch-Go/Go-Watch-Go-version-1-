@@ -68,12 +68,17 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const databasefire = firebase.database();
 
+// by hiddan
 const rootref = databasefire.ref("popularanime");
 const movref = databasefire.ref("movie");
 const animeref = databasefire.ref("anime");
 const lastref = databasefire.ref("lastanime");
 
-// for popular row
+// by blackbear
+const mangaref = databasefire.ref("manga");
+const lightNovel = databasefire.ref("lightnovel");
+
+// for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val();
   // console.log(populararrays);
@@ -210,10 +215,11 @@ rootref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for movie row
+// for movie row by(hidan)
+
 movref.orderByKey().on("value", (snapshot) => {
   let moviearrays = snapshot.val();
-
+  console.error(moviearrays);
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
     moviecard.className = "movcards";
@@ -357,7 +363,7 @@ movref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for anime row
+// for anime row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
   let animearrays = snapshot.val();
   // console.log(animearrays);
@@ -494,7 +500,7 @@ animeref.orderByKey().on("value", (snapshot) => {
   }
 });
 
-// for lastupdate row
+// for lastupdate row by (hidan)
 lastref.orderByKey().on("value", (snapshot) => {
   let val1 = snapshot.val();
   // console.log(val1[0].id);
@@ -615,3 +621,139 @@ lastref.orderByKey().on("value", (snapshot) => {
     }
   }
 });
+
+// for manga row by(black bear)
+let getMangaData = () => {
+  let http = new XMLHttpRequest();
+  http.open("GET", "manga.json", true);
+  http.send();
+
+  http.onload = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // console.warn("Manga Get Data Work");
+      let resource = JSON.parse(this.responseText);
+      let mangaBox = "";
+      let mangaImgContainer = document.querySelector(".mangacards");
+      console.error(resource.length);
+
+      for (let manga of resource) {
+        mangaBox += `
+        <div class="mangaCardBox">
+           <img src="${manga.image}" class="mangaImage" />
+          <div class="mangaInfo">
+            <p class="mangaName">${manga.name}</p>
+            <p class="mangaGrenes">${manga.grenes}</p> 
+          </div>
+        </div>
+        `;
+      }
+
+      mangaImgContainer.innerHTML = mangaBox;
+    }
+  };
+
+  const mangarightbtn = document.querySelector(".mangaRight");
+  const mangaleftbtn = document.querySelector(".mangaLeft");
+
+  const mangaCards = document.querySelector(".mangacards");
+  const mangaCardBox = document.querySelector(".mangaCardBox");
+
+  mangarightbtn.addEventListener("click", mangaGoRight);
+  mangaleftbtn.addEventListener("click", mangaGoLeft);
+
+  let number = 0;
+
+  // function for move manga card to next side
+  function mangaGoRight() {
+    console.error();
+    mangaleftbtn.style.display = "block";
+    number++;
+    let position = 225 * number;
+    mangaCards.style.transform = `translateX(${-position}px)`;
+
+    let resource = JSON.parse(this.responseText);
+    console.log(resource);
+    const windowwidth = window.outerWidth;
+    console.warn(windowwidth);
+    console.warn(resource.length);
+    if (windowwidth < 600) {
+      if (number === resource.length - 2) {
+        mangarightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 600 && windowwidth < 992) {
+      if (number === resource.length - 1) {
+        mangarightbtn.style.display = "none";
+      }
+    } else if (windowwidth > 992 && windowwidth < 1200) {
+      if (number === resource.length - 2) {
+        mangarightbtn.style.display = "none";
+      }
+    } else {
+      if (number === resource.length - 3) {
+        mangarightbtn.style.display = "none";
+      }
+    }
+  }
+
+  // function for move manga card to prev side
+  function mangaGoLeft() {
+    console.log("I am left");
+    number--;
+    let position = 225 * number;
+    mangaCards.style.transform = `translateX(${-position}px)`;
+
+    mangarightbtn.style.display = "block";
+    if (number == 0) {
+      mangaleftbtn.style.display = "none";
+    }
+  }
+};
+
+getMangaData();
+
+// for lightnovel row by (black bear)
+let getLightnovelData = () => {
+  let http = new XMLHttpRequest();
+
+  http.open("GET", "lightnovel.json", true);
+  http.send();
+
+  http.onload = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // console.warn("Light novel data work");
+      let resource = JSON.parse(this.responseText);
+      let lightnovelBox = "";
+      let lightnovelCards = document.querySelector(".lightnovelcards");
+
+      // console.warn(lightnovelCards);
+
+      for (let lightnovel of resource) {
+        lightnovelBox += `
+        <div class="lightnovelCardBox">
+          <img src="${lightnovel.image}" class="lightnovelPoster" />
+          <div class="lightnovelInfo">
+            <p class="lightnovelName">${lightnovel.name}</p>
+            <p class="lightnovelGrenes">${lightnovel.grenes}</p>
+          </div>
+        </div>
+        `;
+
+        lightnovelCards.innerHTML = lightnovelBox;
+      }
+    }
+  };
+};
+
+getLightnovelData();
+
+// api
+// const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
+// const url = "https://api.themoviedb.org/3/tv/";
+// const movieurl = "https://api.themoviedb.org/3/movie/";
+// const imgurl = "https://image.tmdb.org/t/p/w500";
+
+// const popularcards = document.querySelector(".popularcards");
+// const moviecards = document.querySelector(".moviecards");
+// const animecards = document.querySelector(".animecards");
+// const lastupdaecards = document.querySelector(".lastupdatecards");
+// const mangacards = document.querySelector(".mangacards");

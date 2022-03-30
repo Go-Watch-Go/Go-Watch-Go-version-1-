@@ -32,12 +32,12 @@
         <!-- for brand log  -->
         <a href="index.html" class="logolink"
           ><img
-            src="https://s3-alpha-sig.figma.com/img/0128/59eb/192b1c254923404a556769fee7ab1525?Expires=1648425600&Signature=QBbSwfJmJxfldQhNce8BoYpg0babv0MQYXrKGeAAcuRo7iPokVd~hTgv2NlE--3CnY0kkLyaBi8KGXieYwcBkKU6vPtFrefphLBUtvK2GZsy1ADVziE0-FntoeXXfhNn2OCyLUjEdbUDS7WYt1YXbprNgo2Yl-gSiby3rWKGupcyHwC~01vbmPdrDAhK2rZFN974rgKPNYe6Tkq7NEUaxNdA--iuYACGyheTRkam9nD2q7RWtaY8lK-55GTcTtyh4BLEAbOJT~8DfHhx1Qa4drms3lLd3r1B1w~~UotgzJrKgxT6B8Obcp6nJCwb~0KCOnIKP9HtG1IFddlwIYD1EA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+            src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
             alt="logo"
-            width="48"
-            height="48"
+            width="55"
+            height="50"
           />
-          <span class="logotitle">GowatchGo</span>
+          <span class="ms-3 logotitle">owatchGo</span>
         </a>
 
         <!-- toogle btn div -->
@@ -102,19 +102,54 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <div class="d-none">
-      <div class="carousel">
-        <ol class="carousel-indicator">
-          <li class="active" data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
-          <li data-bs-target=""></li>
+    <div class="bannerParentContainer">
+      <div
+        id="mycarousel"
+        class="carousel slide mainCarousel"
+        data-bs-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            class="active"
+            data-bs-target="mycarousel"
+            data-bs-slide-to="0"
+          ></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="1"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="2"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="3"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="4"></li>
+          <li data-bs-target="mycarousel" data-bs-slide-to="5"></li>
         </ol>
 
         <div class="carousel-inner">
+          <!--for  banner slide 1  -->
           <div class="carousel-item active carouselimages">
+            <div class="container">
+              <!-- <img class="bannerBgImage" src="./image/bearlogo.png" /> -->
+
+              <div class="contentContainer">
+                <!-- for content data description  -->
+                <div class="col-8 bannerContentContainer">
+                  <h2 class="bannerSeriesTitle">Genius Price</h2>
+                  <p class="bannerSeriesSummary mb-5">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestiae aliquid sint rem sit alias, reiciendis, ullam eum
+                    labore dignissimos nisi dolorum ut. Harum illum nesciunt at
+                    consectetur maiores! Animi, vitae.
+                  </p>
+
+                  <div class="mt-5 greneContainer">
+                    <span>Action</span>
+                    <span>Supernatural</span>
+                  </div>
+                </div>
+
+                <!-- for grenes capsules  -->
+
+                <!-- for image  -->
+                <div class="bannerSmallImageContainer bg-danger">
+                  <img src="" class="bannerSmImage" />
+                </div>
             <img class="bannerBgImage" src="" />
 
             <div class="contentContainer">
@@ -132,8 +167,12 @@
           </div>
         </div>
 
-        <a href=""></a>
-        <a href=""></a>
+        <a href="#mycarousel" class="carousel-control-prev" data-bs-slide="prev"
+          ><span class="carousel-control-prev-icon"></span
+        ></a>
+        <a href="#mycarousel" class="carousel-control-next" data-bs-slide="next"
+          ><span class="carousel-control-next-icon"></span
+        ></a>
       </div>
     </div>
     <!-- END BANNER SECTION  -->
@@ -205,17 +244,38 @@
       </div>
     </section>
     <!-- END MOVIES SECTION  -->
-    <div></div>
     <!-- ______________________________________END MOVIE______________________________________________ -->
 
     <!-- START MANGA SECTION -->
+    <section class="manga">
+      <div class="container-fluid">
+        <h4 class="sectiontitle">Manga</h4>
 
+        <div class="mangacontainers">
+          <div class="mangacards"></div>
+
+          <i class="fas fa-chevron-right mangaArrow mangaRight"></i>
+          <i class="fas fa-chevron-left mangaArrow mangaLeft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END MANGA SECITON -->
 
     <!-- ______________________________________END MANGA______________________________________________ -->
 
     <!-- START LIGHT NOVEL SECTION  -->
-    <div></div>
+    <section class="lightnovel">
+      <div class="container-fluid">
+        <h4 class="sectiontitle">Light Novel</h4>
+
+        <div class="lightnovelcontainers">
+          <div class="lightnovelcards"></div>
+
+          <i class="d-none fas fa-chevron-right arrow lightnovelRight"></i>
+          <i class="d-none fas fa-chevron-left arrow lightnovelLeft"></i>
+        </div>
+      </div>
+    </section>
     <!-- END LIGHT NOVEL SECTION  -->
 
     <!-- ______________________________________END LIGHT NOVEL______________________________________________ -->
@@ -226,7 +286,17 @@
         <!-- start description & about us section  -->
         <div class="row col-12 col-lg-6 col-md-6">
           <div class="col-6">
-            <img src="" />
+           <!-- for brand log  -->
+        <a href="index.html" class="logolink">
+        <img
+          src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+          alt="logo"
+          width="55"
+          height="50"
+        />
+        <span class="ms-3 footerLogo logotitle">owatchGo</span>
+      </a>
+
             <p>
               Enjoy anime, manga and light novels in both Myanmar and English
             </p>
@@ -241,8 +311,8 @@
         <!-- end description & about us section -->
 
         <!-- start community and social group section  -->
-        <div class="row col-12 col-lg-6 col-md-6">
-          <div class="col-6">
+        <div class="col-12 col-lg-6 col-md-6 communityAndSocialBox">
+          <div class="col-6 communityContainer">
             <div class="communityBox me-1">
               <h6>Community</h6>
               <ul>
