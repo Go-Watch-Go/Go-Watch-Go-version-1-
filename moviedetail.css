@@ -20,6 +20,7 @@
 
 body {
   background: rgba(30, 30, 30, 1);
+  height: 100vh;
 
   overflow-x: hidden;
 }
@@ -38,6 +39,23 @@ header {
 /* start navbar */
 nav {
   padding: 5px;
+}
+
+nav.click {
+  z-index: 2;
+}
+
+body.click::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
 }
 
 .logolink {
@@ -92,16 +110,18 @@ nav {
   border: 1px solid rgba(229, 229, 229, 0.5);
 }
 /*end backdrop */
-
-/* start meta */
-.metas {
-  height: 356px;
-  width: 100vw;
-  background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
-
+.epfooter {
   position: absolute;
   left: 0px;
   top: 312px;
+}
+/* start meta */
+.metas {
+  height: 60vh;
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
+
+  position: static;
 }
 
 .titles {
@@ -185,8 +205,6 @@ nav {
 .footer {
   height: 300px;
   width: 100vw;
-  left: 0px;
-  top: 732px;
   border-radius: 0px;
   background: rgba(33, 33, 33, 1);
 
@@ -194,8 +212,6 @@ nav {
 
   color: var(--normalText-color);
   padding: 30px 10px;
-
-  position: absolute;
 
   display: flex;
   justify-content: center;
@@ -239,10 +255,31 @@ nav {
 @media (max-width: 500px) {
   header {
     height: 90px;
+
+    z-index: 2;
   }
 
   .backdrops {
     height: 540px;
+
+    position: relative;
+  }
+
+  .backdrops::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 30, 30, 0) 0%,
+      rgba(30, 30, 30, 0.8) 86.98%
+    );
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
   }
 
   .backdrops img {
@@ -250,10 +287,15 @@ nav {
     object-fit: cover;
   }
 
-  .metas {
-    height: 336px;
+  .epfooter {
+    /* height: 336px; */
     left: 0px;
-    top: 270px;
+    top: 350px;
+    z-index: 2;
+  }
+
+  .metas {
+    height: 70vh;
   }
 
   .titles {
@@ -311,5 +353,34 @@ nav {
     bottom: -10px;
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media (min-width: 2000px) {
+  header {
+    height: 10vh;
+
+    z-index: 2;
+  }
+
+  .backdrops {
+    height: 70vh;
+    position: relative;
+  }
+
+  .backdrops img {
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .epfooter {
+    /* height: 336px; */
+    left: 0px;
+    top: 40vh;
+    z-index: 2;
+  }
+
+  .metas {
+    height: 40vh;
   }
 }
