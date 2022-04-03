@@ -31,7 +31,7 @@ rootref.orderByKey().on("value", (snapshot) => {
 // TMBD api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
 const movieurl = "https://api.themoviedb.org/3/movie/";
-const imgurl = "https://image.tmdb.org/t/p/w1280";
+const imgurl = "https://image.tmdb.org/t/p/original";
 
 async function getanime() {
   let resource = await fetch(movieurl + movieid + api);
@@ -76,4 +76,21 @@ const downloadbtn = document.querySelectorAll(".downloads");
 
 playbtn.addEventListener("click", () => {
   window.open("movie.html" + "?movieid=" + movieid);
+});
+
+// navbar background chg
+const menubtn = document.querySelector(".menus");
+const bar = document.querySelector(".bars i");
+
+menubtn.addEventListener("click", () => {
+  document.querySelector("nav").classList.toggle("click");
+  document.body.classList.toggle("click");
+
+  if (bar.classList.contains("fa-bars")) {
+    bar.classList.remove("fa-bars");
+    bar.classList.add("fa-times");
+  } else {
+    bar.classList.remove("fa-times");
+    bar.classList.add("fa-bars");
+  }
 });

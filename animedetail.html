@@ -22,8 +22,10 @@
     />
     <!-- Progress Bar Css  -->
     <link href="css-circular-prog-bar.css" rel="stylesheet" type="text/css" />
+     <!--vue cdn -->
+     <script src="https://unpkg.com/vue@3.0.2"></script>
     <!-- Custom css -->
-    <link href="moviedetail.css" rel="stylesheet" type="text/css" />
+    <link href="animedetail.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Start Nav Bar Section -->
@@ -87,8 +89,7 @@
     </section>
     <!-- End Backdrop Sectiuon -->
 
-    <div class="epfooter">
-      <!-- Start Meta Section -->
+    <!-- Start Meta Section -->
     <section>
       <div class="container-fluid metas">
         <div class="detailcontainers ms-3">
@@ -108,26 +109,23 @@
               <span class="score">User Score</span>
             </div>
 
-            <span class="gernes mx-2">Action . Supernatural</span>
+            <span class="gernes mx-2">Action  Supernatural</span>
 
-            <button class="btns watchs mx-2">
-              <i class="fa-solid fa-play mx-2"></i>Play Now
-            </button>
-            <button class="btns downloads">
-              <i class="fa-solid fa-download mx-2"></i>Download
+            <button class="btns mx-2 watchs">
+              <i class="fa-solid fa-play mx-2"></i>Play
             </button>
           </div>
 
-          <div class="col-10 col-lg-7 my-4 d-flex align-items-center linetwos">
+          <div class="col-10 my-4 d-flex align-items-center linetwos">
             <div class="ratings">
               <span></span>
             </div>
 
             <span class="releasedates mx-2"></span>
 
-            <span class="runtimes"></span>
+            <span class="numberofseasons"></span>
 
-            <span class="tran ms-5">Encoded & Translated by Anonymous</span>
+            <span class="tran ms-5">Encoded & Translated by <span class="traname"></span></span>
           </div>
 
           <div class="col-12 col-lg-10 overviews">
@@ -138,63 +136,101 @@
     </section>
     <!-- End Meta Section -->
 
-    <!-- Start Footer Section -->
-    <footer>
-      <div class="footer">
-        <div class="row container-fluid footerBox">
-          <!-- start description & about us section  -->
-          <div class="row col-12 col-lg-6 col-md-6">
-            <div class="col-6">
-              <img src="" />
-              <p>
-                Enjoy anime, manga and light novels in both Myanmar and English
-              </p>
-            </div>
-            <div class="col-6 d-flex flex-column text-end">
-              <h6 class="">Company</h6>
-              <ul>
-                <li><a href="#">About Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- end description & about us section -->
-  
-          <!-- start community and social group section  -->
-          <div class="row col-12 col-lg-6 col-md-6">
-            <div class="col-6">
-              <div class="communityBox me-1">
-                <h6>Community</h6>
-                <ul>
-                  <li><a href="#">Handbook</a></li>
-                  <li><a href="#">Terms and Condition</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
+    <!--Start season title -->
+    <section>
+      <div class="seasoncontainers d-flex">
+      </div>
+    </section>
+    <!--End season title -->
+
+    <div class="epfooter">
+        <!-- Start episodes container -->
+      <section id="app" class="episodes"> 
+        <div v-for="(ep,index) in episodes" :key="ep.epnum">
+          <div class="col-12 py-4 eps" v-if="datas">
+            <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
+            <div class="lineones">
+              <div class="imgcontainers">
+                <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
               </div>
-            </div>
-            <div class="col-6">
-              <div class="socialBox">
-                <h6>Social</h6>
-                <ul>
-                  <li>
-                    <span><i class="fa-brands fa-facebook px-2"></i></span
-                    ><a href="#">Facebook</a>
-                  </li>
-                  <li>
-                    <span><i class="fa-brands fa-telegram px-2"></i></span
-                    ><a href="#">Telegram</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- end community and social group section  -->
-        </div>
-  </div>
-    </footer>
-   
-    <!-- End Footer Section -->
-    </div>
     
+              <div class="col-12 col-md-7 descriptions">
+                <p class="overview">{{datas[index].overview}}</p>
+                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
+              </div>
+    
+              <div class="btncontainers">
+                <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+                <button class="btns downloads mx-1 my-2">
+                  <i class="fa-solid fa-download mx-2"></i>Download
+                </button>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        
+      </section>
+      <!--End episodes container -->
+
+      <!-- Start Footer Section -->
+      <footer>
+        <div class="footer">
+          <div class="row container-fluid footerBox">
+            <!-- start description & about us section  -->
+            <div class="row col-12 col-lg-6 col-md-6">
+              <div class="col-6">
+                <img src="" />
+                <p>
+                  Enjoy anime, manga and light novels in both Myanmar and English
+                </p>
+              </div>
+              <div class="col-6 d-flex flex-column text-end">
+                <h6 class="">Company</h6>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- end description & about us section -->
+    
+            <!-- start community and social group section  -->
+            <div class="row col-12 col-lg-6 col-md-6">
+              <div class="col-6">
+                <div class="communityBox me-1">
+                  <h6>Community</h6>
+                  <ul>
+                    <li><a href="#">Handbook</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="socialBox">
+                  <h6>Social</h6>
+                  <ul>
+                    <li>
+                      <span><i class="fa-brands fa-facebook px-2"></i></span
+                      ><a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <span><i class="fa-brands fa-telegram px-2"></i></span
+                      ><a href="#">Telegram</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- end community and social group section  -->
+          </div>
+    </div>
+      </footer>
+      <!-- End Footer Section -->
+    </div>
+    <
 
     <!-- For Bootstrap Link JS 2 -->
     <script
@@ -221,6 +257,6 @@
       src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"
     ></script>
     <!-- Custom Js  -->
-    <script type="text/javascript" defer src="moviedetail.js"></script>
+    <script type="text/javascript" defer src="animedetail.js"></script>
   </body>
 </html>
