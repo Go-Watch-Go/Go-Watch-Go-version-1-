@@ -25,6 +25,7 @@ const databasefire = firebase.database();
 
 const animeref = databasefire.ref("anime");
 
+// get data from firebase and put it into (animeIdValue) variable
 animeref.orderByKey().on("value", (snapshot) => {
   let animeIdValue = snapshot.val();
   const animeIdContainer = [];
@@ -32,28 +33,45 @@ animeref.orderByKey().on("value", (snapshot) => {
   const spliceAnimeCardArrays = [];
   const range = 3;
 
+  // values from (animeIdValue) to temporaty array for splice data and idContainer array for search bar
   for (let anime of animeIdValue) {
     tempAniArrContainer.push(anime);
     animeIdContainer.push(anime);
   }
 
+  // splice temporary array into small array 3 id per arrays
   while (tempAniArrContainer.length > 0) {
     spliceAnimeCardArrays.push(tempAniArrContainer.splice(0, range));
   }
 
-  async function getAnimeData() {
-    let resource = await fetch(url + 137045 + api);
+  let arrays = spliceAnimeCardArrays[0];
 
-    let data = await resource.json();
-
-    return data;
-  }
-
-  getAnimeData()
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log("Sorry!");
+  console.error(arrays);
+  if (spliceAnimeCardArrays[0]) {
+    arrays.forEach((firstArray) => {
+      console.log(firstArray);
     });
+  }
+  // let number = 3;
+
+  // for (let i = 0; i < number; i++) {
+  //   console.warn(spliceAnimeCardArrays[i]);
+  // }
+
+  function insertAnimeData(Id, idx) {
+    // fetch anime data from TMDB movie database
+    async function getAnimeData() {
+      let resource = await fetch(url + +api);
+
+      let data = await resource.json();
+
+      return data;
+    }
+
+    getAnimeData()
+      .then((data) => {})
+      .catch((err) => {
+        console.log("Sorry!");
+      });
+  }
 });
