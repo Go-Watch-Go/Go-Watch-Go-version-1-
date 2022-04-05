@@ -36,6 +36,8 @@
 
 .cardGroupContainer {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .singleAnimeCardContainer {
@@ -46,9 +48,9 @@
   box-shadow: 0 0 5px #000;
 
   margin-bottom: 30px;
-  margin-left: 10px;
+  margin-left: 50px;
 
-  flex-direction: column;
+  /* flex-direction: column; */
 
   background-color: #08eb69;
 
