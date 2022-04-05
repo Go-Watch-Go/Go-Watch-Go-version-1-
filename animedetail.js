@@ -154,3 +154,20 @@ getanime()
   .catch((err) => {
     // console.log(err);
   });
+
+// navbar background chg
+const menubtn = document.querySelector(".menus");
+const bar = document.querySelector(".bars i");
+
+menubtn.addEventListener("click", () => {
+  document.querySelector("nav").classList.toggle("click");
+  document.body.classList.toggle("click");
+
+  if (bar.classList.contains("fa-bars")) {
+    bar.classList.remove("fa-bars");
+    bar.classList.add("fa-times");
+  } else {
+    bar.classList.remove("fa-times");
+    bar.classList.add("fa-bars");
+  }
+});
