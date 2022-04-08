@@ -163,7 +163,7 @@
                 <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
                   <i class="fa-solid fa-play mx-2"></i>Play Now
                 </button>
-                <button class="btns downloads mx-1 my-2">
+                <button class="btns downloads mx-1 my-2" v-if="ep.download">
                   <i class="fa-solid fa-download mx-2"></i>Download
                 </button>
               </div>
