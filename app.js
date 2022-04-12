@@ -75,7 +75,7 @@ const lastref = databasefire.ref("lastanime");
 
 // for popular row
 rootref.orderByKey().on("value", (snapshot) => {
-  let populararrays = snapshot.val();
+  let populararrays = snapshot.val().reverse();
   // console.log(populararrays);
 
   // a.push(populararrays);
@@ -220,7 +220,7 @@ rootref.orderByKey().on("value", (snapshot) => {
 
 // for movie row
 movref.orderByKey().on("value", (snapshot) => {
-  let moviearrays = snapshot.val();
+  let moviearrays = snapshot.val().reverse();
 
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
@@ -367,7 +367,7 @@ movref.orderByKey().on("value", (snapshot) => {
 
 // for anime row
 animeref.orderByKey().on("value", (snapshot) => {
-  let animearrays = snapshot.val();
+  let animearrays = snapshot.val().reverse();
   // console.log(animearrays);
 
   // a.push(populararrays);
@@ -512,7 +512,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
 // for lastupdate row
 lastref.orderByKey().on("value", (snapshot) => {
-  let val1 = snapshot.val();
+  let val1 = snapshot.val().reverse();
   // console.log(val1[0].id);
 
   let lastupdatearrays = [];
