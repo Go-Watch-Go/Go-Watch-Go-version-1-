@@ -27,55 +27,50 @@ const animeref = databasefire.ref("anime");
 
 // get data from firebase and put it into (animeIdarrays) variable
 animeref.orderByKey().on("value", (snapshot) => {
-  let animeIdarrays = snapshot.val();
-  const animeIdContainer = [];
-  const tempAniArrContainer = [];
-  const spliceAnimeCardArrays = [];
-  const range = 3;
+  let animeIdarray = snapshot.val();
 
-  console.warn(typeof animeIdarrays);
+  console.log(typeof animeIdarray);
+  console.warn(animeIdarray.length);
 
-  // values from (animeIdarrays) to temporaty array for splice data and idContainer array for search bar
-  for (let anime of animeIdarrays) {
-    tempAniArrContainer.push(anime);
-    animeIdContainer.push(anime);
-
-    console.warn(anime);
-
-    let singleAnimeCard = document.createElement("div");
-    singleAnimeCard.className = "singleAnimeCardContainer";
-    singleAnimeCard.innerHTML = `
+  for (let anime of animeIdarray) {
+    const animeCard = document.createElement("div");
+    animeCard.className = "animeEachCard";
+    animeCard.innerHTML = `
     <img src="" class="animePoster" />
 
-              <div class="animeInfo">
-                <p class="animeTitle"></p>
-                <div class="progressContainer">
-                  <div class="progress-circle over50 p80">
-                    <span class="percent">80<span>%</span></span>
-                    <div class="left-half-clipper">
-                      <div class="first50-bar"></div>
-                      <div class="value-bar"></div>
-                    </div>
+            <div class="animeInfo">
+              <p class="animeTitle"></p>
+              <div class="progressContainer">
+                <div class="progress-circle over50 p80">
+                  <span class="percent">80<span>%</span></span>
+                  <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
                   </div>
-
-                  <span class="score">User Score</span>
                 </div>
 
-                <p class="animeGrenes">Action.Supernatural</p>
+                <span class="score">User Score</span>
               </div>
+
+              <p class="animeGrenes">Action.Supernatural</p>
+            </div>
     `;
-    cardGroupContainer.appendChild(singleAnimeCard);
 
-    const animePoster = singleAnimeCard.querySelectorAll(".animePoster");
-    const animeTitle = singleAnimeCard.querySelectorAll(".animeTitle");
-    const animeGrene = singleAnimeCard.querySelectorAll(".animeGrenes");
-    const percent = singleAnimeCard.querySelectorAll(".percent");
+    cardGroupContainer.appendChild(animeCard);
+    console.warn(animeCard);
 
-    function insertdata(Id, idx) {
-      let animeid = Id;
+    const card = document.querySelectorAll(".animeEachCard");
+    const poster = document.querySelectorAll(".animePoster");
+    const animeTitle = document.querySelectorAll(".animeTitle");
+    const percent = document.querySelectorAll(".percent");
+    const grenes = document.querySelectorAll(".animeGrenes");
 
+    function insertData(Id, idx) {
+      let animeId = Id;
+      let animeindex = idx;
+      console.log(animeId, animeindex);
       async function getanime() {
-        let resource = await fetch(url + animeid + api);
+        let resource = await fetch(url + animeId + api);
 
         let data = await resource.json();
 
@@ -84,36 +79,40 @@ animeref.orderByKey().on("value", (snapshot) => {
 
       getanime()
         .then((data) => {
-          console.warn(data.name);
+          // console.warn(data);
+
           // let datapercent = data.vote_average * 10;
           // if (datapercent > 50) {
-          //   animepercent[
+          //   moviepercent[
           //     idx
           //   ].parentElement.className = `progress-circle over50 p${datapercent}`;
           // } else {
-          //   animepercent[
+          //   moviepercent[
           //     idx
           //   ].parentElement.className = `progress-circle p${datapercent}`;
           // }
 
-          animeTitle[idx].innerText = data.name;
-          animePoster[idx].src = imgurl + data.poster_path;
+          card[idx].id = animeId;
+          poster[idx].src = data.poster_path;
+          animeTitle[idx].innerText = data.title;
+          grenes[idx].innerText = data.grenes.name;
+          percent[idx].innerHTML = datapercent + `<span>%</span>`;
         })
-        .catch((err) => {});
+        .catch((error) => {
+          console.log("Sorry There is no data you resquested!");
+        });
     }
+
+    animeIdarray.forEach((animearr, index) => {
+      insertData(animearr, index);
+    });
   }
-
-  animeIdContainer.forEach((animeary, index) => {
-    insertdata(animeary, index);
-    console.log("hello");
-  });
-
-  // splice temporary array into small array 3 id per arrays
-  // while (tempAniArrContainer.length > 0) {
-  //   spliceAnimeCardArrays.push(tempAniArrContainer.splice(0, range));
-  // }
 });
 
+// splice temporary array into small array 3 id per arrays
+// while (tempAniArrContainer.length > 0) {
+//   spliceAnimeCardArrays.push(tempAniArrContainer.splice(0, range));
+// }
 // ___________________________________________________start 1 _____________________________________________
 // let arrays = spliceAnimeCardArrays[0];
 

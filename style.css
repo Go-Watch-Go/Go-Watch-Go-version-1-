@@ -65,7 +65,7 @@ body {
 
 .bannerContentContainer {
   margin-top: 50px;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 
 .bannerContentContainer > h2,

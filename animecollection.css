@@ -36,25 +36,28 @@
 
 .cardGroupContainer {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.singleCard {
+.singleAnimeCardContainer {
   width: 200px;
   height: 300px;
   border-radius: 15px;
   cursor: pointer;
   box-shadow: 0 0 5px #000;
 
-  /* margin-top: 30px; */
   margin-bottom: 30px;
-  margin-left: 10px;
+  margin-left: 50px;
 
-  flex-direction: column;
+  /* flex-direction: column; */
+
+  background-color: #08eb69;
 
   position: relative;
 }
 
-.singleCard::after {
+.singleAnimeCardContainer::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -67,10 +70,9 @@
   z-index: 1;
 }
 
-.cardPoster {
+.animePoster {
   width: 200px;
   height: 300px;
-
   border-radius: 15px;
 }
 
@@ -99,7 +101,7 @@
   color: var(--normalText-color);
 }
 
-.animeGernes {
+.animeGrenes {
   color: var(--textFixed-color);
   font-size: 12px;
   font-weight: 400px;
