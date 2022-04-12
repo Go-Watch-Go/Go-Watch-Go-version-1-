@@ -108,7 +108,8 @@ rootref.orderByKey().on("value", (snapshot) => {
     const popularimgs = popularcards.querySelectorAll(".popularimgs"),
       populartite = popularcards.querySelectorAll(".populartitle"),
       popularpercent = popularcards.querySelectorAll(".percent"),
-      populargernes = popularcards.querySelectorAll(".populargernes");
+      populargernes = popularcards.querySelectorAll(".populargernes"),
+      popcards = popularcards.querySelectorAll(".cards");
 
     function insertdata(Id, idx) {
       let animeid = Id;
@@ -134,6 +135,7 @@ rootref.orderByKey().on("value", (snapshot) => {
               idx
             ].parentElement.className = `progress-circle p${datapercent}`;
           }
+          popcards[idx].id = Id;
           popularimgs[idx].src = imgurl + data.poster_path;
           populartite[idx].innerText = data.name;
           popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
@@ -144,6 +146,12 @@ rootref.orderByKey().on("value", (snapshot) => {
 
     populararrays.forEach((popary, index) => {
       insertdata(popary, index);
+    });
+
+    popcards.forEach((popcard) => {
+      popcard.addEventListener("click", function () {
+        window.open("animedetail.html" + "?animeid=" + popcard.id, "_self");
+      });
     });
   }
 
