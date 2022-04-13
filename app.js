@@ -80,7 +80,7 @@ const lightNovel = databasefire.ref("lightnovel");
 
 // for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {
-  let populararrays = snapshot.val();
+  let populararrays = snapshot.val().reverse();
   // console.log(populararrays);
 
   // a.push(populararrays);
@@ -218,8 +218,13 @@ rootref.orderByKey().on("value", (snapshot) => {
 // for movie row by(hidan)
 
 movref.orderByKey().on("value", (snapshot) => {
+<<<<<<< HEAD
   let moviearrays = snapshot.val();
   console.error(moviearrays);
+=======
+  let moviearrays = snapshot.val().reverse();
+
+>>>>>>> 4ffd023e54e0a442c469120f7d5216c7bc6e65fd
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
     moviecard.className = "movcards";
@@ -365,7 +370,7 @@ movref.orderByKey().on("value", (snapshot) => {
 
 // for anime row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
-  let animearrays = snapshot.val();
+  let animearrays = snapshot.val().reverse();
   // console.log(animearrays);
 
   // a.push(populararrays);
@@ -502,7 +507,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
 // for lastupdate row by (hidan)
 lastref.orderByKey().on("value", (snapshot) => {
-  let val1 = snapshot.val();
+  let val1 = snapshot.val().reverse();
   // console.log(val1[0].id);
 
   let lastupdatearrays = [];

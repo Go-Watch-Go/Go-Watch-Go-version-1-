@@ -447,6 +447,11 @@ body.click::after {
     top: 680px;
   }
 
+  .loading {
+    z-index: 2;
+    color: #08eb69;
+  }
+
   .eptitles {
     font-family: Varela Round;
     font-size: 14px;
