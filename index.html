@@ -102,74 +102,117 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <div class="bannerParentContainer bg-danger d-none">
+    <section>
       <div
-        id="mycarousel"
-        class="carousel slide mainCarousel"
+        id="carouselExampleCaptions"
+        class="carousel slide"
         data-bs-ride="carousel"
       >
-        <ol class="carousel-indicators">
-          <li
-            class="active"
-            data-bs-target="mycarousel"
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide-to="0"
-          ></li>
-          <li data-bs-target="mycarousel" data-bs-slide-to="1"></li>
-          <li data-bs-target="mycarousel" data-bs-slide-to="2"></li>
-          <li data-bs-target="mycarousel" data-bs-slide-to="3"></li>
-          <li data-bs-target="mycarousel" data-bs-slide-to="4"></li>
-          <li data-bs-target="mycarousel" data-bs-slide-to="5"></li>
-        </ol>
-
+            class="active carouselIndicator"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            class="carouselIndicator"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            class="carouselIndicator"
+            aria-label="Slide 3"
+          ></button>
+        </div>
         <div class="carousel-inner">
-          <!--for  banner slide 1  -->
-          <div class="carousel-item active carouselimages">
+          <div class="row carousel-item active carouselImages">
             <div class="container">
-              <!-- <img class="bannerBgImage" src="./image/bearlogo.png" /> -->
-
-              <div class="contentContainer">
-                <!-- for content data description  -->
-                <div class="col-8 bannerContentContainer">
-                  <h2 class="bannerSeriesTitle">Genius Price</h2>
-                  <p class="bannerSeriesSummary mb-5">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestiae aliquid sint rem sit alias, reiciendis, ullam eum
-                    labore dignissimos nisi dolorum ut. Harum illum nesciunt at
-                    consectetur maiores! Animi, vitae.
-                  </p>
-
-                  <div class="mt-5 greneContainer">
-                    <span>Action</span>
-                    <span>Supernatural</span>
-                  </div>
-                </div>
-
-                <!-- for grenes capsules  -->
-
-                <!-- for image  -->
-                <div class="bannerSmallImageContainer bg-danger">
-                  <img src="" class="bannerSmImage" />
-                </div>
-                <!-- <img class="bannerBgImage" src="" /> -->
+              <img src="" class="bannerBg" alt="..." />
+              <div class="col-6 carousel-caption text-start carouselInfos">
+                <h2 class="seriesHeader">Lu Over The Wall</h2>
+                <p class="seriesSummary">
+                  In an small fishing village, a gloomy middle school student
+                  named Kai meets a mermaid named Lu.
+                </p>
+                <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                >
+              </div>
+              <div class="col-4 miniPosterContainer">
+                <img src="./img/lu_over_the_wall.jpg" class="miniPoster" />
               </div>
             </div>
-
-            <a
-              href="#mycarousel"
-              class="carousel-control-prev"
-              data-bs-slide="prev"
-              ><span class="carousel-control-prev-icon"></span
-            ></a>
-            <a
-              href="#mycarousel"
-              class="carousel-control-next"
-              data-bs-slide="next"
-              ><span class="carousel-control-next-icon"></span
-            ></a>
+          </div>
+          <div class="row carousel-item carouselImages">
+            <div class="container">
+              <img src="..." class="" alt="..." />
+              <div class="col-6 carousel-caption text-start carouselInfos">
+                <h2 class="seriesHeader">KiKi's Delivery Service</h2>
+                <p class="seriesSummary">
+                  A young witch, on her mandatory year of independent life,
+                  finds fitting into a new community difficult while she
+                  supports herself by running an air courier service.
+                </p>
+                <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                >
+              </div>
+              <div class="col-4 miniPosterContainer">
+                <img src="./img/kiki_delivery.jpg" class="miniPoster" />
+              </div>
+            </div>
+          </div>
+          <div class="row carousel-item carouselImages">
+            <div class="container">
+              <img src="" class="" alt="..." />
+              <div class="col-6 carousel-caption text-start carouselInfos">
+                <h2 class="seriesHeader">Pom Poko</h2>
+                <p class="seriesSummary">
+                  The Raccoons of the Tama Hills are being forced from their
+                  homes by the rapid development of houses and shopping malls.
+                  As it becomes harder to find food and shelter, they decide to
+                  band together and fight back. The Raccoons practice and
+                  perfect the ancient art of transformation until they are even
+                  able to appear as humans in hilarious circumstances.
+                </p>
+                <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                >
+              </div>
+              <div class="col-4 miniPosterContainer">
+                <img src="./img/pom_poko.jpg" class="miniPoster" />
+              </div>
+            </div>
           </div>
         </div>
+        <button
+          class="carousel-control-prev prevBtn"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next nextBtn"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
+    </section>
     <!-- END BANNER SECTION  -->
 
     <!-- ______________________________________END BANNER______________________________________________ -->

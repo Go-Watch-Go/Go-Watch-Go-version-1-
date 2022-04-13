@@ -27,112 +27,80 @@ body {
 
 /*start for banner section  */
 
-.bannerParentContainer {
-  margin-top: 90px;
-  display: flex;
-  align-items: center;
+.carouselImages {
+  width: 85%;
+  height: 550px;
 
-  flex-direction: column;
-}
-
-.mainCarousel {
-  width: 90%;
-  height: 300px;
-  background-color: var(--bg-color);
+  /* margin: auto;s */
 
   position: relative;
 }
 
-.carousel-indicators li {
-  width: 10px !important;
-  height: 10px !important;
-  margin: 0 10px !important;
-  border-radius: 50%;
+.bannerBg {
+  width: 100%;
+  background: linear-gradient(rgba(33, 33, 33, 0), rgba(15, 15, 15, 1));
 }
 
-.carousel-inner {
-  /* width: 800px; */
-  height: 300px;
-  display: flex;
-  align-items: center;
-}
-
-.carouselimages {
-  /* width: 800px; */
-  height: 300px;
-  background-color: var(--textFixed-color);
-}
-
-.bannerContentContainer {
-  margin-top: 50px;
-  /* margin-left: 40px; */
-}
-
-.bannerContentContainer > h2,
-.bannerContentContainer > p {
-  color: var(--normalText-color);
-}
-
-.bannerSeriesTitle {
-  font-size: 26px;
-}
-
-.bannerSeriesSummary {
-  font-size: 14px;
-  text-align: justify;
-}
-
-/* .bannerBgImage {
-  width: 800px;
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  position: relative;
-} */
-
-.bannerSmallImageContainer {
-  border-radius: 20px;
-}
-
-.bannerSmImage {
-  width: 140px;
-  height: 210px;
-  background-color: var(--bg-color);
-  border-radius: 20px;
-
+.carouselInfos {
+  /* background-color: aquamarine; */
   position: absolute;
   top: 50%;
-  left: 80%;
-  transform: translateY(-50%);
+  left: 40%;
+  transform: translate(-50%, -50%);
 }
 
-/* .mainCarousel a {
-  font-size: 100px !important;
+.seriesHeader {
+  margin-bottom: 5%;
+}
+
+.seriesSummary {
+  font-size: 1.2rem;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-top: 10%;
+}
+
+.miniPosterContainer {
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+
   position: absolute;
-  top: 0;
-} */
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  font-size: 100px !important;
-  width: 50px !important;
-  height: 300px !important;
-  font-weight: 900 !important;
-}
-
-.mainCarousel .carousel-control-prev {
-  left: -10%;
-}
-
-.mainCarousel .carousel-control-next {
+  top: 60%;
   right: -10%;
+  transform: translate(-50%, -50%);
 }
 
-.greneContainer {
-  margin-top: 80px !important;
+.miniPoster {
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
 }
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 25%;
+
+  transform: scale(2);
+}
+
+.prevBtn {
+  left: -5%;
+}
+
+.nextBtn {
+  right: -5%;
+}
+
+.carouselIndicator {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
+  margin: 0 10px !important;
+}
+
+/* end banner section  */
 
 /* start navbar */
 nav {
