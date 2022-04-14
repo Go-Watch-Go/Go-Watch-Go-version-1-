@@ -240,7 +240,6 @@ section {
   width: 100vw;
   height: 450px;
   /* background-color: red; */
-  margin-left: -80px;
 
   overflow: hidden;
 }
@@ -258,7 +257,7 @@ section {
   width: 100vw;
   height: 600px;
 
-  margin-left: -80px;
+  /* margin-left: -80px; */
 
   overflow: hidden;
 }
@@ -278,7 +277,7 @@ section {
 .animecards,
 .lastupdatecards {
   /* background-color: rebeccapurple; */
-  margin-left: 20px;
+  /* margin-left: 20px; */
   display: flex;
   /* width: 1560px; */
 
