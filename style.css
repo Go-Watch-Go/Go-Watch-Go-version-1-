@@ -27,18 +27,26 @@ body {
 
 /*start for banner section  */
 
-.carouselImages {
-  width: 85%;
-  height: 550px;
+.carousel-inner {
+  z-index: 0;
+}
 
-  /* margin: auto;s */
+.carouselImages {
+  width: 100%;
+  height: 550px;
+  /* background-color: tomato; */
 
   position: relative;
 }
 
 .bannerBg {
-  width: 100%;
-  background: linear-gradient(rgba(33, 33, 33, 0), rgba(15, 15, 15, 1));
+  width: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  z-index: 2;
 }
 
 .carouselInfos {
@@ -49,15 +57,37 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.noticeSign {
+  margin-top: 2%;
+}
+
+.noticeSign > span {
+  border-radius: 10px !important;
+}
+
+.contentType {
+  color: var(--normalText-color);
+}
+
+.typeMovie {
+  background-color: lemonchiffon;
+  color: var(--bg-color);
+}
+
+.typeSeries {
+  color: #000;
+  background-color: aqua;
+}
+
 .seriesHeader {
-  margin-bottom: 5%;
+  margin-bottom: 5px;
 }
 
 .seriesSummary {
   font-size: 1.2rem;
   text-align: justify;
   text-justify: inter-word;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .miniPosterContainer {
@@ -67,7 +97,7 @@ body {
 
   position: absolute;
   top: 60%;
-  right: -10%;
+  right: 10%;
   transform: translate(-50%, -50%);
 }
 
@@ -82,15 +112,15 @@ body {
   position: absolute;
   top: 25%;
 
-  transform: scale(2);
+  transform: scale(2.5);
 }
 
 .prevBtn {
-  left: -5%;
+  left: 0%;
 }
 
 .nextBtn {
-  right: -5%;
+  right: 0%;
 }
 
 .carouselIndicator {
