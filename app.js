@@ -332,7 +332,7 @@ movref.orderByKey().on("value", (snapshot) => {
 
   function gomoviearrowright() {
     x++;
-    let y = 330 * x;
+    let y = 267 * x;
     moviecontainer.style.transform = `translateX(-${y}px)`;
 
     movleftbtn.style.display = "block";
