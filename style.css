@@ -25,6 +25,28 @@ body {
   overflow-x: hidden;
 }
 
+/* scroll bar start */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--textFixed-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--normalText-color);
+}
+/* scroll bar end */
+
 /*start for banner section  */
 
 .carousel-inner {
