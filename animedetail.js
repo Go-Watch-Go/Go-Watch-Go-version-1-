@@ -31,7 +31,7 @@ let seasoncontiner = document.querySelector(".seasoncontainers");
 const epcontainrs = Vue.createApp({
   data() {
     return {
-      episodes: [],
+      episodes: null,
       datas: null,
     };
   },

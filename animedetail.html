@@ -145,8 +145,8 @@
 
     <div class="epfooter">
         <!-- Start episodes container -->
-      <section id="app" class="episodes" v-if="episodes"> 
-        <div v-for="(ep,index) in episodes" :key="ep.epnum">
+      <section id="app" class="episodes"> 
+        <div v-for="(ep,index) in episodes" :key="ep.epnum" v-if="episodes">
           <div class="col-12 py-4 eps" v-if="datas">
             <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
             <div class="lineones">
@@ -171,11 +171,11 @@
     
           </div>
         </div>
-        
-      </section>
 
-      <section v-eles>
-        <p class="mx-5 py-5 eptitles">Loading...</p>
+        <div v-else>
+          <p class="eptitles">Loading...</p>
+        </div>
+        
       </section>
       <!--End episodes container -->
 

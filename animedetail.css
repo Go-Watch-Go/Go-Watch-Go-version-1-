@@ -203,6 +203,10 @@ body.click::after {
   text-align: left;
 }
 
+.overviews {
+  height: 100px;
+}
+
 /* start seasons */
 .seasoncontainers {
   position: absolute;
