@@ -77,6 +77,48 @@ const lastref = databasefire.ref("lastanime");
 // by blackbear
 const mangaref = databasefire.ref("manga");
 const lightNovel = databasefire.ref("lightnovel");
+const bannerRef = databasefire.ref("banner");
+
+const app = Vue.createApp({
+  data() {
+    return {
+      banner: [
+        {
+          id: "436120",
+          name: "Lu Over The Wall",
+          type: "movie",
+          engsub: true,
+          burmesesub: false,
+          overview:
+            "In a small village, a gloomy middle school student named Kai meets a mermaid named Lu",
+          bgposter: "https://ffjkfsdkfjsdjf",
+          miniposter: "https://ffjkfdfjdlfj",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    fetchdata: function () {
+      bannerRef.orderByKey().on("value", (snapshot) => {
+        let bannerData = snapshot.val();
+        console.log(bannerData);
+      });
+    },
+  },
+
+  created: function () {
+    this.fetchdata();
+  },
+});
+
+app.mount("#app");
+
+// for banner by (blackbear)
+// bannerRef.orderByKey().on("value", (snapshot) => {
+//   let bannerData = snapshot.val();
+//   console.warn(bannerData);
+// });
 
 // for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {
