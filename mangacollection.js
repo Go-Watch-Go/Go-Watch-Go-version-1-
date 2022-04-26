@@ -22,12 +22,12 @@ mangaRef.orderByKey().on("value", (snapshot) => {
 
   for (let manga of mangaArr) {
     let mangaCard = document.createElement("div");
-    mangaCard.className = "singleCard";
+    mangaCard.className = "mangaSingleCard";
     mangaCard.innerHTML = `
-      <img src="" class="" />
+      <img src="${manga.poster}" class="mangaPoster" />
       <div class="mangaInfo">
         <p class="mangaTitle">${manga.name}</p>
-        <p class="mangaGrene"></p>
+        <p class="mangaGrene">${manga.grene}</p>
       </div>
     `;
 

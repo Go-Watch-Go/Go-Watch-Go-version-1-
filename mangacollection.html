@@ -24,6 +24,80 @@
     />
   </head>
   <body class="body">
+    <!-- START NAVBAR SECTION (Black Bear & Hiddan) -->
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top navs">
+      <div class="container-fluid">
+        <!-- for brand log  -->
+        <a href="index.html" class="logolink"
+          ><img
+            src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+            alt="logo"
+            width="55"
+            height="50"
+          />
+          <span class="ms-3 logotitle">owatchGo</span>
+        </a>
+
+        <!-- toogle btn div -->
+        <div class="ms-auto">
+          <!-- btn for search btn  -->
+          <button
+            class="navbar-toggler ms-auto searchmobilebtns"
+            data-bs-toggle="collapse"
+            data-bs-target="#searchToggler"
+          >
+            <span class="searchtogglers"><i class="fas fa-search"></i></span>
+          </button>
+
+          <!-- btn for hambergur menu  -->
+          <button
+            class="navbar-toggler me-auto menus"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggler"
+          >
+            <span class="navbar-toggler-icon bars"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+          </button>
+        </div>
+
+        <!-- for navbar menu  -->
+        <div id="navbarToggler" class="navbar-collapse collapse navbars">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Anime</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Movie</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="./mangacollection.html">Manga</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="">Light Novel</a>
+            </li>
+          </ul>
+        </div>
+        <!-- for search bar -->
+        <div
+          class="navbar-collapse collapse py-2 py-md-0 searchdivs"
+          id="searchToggler"
+        >
+          <div class="d-flex ms-auto searchs">
+            <input
+              type="text"
+              class="form-control searchbars"
+              placeholder="Search ..."
+            />
+            <button class="searchbtns" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ______________________________________END NAVBAR______________________________________________ -->
     <h1>Manga Collection</h1>
 
     <div class="container-fluid">
