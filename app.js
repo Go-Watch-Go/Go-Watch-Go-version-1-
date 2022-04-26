@@ -693,7 +693,7 @@ let getMangaData = () => {
       let mangaBox = "";
       let mangaImgContainer = document.querySelector(".mangacards");
       console.error(resource.length);
-
+      console.warn(typeof resource);
       for (let manga of resource) {
         mangaBox += `
         <div class="mangaCardBox">

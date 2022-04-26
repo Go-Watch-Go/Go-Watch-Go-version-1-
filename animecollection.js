@@ -59,42 +59,41 @@ animeref.orderByKey().on("value", (snapshot) => {
     cardGroupContainer.appendChild(animeCard);
     console.warn(animeCard);
 
-    const card = document.querySelectorAll(".animeEachCard");
-    const poster = document.querySelectorAll(".animePoster");
-    const animeTitle = document.querySelectorAll(".animeTitle");
-    const percent = document.querySelectorAll(".percent");
-    const grenes = document.querySelectorAll(".animeGrenes");
+    const card = animeCard.querySelectorAll(".animeEachCard");
+    const poster = animeCard.querySelectorAll(".animePoster");
+    const animeTitle = animeCard.querySelectorAll(".animeTitle");
+    const percent = animeCard.querySelectorAll(".percent");
+    const grenes = animeCard.querySelectorAll(".animeGrenes");
 
     function insertData(Id, idx) {
-      let animeId = Id;
-      let animeindex = idx;
-      console.log(animeId, animeindex);
       async function getanime() {
-        let resource = await fetch(url + animeId + api);
+        let resource = await fetch(url + Id + api);
 
         let data = await resource.json();
+        console.warn(data);
 
         return data;
       }
 
       getanime()
         .then((data) => {
-          // console.warn(data);
+          console.warn(data);
 
-          // let datapercent = data.vote_average * 10;
-          // if (datapercent > 50) {
-          //   moviepercent[
-          //     idx
-          //   ].parentElement.className = `progress-circle over50 p${datapercent}`;
-          // } else {
-          //   moviepercent[
-          //     idx
-          //   ].parentElement.className = `progress-circle p${datapercent}`;
-          // }
+          let datapercent = data.vote_average * 10;
+          if (datapercent > 50) {
+            moviepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else {
+            moviepercent[
+              idx
+            ].parentElement.className = `progress-circle p${datapercent}`;
+          }
 
+          // console.log(data);
           card[idx].id = animeId;
-          poster[idx].src = data.poster_path;
-          animeTitle[idx].innerText = data.title;
+          poster[idx].src = data;
+          animeTitle[idx].innerText = data.name;
           grenes[idx].innerText = data.grenes.name;
           percent[idx].innerHTML = datapercent + `<span>%</span>`;
         })
@@ -103,9 +102,12 @@ animeref.orderByKey().on("value", (snapshot) => {
         });
     }
 
-    animeIdarray.forEach((animearr, index) => {
-      insertData(animearr, index);
-    });
+    insertData(103409, 0);
+
+    // animeIdarray.forEach((animearr, index) => {
+    //   insertData(animearr, index);
+    //   console.log(animearr);
+    // });
   }
 });
 
