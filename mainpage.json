@@ -1,0 +1,124 @@
+{
+  "anime": [
+    137045,
+    117884,
+    120142,
+    115911,
+    117880,
+    135292,
+    103409,
+    118821,
+    123525,
+    97525,
+    95479,
+    82684,
+    100049,
+    120089,
+    133733,
+    76121,
+    117933
+  ],
+  "lastanime": [
+    {
+      "ep": 7,
+      "id": 94664
+    },
+    {
+      "ep": 6,
+      "id": 118821
+    }
+  ],
+  "movie": [
+    568160,
+    198375,
+    8392,
+    129,
+    51739,
+    38142,
+    15283,
+    16859,
+    436120
+  ],
+  "popularanime": [
+    117884,
+    117880,
+    115911,
+    120142,
+    137045,
+    103409,
+    135292
+  ],
+  "banner":[
+    {
+      "id":"436120",
+      "name":"Lu Over The Wall",
+      "type":"movie",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"In a small village, a gloomy middle school student named Kai meets a mermaid named Lu",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"16859",
+      "name":"KiKi's Delivery Service",
+      "type":"movie",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"15283",
+      "name":"Pom Poko",
+      "type":"movie",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"The Raccoons of the Tama Hills are being forced from their homes by the rapid development of houses and shopping malls. As it becomes harder to find food and shelter, they decide to band together and fight back. The Raccoons practice and perfect the ancient art of transformation until they are even able to appear as humans in hilarious circumstances.",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"133733",
+      "name":"Black Rock Shooter: Dawn Fall (2022)",
+      "type":"series",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"The year is 2062. Earth has been left in ruin after the failure of a labor automation project when the AI called Artemis waged war against humanity. A girl, Empress, awakens in a research lab. As one of the three surviving guardians,she must destroy the Orbital Elevator before Artemis can complete its construction. Failure will result in a machine army overrunning Earth.",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"117933",
+      "name":"Summer Time Rendering (2022)",
+      "type":"series",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"Upon hearing of Ushio's death, Shinpei returns to his hometown of Wakayama City on Hitogashima and reunites with his childhood friend's family. The funeral goes smoothly, but under the surface something strange is brewing on the island. What mysteries await him on this secluded summer island?",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"120089",
+      "name":"SPY x FAMILY (2022)",
+      "type":"series",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"Agent Twilight, the greatest spy for the nation of Westalis, has to infiltrate an elite private school. In order to do so he assumes the identity of psychiatrist Loid Forger, adopts an orphan girl, and marries a city hall employee. Unknown to him, his daughter Anya is a telepath and his wife Yor is an assassin. The three learn to become a family while working to complete Twilight's missions and maintain world peace.",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    },
+    {
+      "id":"76121",
+      "name":"DARLING in the FRANXX (2018)",
+      "type":"series",
+      "engsub":true,
+      "burmesesub":false,
+      "overview":"In a future world where humanity has been driven to endangerment by giant beasts, a strike force is assembled to destroy the monsters and save the world. A boy named Hiro is called Code:016, and he was once known as a prodigy. However, he has fallen behind, and his existence seems unnecessary. One day, a mysterious girl known as 'Zero Two' appears before him. Two horns grow out of her head.",
+      "bgposter":"https://ffjkfsdkfjsdjf",
+      "miniposter":"https://ffjkfdfjdlfj"
+    }
+
+  ]
+}

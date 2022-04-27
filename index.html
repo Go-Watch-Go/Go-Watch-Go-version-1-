@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Go Watch Go</title>
+    <!-- VUE CDN link  -->
+    <script src="https://unpkg.com/vue@3"></script>
     <!-- Fontawesome css  -->
     <link
       rel="stylesheet"
@@ -73,7 +75,7 @@
               <a class="nav-link" href="">Movie</a>
             </li>
             <li class="nav-item py-2 py-md-0">
-              <a class="nav-link" href="">Manga</a>
+              <a class="nav-link" href="./mangacollection.html">Manga</a>
             </li>
             <li class="nav-item py-2 py-md-0">
               <a class="nav-link" href="">Light Novel</a>
@@ -102,353 +104,366 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <section>
-      <div
-        id="carouselExampleCaptions"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="0"
-            class="active carouselIndicator"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="1"
-            class="carouselIndicator"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="2"
-            class="carouselIndicator"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="3"
-            class="carouselIndicator"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button
-          ><button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="4"
-            class="carouselIndicator"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button
-          ><button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="5"
-            class="carouselIndicator"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button
-          ><button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="6"
-            class="carouselIndicator"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <!-- Lu Over The Wall  -->
-          <div class="row carousel-item active carouselImages">
-            <div class="container">
-              <img
-                src="./img/lu_over_the_wall(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  Lu Over The Wall<span class="ms-3 btn contentType typeMovie"
-                    >Movie</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
-                  >
-                </div>
-                <p class="seriesSummary">
-                  In an small fishing village, a gloomy middle school student
-                  named Kai meets a mermaid named Lu.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/lu_over_the_wall.png" class="miniPoster" />
-              </div>
-            </div>
+    <div id="app">
+      <section>
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active carouselIndicator"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              class="carouselIndicator"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              class="carouselIndicator"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              class="carouselIndicator"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button
+            ><button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="4"
+              class="carouselIndicator"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button
+            ><button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="5"
+              class="carouselIndicator"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button
+            ><button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="6"
+              class="carouselIndicator"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
           </div>
-          <!-- Ki Ki's Delivery Servie -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img
-                src="./img/kiki_delivery(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  KiKi's Delivery Service<span
-                    class="ms-3 btn contentType typeMovie"
-                    >Movie</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
-                  >
-                </div>
-                <p class="seriesSummary">
-                  A young witch, on her mandatory year of independent life,
-                  finds fitting into a new community difficult while she
-                  supports herself by running an air courier service.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/kiki_delivery.jpg" class="miniPoster" />
-              </div>
-            </div>
-          </div>
-          <!-- Pom Po Ko  -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img src="./img/pompoko(baner).jpg" class="bannerBg" alt="..." />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  Pom Poko<span class="ms-3 btn contentType typeMovie"
-                    >Movie</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
-                  >
-                </div>
-                <p class="seriesSummary">
-                  The Raccoons of the Tama Hills are being forced from their
-                  homes by the rapid development of houses and shopping malls.
-                  As it becomes harder to find food and shelter, they decide to
-                  band together and fight back. The Raccoons practice and
-                  perfect the ancient art of transformation until they are even
-                  able to appear as humans in hilarious circumstances.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/pom_poko.jpg" class="miniPoster" />
-              </div>
-            </div>
-          </div>
-          <!-- Black Rock Shooter:Downfall  -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img
-                src="./img/balck_rock_shooter(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  Black Rock Shooter: Dawn Fall (2022)<span
-                    class="ms-3 btn contentType typeSeries"
-                    >Series</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
-                  >
-                </div>
-                <p class="seriesSummary">
-                  The year is 2062. Earth has been left in ruin after the
-                  failure of a labor automation project when the AI called
-                  Artemis waged war against humanity. A girl, Empress, awakens
-                  in a research lab. As one of the three surviving guardians,
-                  she must destroy the Orbital Elevator before Artemis can
-                  complete its construction. Failure will result in a machine
-                  army overrunning Earth.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
+          <div class="carousel-inner">
+            <!-- Lu Over The Wall  -->
+            <div class="row carousel-item active carouselImages">
+              <div class="container">
                 <img
-                  src="./img/balck_rock_shooter_downfall.jpg"
-                  class="miniPoster"
+                  src="./img/lu_over_the_wall(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
                 />
-              </div>
-            </div>
-          </div>
-          <!-- Summer Time Rendering  -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img
-                src="./img/summer_time_rendering(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  Summer Time Rendering (2022)<span
-                    class="ms-3 btn contentType typeSeries"
-                    >Series</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >Coming Soon (Air on April 15, 2022)</span
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    Lu Over The Wall<span class="ms-3 btn contentType typeMovie"
+                      >Movie</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    In a small village, a gloomy middle school student named Kai
+                    meets a mermaid named Lu
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
-                <p class="seriesSummary">
-                  Upon hearing of Ushio's death, Shinpei returns to his hometown
-                  of Wakayama City on Hitogashima and reunites with his
-                  childhood friend's family. The funeral goes smoothly, but
-                  under the surface something strange is brewing on the island.
-                  What mysteries await him on this secluded summer island?
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/summer_time_rendering.jpg" class="miniPoster" />
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/lu_over_the_wall.png" class="miniPoster" />
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Spy X Family  -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img
-                src="./img/spy_x_family(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  SPY x FAMILY (2022)<span
-                    class="ms-3 btn contentType typeSeries"
-                    >Series</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
+            <!-- Ki Ki's Delivery Servie -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/kiki_delivery(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    KiKi's Delivery Service<span
+                      class="ms-3 btn contentType typeMovie"
+                      >Movie</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    A young witch, on her mandatory year of independent life,
+                    finds fitting into a new community difficult while she
+                    supports herself by running an air courier service.
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
-                <p class="seriesSummary">
-                  Agent Twilight, the greatest spy for the nation of Westalis,
-                  has to infiltrate an elite private school. In order to do so
-                  he assumes the identity of psychiatrist Loid Forger, adopts an
-                  orphan girl, and marries a city hall employee. Unknown to him,
-                  his daughter Anya is a telepath and his wife Yor is an
-                  assassin. The three learn to become a family while working to
-                  complete Twilight's missions and maintain world peace.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
-              </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/spy_x_family.jpg" class="miniPoster" />
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/kiki_delivery.jpg" class="miniPoster" />
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Darling in the Franxxx  -->
-          <div class="row carousel-item carouselImages">
-            <div class="container">
-              <img
-                src="./img/darling_in_the_franxx(banner).jpg"
-                class="bannerBg"
-                alt="..."
-              />
-              <div class="col-6 carousel-caption text-start carouselInfos">
-                <h2 class="seriesHeader">
-                  DARLING in the FRANXX (2018)<span
-                    class="ms-3 btn contentType typeSeries"
-                    >Series</span
-                  >
-                </h2>
-                <div class="noticeSign">
-                  <span class="btn bg-success text-light me-2"
-                    >English Sub (Available)</span
-                  ><span class="btn bg-danger text-light"
-                    >Burmese Sub(Coming Soon)</span
+            <!-- Pom Po Ko  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/pompoko(baner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    Pom Poko<span class="ms-3 btn contentType typeMovie"
+                      >Movie</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    The Raccoons of the Tama Hills are being forced from their
+                    homes by the rapid development of houses and shopping malls.
+                    As it becomes harder to find food and shelter, they decide
+                    to band together and fight back. The Raccoons practice and
+                    perfect the ancient art of transformation until they are
+                    even able to appear as humans in hilarious circumstances.
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
-                <p class="seriesSummary">
-                  In a future world where humanity has been driven to
-                  endangerment by giant beasts, a strike force is assembled to
-                  destroy the monsters and save the world. A boy named Hiro is
-                  called Code:016, and he was once known as a prodigy. However,
-                  he has fallen behind, and his existence seems unnecessary. One
-                  day, a mysterious girl known as "Zero Two" appears before him.
-                  Two horns grow out of her head.
-                </p>
-                <a href="#" class="btn btn-lg bg-light bannerBtns"
-                  ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                >
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/pom_poko.jpg" class="miniPoster" />
+                </div>
               </div>
-              <div class="col-4 miniPosterContainer">
-                <img src="./img/darling_in_the_franxx.jpg" class="miniPoster" />
+            </div>
+            <!-- Black Rock Shooter:Downfall  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/balck_rock_shooter(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    Black Rock Shooter: Dawn Fall (2022)<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    The year is 2062. Earth has been left in ruin after the
+                    failure of a labor automation project when the AI called
+                    Artemis waged war against humanity. A girl, Empress, awakens
+                    in a research lab. As one of the three surviving guardians,
+                    she must destroy the Orbital Elevator before Artemis can
+                    complete its construction. Failure will result in a machine
+                    army overrunning Earth.
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/balck_rock_shooter_downfall.jpg"
+                    class="miniPoster"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Summer Time Rendering  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/summer_time_rendering(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    Summer Time Rendering (2022)<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >Coming Soon (Air on April 15, 2022)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    Upon hearing of Ushio's death, Shinpei returns to his
+                    hometown of Wakayama City on Hitogashima and reunites with
+                    his childhood friend's family. The funeral goes smoothly,
+                    but under the surface something strange is brewing on the
+                    island. What mysteries await him on this secluded summer
+                    island?
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/summer_time_rendering.jpg"
+                    class="miniPoster"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Spy X Family  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/spy_x_family(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    SPY x FAMILY (2022)<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    Agent Twilight, the greatest spy for the nation of Westalis,
+                    has to infiltrate an elite private school. In order to do so
+                    he assumes the identity of psychiatrist Loid Forger, adopts
+                    an orphan girl, and marries a city hall employee. Unknown to
+                    him, his daughter Anya is a telepath and his wife Yor is an
+                    assassin. The three learn to become a family while working
+                    to complete Twilight's missions and maintain world peace.
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/spy_x_family.jpg" class="miniPoster" />
+                </div>
+              </div>
+            </div>
+            <!-- Darling in the Franxxx  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img
+                  src="./img/darling_in_the_franxx(banner).jpg"
+                  class="bannerBg"
+                  alt="..."
+                />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    DARLING in the FRANXX (2018)<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">
+                    In a future world where humanity has been driven to
+                    endangerment by giant beasts, a strike force is assembled to
+                    destroy the monsters and save the world. A boy named Hiro is
+                    called Code:016, and he was once known as a prodigy.
+                    However, he has fallen behind, and his existence seems
+                    unnecessary. One day, a mysterious girl known as "Zero Two"
+                    appears before him. Two horns grow out of her head.
+                  </p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/darling_in_the_franxx.jpg"
+                    class="miniPoster"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <button
+            class="carousel-control-prev prevBtn"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next nextBtn"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button
-          class="carousel-control-prev prevBtn"
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next nextBtn"
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+      </section>
+    </div>
     <!-- END BANNER SECTION  -->
 
     <!-- ______________________________________END BANNER______________________________________________ -->

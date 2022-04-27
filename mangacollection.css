@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); /*Varela Rounded*/
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One:regular");
+
+/* color codes  */
+:root {
+  --bg-color: #1e1e1e;
+  --title-color: #08eb69;
+  --search-color: #e5e5e5;
+  --searchBox-color: #808080;
+  --normalText-color: #fff;
+  --textFixed-color: #08eb69;
+
+  /* for icon  */
+  --icon-color: #e5e5e5;
+  --ratingIcon-color: #eb088a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  font-family: "Varela Round", sans-serif;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+.cardSection {
+  margin-top: 20px;
+}
+
+.allCardContainer {
+  display: flex;
+  align-items: center;
+}
+.cardGroupContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mangaSingleCard {
+  width: 200px;
+  height: 300px;
+  background-color: #e5e5e5;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #000;
+
+  margin-bottom: 50px;
+  margin-left: 50px;
+
+  position: relative;
+}
+
+.mangaSingleCard::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(33, 33, 33, 0), rgba(15, 15, 15, 1));
+  border-radius: 15px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.mangaPoster {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.mangaInfo {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+
+  z-index: 2;
+}
+
+.mangaTitle {
+  color: var(--normalText-color);
+  font-size: 16px;
+}
+
+.mangaGrene {
+  font-size: 14px;
+  color: var(--textFixed-color);
+}
+
+/* start header  */
+
+.headerSection {
+  margin-top: 80px;
+  margin-left: 50px;
+
+  display: flex;
+  align-items: center;
+}
+.title {
+  color: var(--title-color);
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.filterTitle {
+  color: var(--normalText-color);
+  margin-left: 20px;
+}
+
+.filterClass {
+  color: var(--textFixed-color);
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.filterBackdrop {
+  /* display: none; */
+  padding: 100%;
+  background-color: rgba(128, 128, 128, 0.9);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+}
+
+.filter {
+  width: 500px;
+  height: 300px;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+
+  position: relative;
+}
+
+.filters {
+  width: 90%;
+  display: flex;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filters > p {
+  color: var(--normalText-color);
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 0 5px;
+  padding: 5px;
+  background-color: rgba(128, 128, 128, 0.9);
+}
+
+.filters > p:hover {
+  background-color: var(--title-color);
+  color: #000;
+}
+
+.filterBtn {
+  border-radius: 15px;
+  display: flex;
+  justify-content: end;
+
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+}
+
+.filterBtn > button {
+  color: var(--normalText-color);
+  padding: 3px 5px;
+  margin: 0 5px;
+}
+
+.filterBtn > button:hover {
+  color: var(--textFixed-color);
+}
+
+.closeBtn {
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 5px;
+  display: flex;
+  justify-content: end;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btnIcon {
+  color: var(--icon-color);
+}
+
+.btnIcon:hover {
+  color: var(--title-color);
+}
+
+/* end header  */
+
+/* start navbar */
+nav {
+  padding: 5px;
+}
+
+.logolink {
+  position: relative;
+}
+
+.logotitle {
+  font-family: Fredoka One;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  text-decoration: none;
+  color: var(--textFixed-color);
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.footerLogo {
+  bottom: -100%;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--textFixed-color);
+}
+
+.searchs {
+  border: 1px solid rgba(15, 15, 15, 0.25);
+  border-radius: 25px;
+  background: rgba(128, 128, 128, 0.25);
+  overflow: hidden;
+}
+
+.searchbars {
+  color: var(--textFixed-color);
+  background-color: transparent;
+  border: none;
+}
+
+.searchbars:focus {
+  color: var(--textFixed-color);
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.searchbtns {
+  background-color: transparent;
+  padding: 0 20px;
+  border: none;
+}
+
+.searchbtns i {
+  color: rgba(229, 229, 229, 0.5);
+}
+
+.searchtogglers {
+  color: rgba(229, 229, 229, 0.5);
+}
+
+.searchbtns:focus {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.bars {
+  margin-top: 10px;
+  color: var(--textFixed-color);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+/* end navbar */
