@@ -102,8 +102,11 @@ const app = Vue.createApp({
     fetchdata: function () {
       bannerRef.orderByKey().on("value", (snapshot) => {
         let bannerData = snapshot.val();
-        console.log(bannerData);
+        console.log(bannerData[0].id);
       });
+    },
+    bannerclick() {
+      console.log("hey");
     },
   },
 
@@ -815,3 +818,5 @@ getLightnovelData();
 // const animecards = document.querySelector(".animecards");
 // const lastupdaecards = document.querySelector(".lastupdatecards");
 // const mangacards = document.querySelector(".mangacards");
+
+// firestore test
