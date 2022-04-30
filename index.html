@@ -106,7 +106,7 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <div id="app">
+    <div id="banner">
       <section>
         <div
           id="carouselExampleCaptions"
@@ -169,7 +169,216 @@
               aria-label="Slide 1"
             ></button>
           </div>
+<<<<<<< HEAD
+          <div class="carousel-inner banner">
+            <!-- Lu Over The Wall  -->
+            <div class="row carousel-item active carouselImages">
+              <div class="container">
+                <!-- banner background image  -->
+                <img :src="banners[0].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    <span class="ms-3 btn contentType typeMovie">Movie</span>
+                  </h2>
+
+                  <!-- eng sub, Myanmar sub sign  -->
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+
+                  <!-- overview  -->
+                  <p class="seriesSummary"></p>
+                  <!-- play now btn to connect with aao link  -->
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <!-- banner small poster  -->
+                  <img src="./img/lu_over_the_wall.png" class="miniPoster" />
+                </div>
+              </div>
+            </div>
+            <!-- Ki Ki's Delivery Servie -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img src="" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    <span class="ms-3 btn contentType typeMovie">Movie</span>
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[1].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/kiki_delivery.jpg" class="miniPoster" />
+                </div>
+              </div>
+            </div>
+            <!-- Pom Po Ko  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img :src="banners[2].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    {{banners[2].name}}<span
+                      class="ms-3 btn contentType typeMovie"
+                      >Movie</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[2].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/pom_poko.jpg" class="miniPoster" />
+                </div>
+              </div>
+            </div>
+            <!-- Black Rock Shooter:Downfall  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img :src="banners[3].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    {{banners[3].name}}<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[3].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/balck_rock_shooter_downfall.jpg"
+                    class="miniPoster"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Summer Time Rendering  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img :src="banners[4].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    {{banners[4].name}}<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >Coming Soon (Air on April 15, 2022)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[4].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/summer_time_rendering.jpg"
+                    class="miniPoster"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Spy X Family  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img :src="banners[5].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    {{banners[5].name}}<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[5].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img src="./img/spy_x_family.jpg" class="miniPoster" />
+                </div>
+              </div>
+            </div>
+            <!-- Darling in the Franxxx  -->
+            <div class="row carousel-item carouselImages">
+              <div class="container">
+                <img :src="banners[6].bgposter" class="bannerBg" alt="..." />
+                <div class="col-6 carousel-caption text-start carouselInfos">
+                  <h2 class="seriesHeader">
+                    {{banners[6].name}}<span
+                      class="ms-3 btn contentType typeSeries"
+                      >Series</span
+                    >
+                  </h2>
+                  <div class="noticeSign">
+                    <span class="btn bg-success text-light me-2"
+                      >English Sub (Available)</span
+                    ><span class="btn bg-danger text-light"
+                      >Burmese Sub(Coming Soon)</span
+                    >
+                  </div>
+                  <p class="seriesSummary">{{banners[6].overview}}</p>
+                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                </div>
+                <div class="col-4 miniPosterContainer">
+                  <img
+                    src="./img/darling_in_the_franxx.jpg"
+                    class="miniPoster"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+=======
           <div class="carousel-inner"></div>
+>>>>>>> 32cf6b6f32d7bab753541d38db8c720de23fb59e
           <button
             class="carousel-control-prev prevBtn"
             type="button"

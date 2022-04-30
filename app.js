@@ -79,49 +79,34 @@ const mangaref = databasefire.ref("manga");
 const lightNovel = databasefire.ref("lightnovel");
 const bannerRef = databasefire.ref("banner");
 
-const app = Vue.createApp({
-  data() {
-    return {
-      banner: [
-        {
-          id: "436120",
-          name: "Lu Over The Wall",
-          type: "movie",
-          engsub: true,
-          burmesesub: false,
-          overview:
-            "In a small village, a gloomy middle school student named Kai meets a mermaid named Lu",
-          bgposter: "https://ffjkfsdkfjsdjf",
-          miniposter: "https://ffjkfdfjdlfj",
-        },
-      ],
-    };
-  },
+// const app = Vue.createApp({
+//   data() {
+//     return {
+//       banners: [],
+//     };
+//   },
 
-  methods: {
-    fetchdata: function () {
-      bannerRef.orderByKey().on("value", (snapshot) => {
-        let bannerData = snapshot.val();
-        console.log(bannerData[0].id);
-      });
-    },
-    bannerclick() {
-      console.log("hey");
-    },
-  },
+//   methods: {
+//     fetchdata: function () {
+//       bannerRef.orderByKey().on("value", (snapshot) => {
+//         let bannerData = snapshot.val();
+//         this.banners = bannerData;
+//         console.log(bannerData[0].id);
+//       });
+//     },
+//     bannerclick() {
+//       console.log("hey");
+//     },
+//   },
 
-  created: function () {
-    this.fetchdata();
-  },
-});
-
-app.mount("#app");
-
-// for banner by (blackbear)
-// bannerRef.orderByKey().on("value", (snapshot) => {
-//   let bannerData = snapshot.val();
-//   console.warn(bannerData);
+//   created: function () {
+//     this.fetchdata();
+//   },
 // });
+
+// app.mount("#banner");
+
+//for banner by (blackbear)
 
 // for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {
