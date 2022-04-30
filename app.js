@@ -79,28 +79,32 @@ const mangaref = databasefire.ref("manga");
 const lightNovel = databasefire.ref("lightnovel");
 const bannerRef = databasefire.ref("banner");
 
-const app = Vue.createApp({
-  data() {
-    return {
-      banners: [],
-    };
-  },
+// const app = Vue.createApp({
+//   data() {
+//     return {
+//       banners: [],
+//     };
+//   },
 
-  methods: {
-    fetchdata: function () {
-      bannerRef.orderByKey().on("value", (snapshot) => {
-        let bannerData = snapshot.val();
-        this.banners = bannerData;
-      });
-    },
-  },
+//   methods: {
+//     fetchdata: function () {
+//       bannerRef.orderByKey().on("value", (snapshot) => {
+//         let bannerData = snapshot.val();
+//         this.banners = bannerData;
+//         console.log(bannerData[0].id);
+//       });
+//     },
+//     bannerclick() {
+//       console.log("hey");
+//     },
+//   },
 
-  created: function () {
-    this.fetchdata();
-  },
-});
+//   created: function () {
+//     this.fetchdata();
+//   },
+// });
 
-app.mount("#banner");
+// app.mount("#banner");
 
 //for banner by (blackbear)
 
@@ -799,3 +803,5 @@ getLightnovelData();
 // const animecards = document.querySelector(".animecards");
 // const lastupdaecards = document.querySelector(".lastupdatecards");
 // const mangacards = document.querySelector(".mangacards");
+
+// firestore test
