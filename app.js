@@ -82,19 +82,7 @@ const bannerRef = databasefire.ref("banner");
 const app = Vue.createApp({
   data() {
     return {
-      banner: [
-        {
-          id: "436120",
-          name: "Lu Over The Wall",
-          type: "movie",
-          engsub: true,
-          burmesesub: false,
-          overview:
-            "In a small village, a gloomy middle school student named Kai meets a mermaid named Lu",
-          bgposter: "https://ffjkfsdkfjsdjf",
-          miniposter: "https://ffjkfdfjdlfj",
-        },
-      ],
+      banners: [],
     };
   },
 
@@ -102,7 +90,7 @@ const app = Vue.createApp({
     fetchdata: function () {
       bannerRef.orderByKey().on("value", (snapshot) => {
         let bannerData = snapshot.val();
-        console.log(bannerData);
+        this.banners = bannerData;
       });
     },
   },
@@ -112,13 +100,9 @@ const app = Vue.createApp({
   },
 });
 
-app.mount("#app");
+app.mount("#banner");
 
-// for banner by (blackbear)
-// bannerRef.orderByKey().on("value", (snapshot) => {
-//   let bannerData = snapshot.val();
-//   console.warn(bannerData);
-// });
+//for banner by (blackbear)
 
 // for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {
