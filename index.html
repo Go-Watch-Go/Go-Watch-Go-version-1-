@@ -169,8 +169,7 @@
               aria-label="Slide 1"
             ></button>
           </div>
-<<<<<<< HEAD
-          <div class="carousel-inner banner">
+          <div class="carousel-inner banner" v-if="banners">
             <!-- Lu Over The Wall  -->
             <div class="row carousel-item active carouselImages">
               <div class="container">
@@ -193,20 +192,22 @@
                   <!-- overview  -->
                   <p class="seriesSummary"></p>
                   <!-- play now btn to connect with aao link  -->
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[0].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
                   <!-- banner small poster  -->
-                  <img src="./img/lu_over_the_wall.png" class="miniPoster" />
+                  <img :src="banners[0].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
             <!-- Ki Ki's Delivery Servie -->
             <div class="row carousel-item carouselImages">
               <div class="container">
-                <img src="" class="bannerBg" alt="..." />
+                <img :src="banners[1].bgposter" class="bannerBg" alt="..." />
                 <div class="col-6 carousel-caption text-start carouselInfos">
                   <h2 class="seriesHeader">
                     <span class="ms-3 btn contentType typeMovie">Movie</span>
@@ -219,12 +220,14 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[1].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[1].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img src="./img/kiki_delivery.jpg" class="miniPoster" />
+                  <img :src="banners[1].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
@@ -247,12 +250,14 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[2].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[2].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img src="./img/pom_poko.jpg" class="miniPoster" />
+                  <img :src="banners[2].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
@@ -275,15 +280,14 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[3].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[3].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img
-                    src="./img/balck_rock_shooter_downfall.jpg"
-                    class="miniPoster"
-                  />
+                  <img :src="banners[3].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
@@ -304,15 +308,14 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[4].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[4].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img
-                    src="./img/summer_time_rendering.jpg"
-                    class="miniPoster"
-                  />
+                  <img :src="banners[4].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
@@ -335,12 +338,14 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[5].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    :href="banners[5].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img src="./img/spy_x_family.jpg" class="miniPoster" />
+                  <img :src="banners[5].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
@@ -363,22 +368,18 @@
                     >
                   </div>
                   <p class="seriesSummary">{{banners[6].overview}}</p>
-                  <a href="#" class="btn btn-lg bg-light bannerBtns"
+                  <a
+                    href="banners[6].link"
+                    class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                 </div>
                 <div class="col-4 miniPosterContainer">
-                  <img
-                    src="./img/darling_in_the_franxx.jpg"
-                    class="miniPoster"
-                  />
+                  <img :src="banners[6].miniposter" class="miniPoster" />
                 </div>
               </div>
             </div>
           </div>
-=======
-          <div class="carousel-inner"></div>
->>>>>>> 32cf6b6f32d7bab753541d38db8c720de23fb59e
           <button
             class="carousel-control-prev prevBtn"
             type="button"

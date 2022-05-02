@@ -79,34 +79,37 @@ const mangaref = databasefire.ref("manga");
 const lightNovel = databasefire.ref("lightnovel");
 const bannerRef = databasefire.ref("banner");
 
-// const app = Vue.createApp({
-//   data() {
-//     return {
-//       banners: [],
-//     };
-//   },
-
-//   methods: {
-//     fetchdata: function () {
-//       bannerRef.orderByKey().on("value", (snapshot) => {
-//         let bannerData = snapshot.val();
-//         this.banners = bannerData;
-//         console.log(bannerData[0].id);
-//       });
-//     },
-//     bannerclick() {
-//       console.log("hey");
-//     },
-//   },
-
-//   created: function () {
-//     this.fetchdata();
-//   },
-// });
-
-// app.mount("#banner");
-
 //for banner by (blackbear)
+
+// console.log(courselimgae);
+const app = Vue.createApp({
+  data() {
+    return {
+      banners: null,
+    };
+  },
+
+  methods: {
+    fetchdata: function () {
+      bannerRef.orderByKey().on("value", (snapshot) => {
+        let bannerData = snapshot.val();
+        this.banners = bannerData;
+        console.log(bannerData[3].miniposter);
+      });
+    },
+    bannerclick() {
+      console.log("hey");
+    },
+  },
+
+  created: function () {
+    this.fetchdata();
+  },
+});
+
+app.mount("#banner");
+
+// courselimgae[0].classList.add("active");
 
 // for popular row by(hidan)
 rootref.orderByKey().on("value", (snapshot) => {

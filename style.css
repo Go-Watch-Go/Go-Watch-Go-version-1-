@@ -89,6 +89,7 @@
 
 .prevBtn {
   left: 0%;
+  display: none;
 }
 
 .nextBtn {
