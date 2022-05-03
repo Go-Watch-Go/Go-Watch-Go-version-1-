@@ -1,13 +1,55 @@
-// TMDB api
+const nav = document.querySelector(".navs");
+const navbar = document.querySelector(".navbars");
+const searchdiv = document.querySelector(".searchdivs");
+const menu = document.querySelector(".menus");
+const bar = document.querySelector(".bars i");
+const searchbtn = document.querySelector(".searchbtns");
+const searchbtnicon = document.querySelector(".searchbtns i");
+const searchmobile = document.querySelector(".searchmobilebtns");
+
+// api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
 const url = "https://api.themoviedb.org/3/tv/";
 const movieurl = "https://api.themoviedb.org/3/movie/";
 const imgurl = "https://image.tmdb.org/t/p/w500";
 
-const cardGroupContainer = document.querySelector(".cardGroupContainer");
-console.log(cardGroupContainer);
+const animecards = document.querySelector(".animeadds");
 
-// Firebase section
+// nav function
+menu.addEventListener("click", () => {
+  // nav.classList.toggle("fixed-top");
+  if (bar.classList.contains("fa-bars") && navbar.id) {
+    searchdiv.removeAttribute("id");
+    bar.classList.remove("fa-bars");
+    bar.classList.add("fa-times");
+  } else {
+    searchdiv.setAttribute("id", "searchToggler");
+    bar.classList.remove("fa-times");
+    bar.classList.add("fa-bars");
+  }
+});
+
+searchmobile.addEventListener("click", () => {
+  if (searchdiv.id) {
+    navbar.removeAttribute("id");
+    searchmobile.style.display = "none";
+    searchbtn.setAttribute("data-bs-toggle", "collapse");
+    searchbtn.setAttribute("data-bs-target", "#searchToggler");
+    searchbtnicon.classList.remove("fa-bars");
+    searchbtnicon.classList.add("fa-times");
+  }
+});
+
+searchbtn.addEventListener("click", () => {
+  navbar.setAttribute("id", "navbarToggler");
+  if (searchbtnicon.classList.contains("fa-times")) {
+    searchmobile.style.display = "inline-block";
+    searchbtnicon.classList.remove("fa-times");
+    searchbtnicon.classList.add("fa-bars");
+  }
+});
+
+//   input anime data
 const firebaseConfig = {
   apiKey: "AIzaSyBz6icw-tMMpgqeVDgMNTAIt-FaLNPXyzE",
   authDomain: "index-ui-7c2c9.firebaseapp.com",
@@ -25,124 +67,90 @@ const databasefire = firebase.database();
 
 const animeref = databasefire.ref("anime");
 
-// get data from firebase and put it into (animeIdarrays) variable
 animeref.orderByKey().on("value", (snapshot) => {
-  let animeIdarray = snapshot.val();
+  let animearrays = snapshot.val().reverse();
+  //   console.log(animearrays);
 
-  console.log(typeof animeIdarray);
-  console.warn(animeIdarray.length);
+  // a.push(populararrays);
 
-  for (let anime of animeIdarray) {
-    const animeCard = document.createElement("div");
-    animeCard.className = "animeEachCard";
-    animeCard.innerHTML = `
-    <img src="" class="animePoster" />
-
-            <div class="animeInfo">
-              <p class="animeTitle"></p>
-              <div class="progressContainer">
-                <div class="progress-circle over50 p80">
-                  <span class="percent">80<span>%</span></span>
-                  <div class="left-half-clipper">
-                    <div class="first50-bar"></div>
-                    <div class="value-bar"></div>
-                  </div>
-                </div>
-
-                <span class="score">User Score</span>
+  for (anime of animearrays) {
+    let div = document.createElement("div");
+    div.className = "col-4 col-md-3 col-lg-2";
+    let animecard = document.createElement("div");
+    animecard.className = "animeposter";
+    animecard.innerHTML = `
+        <img src="" class="animeimgs" />
+        <div class="animeinfo">
+          <p class="animetitle">Jujutsu Kaisen</p>
+          <div class="progresscontainer">
+            <div class="progress-circle over50 p80">
+              <span class="percent">80<span>%</span></span>
+              <div class="left-half-clipper">
+                <div class="first50-bar"></div>
+                <div class="value-bar"></div>
               </div>
-
-              <p class="animeGrenes">Action.Supernatural</p>
             </div>
-    `;
+    
+            <span class="score">User Score</span>
+          </div>
+    
+          <p class="animegernes">Action.Supernatural</p>
+        </div>
+        `;
 
-    cardGroupContainer.appendChild(animeCard);
-    console.warn(animeCard);
+    div.appendChild(animecard);
+    animecards.appendChild(div);
 
-    const card = animeCard.querySelectorAll(".animeEachCard");
-    const poster = animeCard.querySelectorAll(".animePoster");
-    const animeTitle = animeCard.querySelectorAll(".animeTitle");
-    const percent = animeCard.querySelectorAll(".percent");
-    const grenes = animeCard.querySelectorAll(".animeGrenes");
+    const animeimgs = animecards.querySelectorAll(".animeimgs"),
+      animetite = animecards.querySelectorAll(".animetitle"),
+      animepercent = animecards.querySelectorAll(".percent"),
+      animegernes = animecards.querySelectorAll(".animegernes"),
+      animeccs = animecards.querySelectorAll(".animeposter");
 
-    function insertData(Id, idx) {
+    // console.log(animeimgs);
+
+    async function insertdata(Id, idx) {
+      let animeid = Id;
+
       async function getanime() {
-        let resource = await fetch(url + Id + api);
+        let resource = await fetch(url + animeid + api);
 
         let data = await resource.json();
-        console.warn(data);
 
         return data;
       }
 
-      getanime()
+      await getanime()
         .then((data) => {
-          console.warn(data);
-
+          //   console.log(data);
           let datapercent = data.vote_average * 10;
           if (datapercent > 50) {
-            moviepercent[
+            animepercent[
               idx
             ].parentElement.className = `progress-circle over50 p${datapercent}`;
           } else {
-            moviepercent[
+            animepercent[
               idx
             ].parentElement.className = `progress-circle p${datapercent}`;
           }
-
-          // console.log(data);
-          card[idx].id = animeId;
-          poster[idx].src = data;
-          animeTitle[idx].innerText = data.name;
-          grenes[idx].innerText = data.grenes.name;
-          percent[idx].innerHTML = datapercent + `<span>%</span>`;
+          animeccs[idx].id = Id;
+          animeimgs[idx].src = imgurl + data.poster_path;
+          animetite[idx].innerText = data.name;
+          animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+          animegernes[idx].innerText = data.genres[1].name;
         })
-        .catch((error) => {
-          console.log("Sorry There is no data you resquested!");
-        });
+
+        .catch((err) => {});
     }
 
-    insertData(103409, 0);
+    animearrays.forEach((aniary, index) => {
+      insertdata(aniary, index);
+    });
 
-    // animeIdarray.forEach((animearr, index) => {
-    //   insertData(animearr, index);
-    //   console.log(animearr);
-    // });
+    animeccs.forEach((animecard) => {
+      animecard.addEventListener("click", function (e) {
+        window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
+      });
+    });
   }
 });
-
-// splice temporary array into small array 3 id per arrays
-// while (tempAniArrContainer.length > 0) {
-//   spliceAnimeCardArrays.push(tempAniArrContainer.splice(0, range));
-// }
-// ___________________________________________________start 1 _____________________________________________
-// let arrays = spliceAnimeCardArrays[0];
-
-// console.error(arrays);
-// if (spliceAnimeCardArrays[0]) {
-//   arrays.forEach((firstArray) => {
-//     console.log(firstArray);
-//   });
-// }
-// ___________________________________________________end  1 _____________________________________________
-
-// ___________________________________________________start 2 _____________________________________________
-
-// let number = 3;
-
-// for (let i = 0; i < number; i++) {
-//   console.warn(spliceAnimeCardArrays[i]);
-// }
-// ___________________________________________________end 2 _____________________________________________
-
-// ___________________________________________________start 3 (vuejs) _____________________________________________
-
-// VUE.js
-
-// Vue.createApp({
-//   data() {
-//     return {};
-//   },
-// }).mount("#app");
-
-// ___________________________________________________end 3 (vuejs) _____________________________________________
