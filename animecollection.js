@@ -75,7 +75,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
   for (anime of animearrays) {
     let div = document.createElement("div");
-    div.className = "col-4 col-md-3 col-lg-2";
+    div.className = "col-4 col-md-3 col-lg-2 cards";
     let animecard = document.createElement("div");
     animecard.className = "animeposter";
     animecard.innerHTML = `
@@ -152,5 +152,22 @@ animeref.orderByKey().on("value", (snapshot) => {
         window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
       });
     });
+
+    // start searchbar
+    const searchbar = document.getElementById("searchbar");
+    const mains = animecards.querySelectorAll(".cards");
+    // console.log(mains);
+    searchbar.addEventListener("input", (e) => searchdata(e.target.value));
+
+    function searchdata(search) {
+      // console.log(search);
+      mains.forEach((main) => {
+        if (main.innerText.toLowerCase().includes(search.toLowerCase())) {
+          main.style.display = "block";
+        } else {
+          main.style.display = "none";
+        }
+      });
+    }
   }
 });
