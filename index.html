@@ -113,15 +113,16 @@
           class="carousel slide"
           data-bs-ride="carousel"
         >
-          <!-- <div class="carousel-indicators" v-for="banner in banners">
-            <button
+          <div class="carousel-indicators" v-for="(banner,index) in banners">
+            <!-- <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="1"
               class="carouselIndicator"
               aria-current="true"
-            ></button>
-          </div> -->
+            ></button> -->
+            
+          </div>
           <div class="carousel-inner banner" v-if="banners">
             <div
               v-for="(banner,index) in banners"
@@ -166,6 +167,11 @@
                 <div v-else>
                   <h1 class="col-6 carousel-caption text-start carouselInfos">
                    <div class="coming">
+                    <h2 class="seriesHeader">{{banner.name}}
+                      <span class="ms-3 btn contentType typeMovie"
+                        >{{banner.type}}</span
+                      >
+                    </h2>
                      <p>Comming Soon Project</p>
                    </div>
                 </div>
@@ -173,7 +179,11 @@
                   <!-- banner small poster  -->
                   <img :src="banner.miniposter" class="miniPoster" />
                 </div>
+                <div class="carousel-caption">
+                  <h5><span>{{index + 1}}</span> of <span>{{banners.length}}</span></h5>
+                </div>
               </div>
+            
             </div>
           </div>
           <button
@@ -190,6 +200,7 @@
             type="button"
             data-bs-target="#carouselExampleCaptions"
             data-bs-slide="next"
+            @click="addnum"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
