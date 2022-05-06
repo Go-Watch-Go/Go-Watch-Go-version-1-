@@ -86,6 +86,7 @@ const app = Vue.createApp({
   data() {
     return {
       banners: null,
+      active: 0,
     };
   },
 
@@ -96,9 +97,6 @@ const app = Vue.createApp({
         this.banners = bannerData;
         console.log(bannerData[3].miniposter);
       });
-    },
-    bannerclick() {
-      console.log("hey");
     },
   },
 

@@ -82,14 +82,22 @@
 .prevBtn,
 .nextBtn {
   position: absolute;
+  /* background-color: red; */
   top: 25%;
 
+  transform: scaleX(0.8);
+
+  z-index: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
   transform: scale(2.5);
 }
 
 .prevBtn {
   left: 0%;
-  display: none;
+  /* display: none; */
 }
 
 .nextBtn {
@@ -103,6 +111,9 @@
   margin: 0 10px !important;
 }
 
+.coming {
+  margin-top: 150px;
+}
 /* end banner section  */
 
 /* start navbar */
