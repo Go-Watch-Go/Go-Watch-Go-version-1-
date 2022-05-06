@@ -95,7 +95,7 @@ const app = Vue.createApp({
       bannerRef.orderByKey().on("value", (snapshot) => {
         let bannerData = snapshot.val();
         this.banners = bannerData;
-        console.log(bannerData[3].miniposter);
+        // console.log(bannerData[3].miniposter);
       });
     },
   },

@@ -113,11 +113,11 @@
           class="carousel slide"
           data-bs-ride="carousel"
         >
-          <!-- <div class="carousel-indicators" v-for="(banner,index) in banners">
+          <!-- <div class="carousel-indicators" v-for="banner in banners">
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="{banner.id}"
+              data-bs-slide-to="1"
               class="carouselIndicator"
               aria-current="true"
             ></button>
@@ -126,8 +126,8 @@
             <div
               v-for="(banner,index) in banners"
               :key="banner.id"
-              class="row carouselImages"
-              :class="{ 'carousel-item': true, 'active': index === active }"
+              class="row carouselImages carousel-item"
+              :class="{ 'active': index === active }"
             >
               <div class="container">
                 <!-- banner background image  -->
@@ -136,7 +136,7 @@
                   class="col-6 carousel-caption text-start carouselInfos"
                   v-if="banner.engsub"
                 >
-                  <h2 class="seriesHeader">
+                  <h2 class="seriesHeader">{{banner.name}}
                     <span class="ms-3 btn contentType typeMovie"
                       >{{banner.type}}</span
                     >
