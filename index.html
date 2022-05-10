@@ -135,7 +135,7 @@
                 <img :src="banner.bgposter" class="bannerBg" alt="..." />
                 <div
                   class="col-6 carousel-caption text-start carouselInfos"
-                  v-if="banner.engsub"
+                  v-if="banner.type !== 'nextpj'"
                 >
                   <h2 class="seriesHeader">{{banner.name}}
                     <span class="ms-3 btn contentType typeMovie"
@@ -145,34 +145,48 @@
 
                   <!-- eng sub, Myanmar sub sign  -->
                   <div class="noticeSign">
-                    <span class="btn bg-success text-light me-2">
-                      <span v-if="banner.engsub">English Sub (Available)</span>
-                      <span v-else>English Sub (Coming Soon)</span>
-                    </span>
-                    <span class="btn bg-danger text-light">
-                      <span v-if="banner.burmesesub"
-                        >Burmese Sub (Available)</span
-                      >
-                      <span v-else>Burmese Sub (Coming Soon)</span>
-                    </span>
+                    <div v-if="banner.type == 'movie'">
+                      <span class="btn bg-success text-light me-2">
+                        <span v-if="banner.onair">Air on {{banner.onair}}</span>
+                        <span v-else">Avaliable</span>
+                      </span>
+                    </div>
+                    <div v-if="banner.type == 'ongoing'">
+                      <span class="btn bg-success text-light me-2" v-if="banner.engsub">
+                        <span >English Sub (Available)</span>
+                      </span>
+                      <span class="btn bg-danger text-light" v-if="banner.burmesesub">
+                        <span 
+                          >Burmese Sub (Available)</span
+                        >
+                      </span>
+                    </div>
+                    <div v-if="banner.type == 'series'">
+                      <span class="btn bg-danger text-light me-2">
+                        <span v-if="banner.onair">Every {{banner.onair}}</span>
+                      </span>
+                    </div>
                   </div>
 
                   <!-- overview  -->
                   <p class="seriesSummary">{{banner.overview}}</p>
                   <!-- play now btn to connect with aao link  -->
-                  <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
+                  <div v-if="!banner.onair && banner.type == 'movie'">
+                    <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
+                  </div>
+                  <div v-if="banner.type !== 'movie'">
+                    <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
+                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                  >
+                  </div>
                 </div>
                 <div v-else>
-                  <h1 class="col-6 carousel-caption text-start carouselInfos">
-                   <div class="coming">
+                  <div class="col-6 carousel-caption text-start carouselInfos">
                     <h2 class="seriesHeader">{{banner.name}}
-                      <span class="ms-3 btn contentType typeMovie"
-                        >{{banner.type}}</span
-                      >
                     </h2>
-                     <p>Comming Soon Project</p>
+                     <p class="coming">This <span v-if="banner.type == movie">movie</span v-else><span>series</span> will be avaliable here soon.</p>
                    </div>
                 </div>
                 <div class="col-4 miniPosterContainer">

@@ -113,6 +113,12 @@
 
 .coming {
   margin-top: 150px;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: aqua;
+  text-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
 }
 /* end banner section  */
 

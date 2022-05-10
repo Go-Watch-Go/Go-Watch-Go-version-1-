@@ -5,7 +5,7 @@ const animeid = urlParams.get("animeid");
 const animelink = urlParams.get("link");
 
 let src = `https://drive.google.com/file/d/${animelink}/preview`;
-console.log(src);
+// console.log(src);
 document.querySelector(".src").src = src;
 
 // TMBD api
