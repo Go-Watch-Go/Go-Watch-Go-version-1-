@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go Watch Go</title>
     <!-- Fontawesome css  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="./global/Font-Awesome/css/all.min.css">
     <!-- For Bootstarp Link  CSS 1-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -22,10 +16,19 @@
     />
      <!--vue cdn -->
      <script src="https://unpkg.com/vue@3.0.2"></script>
+     <!-- slick slider -->
+     
      <!-- global css -->
     <link rel="stylesheet" href="global/global.css" type="text/css">
+
     <!-- Custom css -->
     <link href="animedvtwo.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   
   </head>
 </head>
 <body>
@@ -59,16 +62,16 @@
             <!-- for navbar menu  -->
             <div id="navbarToggler" class="navbar-collapse collapse navbars">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item p-2 py-md-0">
-                  <a class="nav-link" href="">Anime</a>
+                <li class="nav-item py-2 py-md-0">
+                  <a class="nav-link" href="./animecollection.html">Anime</a>
                 </li>
-                <li class="nav-item p-2 py-md-0">
+                <li class="nav-item py-2 py-md-0">
                   <a class="nav-link" href="">Movie</a>
                 </li>
-                <li class="nav-item p-2 py-md-0">
-                  <a class="nav-link" href="">Manga</a>
+                <li class="nav-item py-2 py-md-0">
+                  <a class="nav-link" href="./mangacollection.html">Manga</a>
                 </li>
-                <li class="nav-item p-2 py-md-0">
+                <li class="nav-item py-2 py-md-0">
                   <a class="nav-link" href="">Light Novel</a>
                 </li>
               </ul>
@@ -77,5 +80,213 @@
         </nav>
       </header>
       <!-- End Nav Bar Section -->
+
+      <!-- start player section -->
+      <div class="iframe">
+        <iframe
+          class="src"
+          src=""
+          allow="autoplay"
+          allowfullscreen="allowfullscreen"
+          mozallowfullscreen="mozallowfullscreen"
+          webkitallowfullscreen="webkitallowfullscreen"
+          frameborder="0"
+          scrolling="no"
+          seamless=""
+        ></iframe>
+        <div class="btnhide"></div>
+      </div>
+      <!-- end player section -->
+
+      <!-- start meta section -->
+      <div>
+        <h1 class="titles"></h1>
+        <div class="col-10 my-4 d-flex align-items-center linetwos">
+
+          <span class="tran ms-5">Encoded & Translated by <span class="tranname">B&C</span></span>
+
+          <div class="dropdown mx-2">
+            <button class="btn dropdown-toggle btns" data-bs-toggle="dropdown">Season 1</button>
+      
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">Season1</a></li>
+              <li><a href="#" class="dropdown-item">Season2</a></li>
+            </ul>
+          </div>
+
+          
+        </div>
+      </div>
+      <!-- end meta section -->
+
+      <!-- start episodes section -->
+      <!-- <div >
+        <div id="app" class="epcontainers">
+          <div class="epcards bg-danger d-flex" >
+            <div class="epcard mx-2" v-for="(ep,index) in episodes" :key="ep.epnum">
+              <div class="imgcontainer">
+                <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`" alt="">
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <p class="epnum"><span>Episode</span><span>{{ep.epnum}}</span></p>
+              <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm"> , Burmese</span></div>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- <i class="fas fa-chevron-right arrow right" @click="goright"></i>
+          <i class="fas fa-chevron-left arrow left" @ckick="goleft"></i> -->
+        </div>
+      </div> -->
+
+      <div >
+        <div class="epcontainers">
+          <div class="epcards d-flex" >
+            
+          </div>
+
+          <i class="fas fa-chevron-right arrow right" @click="goright"></i>
+          <i class="fas fa-chevron-left arrow left" @ckick="goleft"></i>
+        </div>
+      </div>
+      <!-- end episodes section -->
+
+      <!-- START FOOTER SRCTION -->
+    <footer class="footer">
+      <div class="row container-fluid footerBox">
+        <!-- start description & about us section  -->
+        <div class="row col-12 col-lg-6 col-md-6">
+          <div class="col-6">
+            <!-- for brand log  -->
+            <a href="index.html" class="logolink">
+              <img
+                src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+                alt="logo"
+                width="55"
+                height="50"
+              />
+              <span class="ms-3 footerLogo logotitle">owatchGo</span>
+            </a>
+
+            <p>
+              Enjoy anime, manga and light novels in both Myanmar and English
+            </p>
+          </div>
+          <div class="col-6 d-flex flex-column text-end">
+            <h6 class="">Company</h6>
+            <ul>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- end description & about us section -->
+
+        <!-- start community and social group section  -->
+        <div class="col-12 col-lg-6 col-md-6 communityAndSocialBox">
+          <div class="col-6 communityContainer">
+            <div class="communityBox me-1">
+              <h6>Community</h6>
+              <ul>
+                <li><a href="#">Handbook</a></li>
+                <li><a href="#">Terms and Condition</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="socialBox">
+              <h6>Social</h6>
+              <ul>
+                <li>
+                  <span><i class="fa-brands fa-facebook px-2"></i></span
+                  ><a href="#">Facebook</a>
+                </li>
+                <li>
+                  <span><i class="fa-brands fa-telegram px-2"></i></span
+                  ><a href="#">Telegram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end community and social group section  -->
+      </div>
+    </footer>
+    <!-- END FOOTER SECTION  -->
+
+    <!-- ______________________________________END FOOTER______________________________________________ -->
+
+    <!-- START COPYRIGHT SECTION  -->
+    <div class="col-12 copyright text-center">
+      <p>GowatchGo 2022 | All Right Reserved.</p>
+    </div>
+    <!-- END COPYRIGHT SECTION  -->
+
+    <!-- ______________________________________END COPYRIGHT______________________________________________ -->
+
+
+      
+
+<!-- bootstrap css1 js2 -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<!-- firebase js -->
+    <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+  ></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"
+  ></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"
+  ></script>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- slick slider -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Custom Js  -->
+  <script type="text/javascript" defer src="animetwo.js"></script>
+  <script type="text/javascript">
+		$('.slider').slick({
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 3,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+	</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ header {
 /* start navbar */
 nav {
   padding: 5px;
+  border: 1px solid rgba(15, 15, 15, 1);
 }
 
 nav.click {
@@ -69,3 +70,158 @@ body.click::after {
   box-shadow: none;
 }
 /* end navbar */
+
+/* start player  */
+.iframe {
+  width: 100%;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  margin-top: 80px;
+}
+
+iframe {
+  width: 75%;
+  height: 480px;
+}
+
+.btnhide {
+  width: 60px;
+  height: 60px;
+  background-color: black;
+
+  position: absolute;
+  top: 0;
+  right: 12.2%;
+}
+
+/* end player  */
+
+/* start meta */
+.titles {
+  font-family: Varela Round;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--normalText-color);
+  margin-top: 20.5px;
+  /* margin-left: 40px; */
+}
+
+.tran {
+  font-family: Varela Round;
+  color: var(--normalText-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.tranname {
+  color: var(--textFixed-color);
+}
+
+.btns {
+  background: rgba(252, 252, 252, 1);
+  /* height: 39px; */
+  width: 135px;
+  border-radius: 5px;
+  border: 0;
+
+  font-family: Varela Round;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  /* line-height: 22px; */
+  letter-spacing: 0em;
+}
+/* end meta */
+
+/* start epcontainer */
+.epcontainers {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.epcards {
+  margin-left: 40px;
+  /* display: flex; */
+
+  transition: all 0.2s;
+}
+
+.epcard {
+  height: 179px;
+  width: 249px;
+  /* background-color: red; */
+  border-radius: 16px;
+}
+
+.imgcontainer {
+  height: 140px;
+  width: 249px;
+  border-radius: 16px;
+  background-color: aqua;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+}
+
+.epcard img {
+  width: inherit;
+  height: inherit;
+}
+
+.arrow {
+  position: absolute;
+  color: #fff;
+  font-size: 50px;
+  padding: 5px;
+
+  opacity: 0.3;
+
+  cursor: pointer;
+}
+
+.arrow:hover {
+  opacity: 0.8;
+}
+
+.right {
+  top: 50%;
+  right: 0;
+
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.left {
+  top: 50%;
+  left: 0;
+
+  transform: translateY(-50%);
+  z-index: 1;
+
+  /* display: none; */
+}
+
+.epnum {
+  font-family: Varela Round;
+  font-size: 16px;
+  color: var(--normalText-color);
+}
+
+.subs span {
+  font-family: Varela Round;
+  font-size: 16px;
+  color: var(--textFixed-color);
+}
+/* end epcontainer */

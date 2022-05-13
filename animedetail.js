@@ -112,7 +112,9 @@ const epcontainrs = Vue.createApp({
   methods: {
     senddata(link) {
       // console.log(epnum);
-      window.open("anime.html" + "?animeid=" + animeid + "&" + "link=" + link);
+      window.open(
+        "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + link
+      );
     },
   },
 });

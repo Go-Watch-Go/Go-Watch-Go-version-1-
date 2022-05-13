@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>GoWatchGo</title>
     <!-- Fontawesome css  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="./global/Font-Awesome/css/all.min.css">
     <!-- For Bootstarp Link  CSS 1-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -113,7 +107,7 @@
             <span class="gernes mx-2">Action  Supernatural</span>
 
             <button class="btns mx-2 watchs">
-              <i class="fa-solid fa-play mx-2"></i>Play
+              <img src="./global/icon/play-solid.svg" alt="play" width="20" height="20" class="mx-2">Play
             </button>
           </div>
 
@@ -162,10 +156,10 @@
     
               <div class="btncontainers">
                 <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
-                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                  <img src="./global/icon/play-solid.svg" alt="play" width="20" height="20" class="mx-2">Play Now
                 </button>
                 <button class="btns downloads mx-1 my-2" v-if="ep.download">
-                  <i class="fa-solid fa-download mx-2"></i>Download
+                  <img src="./global/icon/download-solid.svg" alt="download" width="20" height="20" class="mx-2">Download
                 </button>
               </div>
             </div>
