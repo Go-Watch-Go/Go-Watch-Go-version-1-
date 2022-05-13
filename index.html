@@ -139,13 +139,13 @@
 
                   <!-- eng sub, Myanmar sub sign  -->
                   <div class="noticeSign">
-                    <div v-if="banner.type == 'movie'">
+                    <div v-if="banner.type == 'Movie'">
                       <span class="btn bg-success text-light me-2">
                         <span v-if="banner.onair">Air on {{banner.onair}}</span>
                         <span v-else">Avaliable</span>
                       </span>
                     </div>
-                    <div v-if="banner.type == 'ongoing'">
+                    <div v-if="banner.type == 'Ongoing'">
                       <span class="btn bg-success text-light me-2" v-if="banner.engsub">
                         <span >English Sub (Available)</span>
                       </span>
@@ -155,7 +155,7 @@
                         >
                       </span>
                     </div>
-                    <div v-if="banner.type == 'series'">
+                    <div v-if="banner.type == 'Series'">
                       <span class="btn bg-danger text-light me-2">
                         <span v-if="banner.onair">Every {{banner.onair}}</span>
                       </span>
@@ -165,12 +165,12 @@
                   <!-- overview  -->
                   <p class="seriesSummary">{{banner.overview}}</p>
                   <!-- play now btn to connect with aao link  -->
-                  <div v-if="!banner.onair && banner.type == 'movie'">
+                  <div v-if="!banner.onair && banner.type == 'Movie'">
                     <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                   </div>
-                  <div v-if="banner.type !== 'movie'">
+                  <div v-if="banner.type !== 'Movie'">
                     <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
