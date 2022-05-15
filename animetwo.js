@@ -12,7 +12,6 @@ let src = `https://drive.google.com/file/d/${animelink}/preview`;
 document.querySelector(".src").src = src;
 
 // firebase
-
 const firebaseConfig = {
   apiKey: "AIzaSyCjIdGk7N1_EFygPZuion7NKJ5Q0PFqhhg",
   authDomain: "animedetails-e879f.firebaseapp.com",
@@ -35,6 +34,8 @@ const cards = document.querySelectorAll(".epcard");
 const poprightbtn = document.querySelector(".right"),
   popleftbtn = document.querySelector(".left");
 
+let seasoncontiner = document.querySelector(".seasoncontainers");
+
 let x = 0;
 
 firebase.initializeApp(firebaseConfig);
@@ -49,14 +50,48 @@ rootref.orderByKey().on("value", (snapshot) => {
   let val3 = val1.tran;
   document.querySelector(".tranname").innerText = val3;
 
+  for (v in val2) {
+    let btn = document.createElement("li");
+    btn.className = "dropdown-item seasons";
+    btn.innerText = "Season" + v;
+    btn.value = v;
+    seasoncontiner.appendChild(btn);
+  }
+
+  let ssbtns = seasoncontiner.querySelectorAll(".seasons");
+
   let ss = 1;
 
   let eparrays = val2[ss];
-  console.log(eparrays);
 
+  // console.log(eparrays);
+
+  // data call from firebase function
+  datacall(eparrays, ss);
+
+  // season btn fundtion
+  ssbtns.forEach((ssbtn) => {
+    ssbtn.addEventListener("click", () => {
+      // console.log(ssbtn.value);
+
+      cardcontainer.innerHTML = "";
+
+      ss = ssbtn.value;
+      // console.log(ss);
+
+      eparrays = val2[ss];
+      console.log(eparrays);
+
+      datacall(eparrays, ss);
+    });
+  });
+});
+
+// data call from firebase function
+function datacall(eparrays, ss) {
   for (ep of eparrays) {
     let epcard = document.createElement("div");
-    epcard.className = "col-4 epcard mx-2";
+    epcard.className = "col-4 epcard";
     epcard.innerHTML = `
     <div class="imgcontainer">
     <img src="" class="epimg" alt="">
@@ -64,14 +99,17 @@ rootref.orderByKey().on("value", (snapshot) => {
 
   <div class="d-flex justify-content-between">
     <p class="epnum"><span>Episode</span><span></span></p>
-  <div class="subs"><span>English </span><span> , Burmese</span></div>
+  <div class="subs"><span class="eng">English </span><span class="mm"> , Burmese</span></div>
   </div>
     `;
 
     cardcontainer.appendChild(epcard);
 
     const epimg = cardcontainer.querySelectorAll(".epimg"),
-      epnum = cardcontainer.querySelectorAll(".epnum");
+      epnum = cardcontainer.querySelectorAll(".epnum"),
+      eng = cardcontainer.querySelectorAll(".eng"),
+      mm = cardcontainer.querySelectorAll(".mm"),
+      eps = cardcontainer.querySelectorAll(".epcard");
 
     // console.log(epimg);
 
@@ -79,7 +117,7 @@ rootref.orderByKey().on("value", (snapshot) => {
       let anid = Id;
 
       async function getanime() {
-        let resource = await fetch(url + anid + "/season/" + 1 + api);
+        let resource = await fetch(url + anid + "/season/" + ss + api);
         // console.log(resource);
 
         let data = await resource.json();
@@ -89,9 +127,18 @@ rootref.orderByKey().on("value", (snapshot) => {
 
       getanime()
         .then((data) => {
-          console.log(data.episodes);
+          // console.log(data);
           epimg[idx].src = imgurl + data.episodes[idx].still_path;
           epnum[idx].innerText = "Episode " + data.episodes[idx].episode_number;
+          // console.log(eparrays[idx].mm);
+          if (eparrays[idx].eng === false) {
+            eng[idx].style.display = "none";
+          }
+
+          if (eparrays[idx].mm === false) {
+            // console.log("hhhh");
+            mm[idx].style.display = "none";
+          }
         })
         .catch((err) => {
           console.log(err.message);
@@ -100,6 +147,18 @@ rootref.orderByKey().on("value", (snapshot) => {
 
     eparrays.forEach((epary, index) => {
       insertdata(animeid, index);
+    });
+
+    eps.forEach((ep, index) => {
+      ep.addEventListener("click", function (e) {
+        console.log(index);
+        let link = eparrays[index].watch;
+        console.log(link);
+        window.open(
+          "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + link,
+          "_self"
+        );
+      });
     });
   }
 
@@ -112,7 +171,18 @@ rootref.orderByKey().on("value", (snapshot) => {
     if (windowwidth < 600) {
       cardcontainer.style.width = `${160 * eparrays.length}px`;
     } else {
-      cardcontainer.style.width = `${249 * eparrays.length}px`;
+      cardcontainer.style.width = `${250 * eparrays.length}px`;
+      if (eparrays.length === 5) {
+        popleftbtn.style.display = "none";
+        poprightbtn.style.display = "none";
+      } else if (eparrays.length < 5) {
+        console.log("hey");
+        popleftbtn.style.display = "none";
+        poprightbtn.style.display = "none";
+      } else {
+        popleftbtn.style.display = "none";
+        poprightbtn.style.display = "block";
+      }
       // console.log(260 * populararrays.length);
     }
   }
@@ -125,7 +195,8 @@ rootref.orderByKey().on("value", (snapshot) => {
 
   function goright() {
     x++;
-    let y = 249 * x;
+    c++;
+    let y = 257 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     popleftbtn.style.display = "block";
@@ -138,17 +209,16 @@ rootref.orderByKey().on("value", (snapshot) => {
       poprightbtn.style.display = "none";
       poprightbtn.style.display = "none";
     } else if (windowwidth > 600 && windowwidth < 992) {
-      if (c === eparrays.length - 3) {
+      if (x === eparrays.length - 3) {
         poprightbtn.style.display = "none";
       }
     } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (c === eparrays.length - 4) {
+      if (x === eparrays.length - 4) {
         poprightbtn.style.display = "none";
       }
     } else {
-      if (c === eparrays.length) {
-        poprightbtn.style.display = "none";
-      } else if (c === eparrays.length - 5) {
+      if (x === eparrays.length - 5) {
+        console.log(c);
         poprightbtn.style.display = "none";
       }
     }
@@ -164,113 +234,22 @@ rootref.orderByKey().on("value", (snapshot) => {
       popleftbtn.style.display = "none";
     }
   }
-});
+}
 
-// const epcontainrs = Vue.createApp({
-//   data() {
-//     return {
-//       episodes: null,
-//       datas: null,
-//     };
-//   },
-//   mounted() {
-//     const rootref = databasefire.ref(animeid);
+// anime titel call
+async function getanime() {
+  let resource = await fetch(url + animeid + api);
 
-//     rootref.orderByKey().on("value", (snapshot) => {
-//       let val1 = snapshot.val();
-//       let val2 = val1.season;
-//       console.log(val2);
-//       let val3 = val1.tran;
-//       document.querySelector(".tranname").innerText = val3;
-//       // console.log(val3);
-//       // for (v in val2) {
-//       //   let btn = document.createElement("div");
-//       //   btn.classList.add("seasons");
-//       //   btn.innerText = "Season" + v;
-//       //   btn.value = v;
-//       //   seasoncontiner.appendChild(btn);
-//       // }
+  let data = await resource.json();
 
-//       // let ssbtns = seasoncontiner.querySelectorAll(".seasons");
-//       // ssbtns[0].classList.add("active");
-//       let ss = "1";
-//       // ssbtns.forEach((ssbtn) => {
-//       //   ssbtn.addEventListener("click", () => {
-//       //     // console.log(ssbtn.value);
-//       //     removeactive();
-//       //     ssbtn.classList.toggle("active");
+  return data;
+}
 
-//       //     ss = ssbtn.value;
-
-//       //     this.episodes = val2[ss];
-//       //     console.log(this.episodes);
-
-//       //     async function getanime() {
-//       //       let resource = await fetch(url + animeid + "/season/" + ss + api);
-
-//       //       let data = await resource.json();
-
-//       //       return data;
-//       //     }
-
-//       //     getanime()
-//       //       .then((data) => {
-//       //         this.datas = data.episodes;
-//       //       })
-//       //       .catch((err) => {
-//       //         console.log(err);
-//       //       });
-//       //   });
-//       // });
-
-//       // function removeactive() {
-//       //   ssbtns.forEach((ssbtn) => {
-//       //     ssbtn.classList.remove("active");
-//       //   });
-//       // }
-
-//       this.episodes = val2[ss];
-
-//       async function getanime() {
-//         let resource = await fetch(url + animeid + "/season/" + ss + api);
-
-//         let data = await resource.json();
-
-//         return data;
-//       }
-
-//       getanime()
-//         .then((data) => {
-//           this.datas = data.episodes;
-//         })
-//         .catch((err) => {
-//           console.log(err.message);
-//         });
-//     });
-//   },
-//   methods: {
-//     senddata(link) {
-//       // console.log(epnum);
-//       window.open("anime.html" + "?animeid=" + animeid + "&" + "link=" + link);
-//     },
-//   },
-// });
-
-// epcontainrs.mount("#app");
-
-// async function getanime() {
-//   let resource = await fetch(url + animeid + api);
-
-//   let data = await resource.json();
-
-//   return data;
-// }
-
-// getanime()
-//   .then((data) => {
-//     // console.log(data);
-//     document.querySelector(".titles").innerText = data.name;
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+getanime()
+  .then((data) => {
+    // console.log(data);
+    document.querySelector(".titles").innerText = data.name;
+  })
+  .catch((err) => {
+    console.log(err);
+  });

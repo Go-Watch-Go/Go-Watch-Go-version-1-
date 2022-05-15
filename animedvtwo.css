@@ -151,9 +151,19 @@ iframe {
   overflow: hidden;
 }
 
+.boxs {
+  width: 94vw;
+  /* background-color: red; */
+  margin: auto;
+
+  overflow: hidden;
+}
+
 .epcards {
-  margin-left: 40px;
+  /* margin-left: 40px; */
   /* display: flex; */
+
+  /* overflow: hidden; */
 
   transition: all 0.2s;
 }
@@ -161,6 +171,7 @@ iframe {
 .epcard {
   height: 179px;
   width: 249px;
+  margin: 0 4px;
   /* background-color: red; */
   border-radius: 16px;
 }
