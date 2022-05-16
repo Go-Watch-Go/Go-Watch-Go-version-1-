@@ -80,7 +80,8 @@ rootref.orderByKey().on("value", (snapshot) => {
       // console.log(ss);
 
       eparrays = val2[ss];
-      console.log(eparrays);
+      // console.log(eparrays);
+      document.querySelector(".btns").innerText = "Season" + ss;
 
       datacall(eparrays, ss);
     });
