@@ -262,6 +262,10 @@ rootref.orderByKey().on("value", (snapshot) => {
 
 movref.orderByKey().on("value", (snapshot) => {
   let moviearrays = snapshot.val().reverse();
+  moviearrays = moviearrays.filter((moviearray) => {
+    return moviearray.show === true;
+  });
+  console.log(moviearrays);
 
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
@@ -332,7 +336,8 @@ movref.orderByKey().on("value", (snapshot) => {
     }
 
     moviearrays.forEach((movary, index) => {
-      insertmoviedata(movary, index);
+      // console.log(movary.id);
+      insertmoviedata(movary.id, index);
     });
 
     movcards.forEach((movcard) => {
