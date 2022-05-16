@@ -111,6 +111,11 @@
   margin: 0 10px !important;
 }
 
+.indicators {
+  /* background-color: red; */
+  z-index: -1;
+}
+
 .coming {
   margin-top: 150px;
   font-style: italic;
