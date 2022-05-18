@@ -70,6 +70,9 @@ const animeref = databasefire.ref("anime");
 animeref.orderByKey().on("value", (snapshot) => {
   let animearrays = snapshot.val().reverse();
   //   console.log(animearrays);
+  animearrays = animearrays.filter((anime) => {
+    return anime.show === true;
+  });
 
   // a.push(populararrays);
 
@@ -144,7 +147,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     }
 
     animearrays.forEach((aniary, index) => {
-      insertdata(aniary, index);
+      insertdata(aniary.id, index);
     });
 
     animeccs.forEach((animecard) => {
