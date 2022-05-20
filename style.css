@@ -17,15 +17,85 @@
 }
 
 .mangaComingSoon {
-  background: rgba(0, 0, 0, 0.9);
+  width: 100vw;
   height: 300px;
+  background: rgba(0, 0, 0, 0.9);
+
+  position: absolute;
+
+  z-index: 5;
 }
 
 .mangaSign {
-  line-height: 150px;
+  color: var(--normalText-color);
+  line-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* _________________________________________________________________ */
+/* __________________________________End COming Soon Feature _______________________________ */
+
+/* start banner responsive section  */
+@media (max-width: 500px) {
+  section {
+    height: 380px;
+  }
+  .carousel-inner {
+    height: 380px;
+  }
+  .carouselImages {
+    height: 380px;
+  }
+  .carouselInfos {
+    width: 70%;
+    margin-left: 10%;
+  }
+  .bannerBg {
+    height: 340px;
+  }
+  .miniPosterContainer {
+    display: none;
+  }
+  .seriesHeader {
+    font-size: 16px;
+    margin-top: -60px;
+  }
+
+  .seriesSummary {
+    font-size: 11px !important;
+    margin-bottom: 3px;
+  }
+  .contentType,
+  .typeMovie {
+    font-size: 11px;
+    padding: 3px;
+  }
+
+  .noticeSign > div > .btn {
+    margin-right: 5px;
+    padding: 3px;
+  }
+
+  .noticeSign > div > span > span {
+    font-size: 10px;
+  }
+
+  .bannerBtns {
+    margin-top: 5px !important;
+    margin-left: -15%;
+    transform: scale(0.45);
+  }
+
+  .indicators {
+    background-color: red;
+    z-index: -1;
+  }
+}
+
+/* end banner responsive section  */
+
+/* __________________________________End Banner Responsive for various device _______________________________ */
 
 /*start for banner section  */
 
@@ -708,7 +778,22 @@ section {
   text-decoration: none;
 }
 
+.companyTitles {
+  margin-top: 0% !important;
+}
+
 .copyright {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
+
+/* start footer responsive section  */
+.companyTitles {
+  margin-top: 10%;
+  margin-left: -15%;
+}
+.communityContainer {
+  margin-left: 5%;
+}
+/* end footer responsive section  */
+/* _________________________________End footer responsive section___________________________-  */
