@@ -69,7 +69,7 @@ firebase.initializeApp(firebaseConfig);
 const databasefire = firebase.database();
 
 // by hiddan
-const rootref = databasefire.ref("popularanime");
+// const rootref = databasefire.ref("");
 const movref = databasefire.ref("movie");
 const animeref = databasefire.ref("anime");
 const lastref = databasefire.ref("lastanime");
@@ -114,9 +114,15 @@ app.mount("#banner");
 // courselimgae[0].classList.add("active");
 
 // for popular row by(hidan)
-rootref.orderByKey().on("value", (snapshot) => {
+animeref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val().reverse();
-  // console.log(populararrays);
+  console.log(populararrays);
+
+  populararrays = populararrays.filter((popular) => {
+    return popular.popular === true;
+  });
+
+  console.log(populararrays);
 
   // a.push(populararrays);
 
@@ -185,7 +191,7 @@ rootref.orderByKey().on("value", (snapshot) => {
     }
 
     populararrays.forEach((popary, index) => {
-      insertdata(popary, index);
+      insertdata(popary.id, index);
     });
 
     popcards.forEach((popcard) => {
@@ -265,7 +271,7 @@ movref.orderByKey().on("value", (snapshot) => {
   moviearrays = moviearrays.filter((moviearray) => {
     return moviearray.show === true;
   });
-  console.log(moviearrays);
+  // console.log(moviearrays);
 
   for (movie of moviearrays) {
     let moviecard = document.createElement("div");
@@ -414,6 +420,10 @@ movref.orderByKey().on("value", (snapshot) => {
 // for anime row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
   let animearrays = snapshot.val().reverse();
+
+  animearrays = animearrays.filter((anime) => {
+    return anime.show === true;
+  });
   // console.log(animearrays);
 
   // a.push(populararrays);
@@ -483,7 +493,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     }
 
     animearrays.forEach((aniary, index) => {
-      insertdata(aniary, index);
+      insertdata(aniary.id, index);
     });
 
     animeccs.forEach((animecard) => {
