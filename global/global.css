@@ -53,6 +53,10 @@ nav {
   padding: 5px;
 }
 
+.sup {
+  color: var(--normalText-color);
+}
+
 .logolink {
   position: relative;
 }
