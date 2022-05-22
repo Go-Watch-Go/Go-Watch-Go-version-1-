@@ -191,6 +191,11 @@ iframe {
   height: inherit;
 }
 
+.epdivs {
+  display: flex;
+  justify-content: space-between;
+}
+
 .arrow {
   position: absolute;
   color: #fff;
@@ -236,3 +241,71 @@ iframe {
   color: var(--textFixed-color);
 }
 /* end epcontainer */
+
+@media (max-width: 500px) {
+  .boxs {
+    overflow-x: scroll;
+    /* background-color: red; */
+  }
+
+  .epcard {
+    height: 121px;
+    width: 140px;
+    border-radius: 16px;
+  }
+
+  .imgcontainer {
+    height: 78.75px;
+    width: 140px;
+    border-radius: 16px;
+  }
+
+  .epdivs {
+    display: block;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .iframe {
+    height: 202.5px;
+    width: 100vw;
+  }
+
+  iframe {
+    height: inherit;
+    width: inherit;
+  }
+
+  .titles {
+    font-size: 24px;
+  }
+
+  .tran {
+    font-size: 14px;
+  }
+
+  .btns {
+    font-size: 14px;
+    height: 28px;
+    width: 91px;
+  }
+
+  .btnhide {
+    right: 0;
+  }
+
+  /* /* .epnum {
+    display: block;
+  } */
+
+  .epnum {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .subs span {
+    font-size: 12px;
+  }
+}

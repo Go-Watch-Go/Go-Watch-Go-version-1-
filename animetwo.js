@@ -98,7 +98,7 @@ function datacall(eparrays, ss) {
     <img src="" class="epimg" alt="">
   </div>
 
-  <div class="d-flex justify-content-between">
+  <div class="epdivs">
     <p class="epnum"><span>Episode</span><span></span></p>
   <div class="subs"><span class="eng">English </span><span class="mm"> , Burmese</span></div>
   </div>
@@ -170,7 +170,8 @@ function datacall(eparrays, ss) {
     const windowwidth = window.outerWidth;
 
     if (windowwidth < 600) {
-      cardcontainer.style.width = `${160 * eparrays.length}px`;
+      cardcontainer.style.width = `${142 * eparrays.length}px`;
+      console.log(cardcontainer.clientWidth);
     } else {
       cardcontainer.style.width = `${250 * eparrays.length}px`;
       if (eparrays.length === 5) {
