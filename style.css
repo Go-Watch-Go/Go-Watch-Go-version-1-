@@ -49,7 +49,7 @@
   }
   .carouselInfos {
     width: 70%;
-    margin-left: 10%;
+    margin-left: 15%;
   }
   .bannerBg {
     height: 340px;
@@ -91,6 +91,70 @@
     background-color: red;
     z-index: -1;
   }
+
+  .prevBtn,
+  .nextBtn {
+    margin-top: -30%;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    transform: scale(0.1);
+  }
+
+  /* start footer responsive section  */
+  .companyTitles {
+    margin-top: 10% !important;
+  }
+  .communityContainer {
+    margin-left: 5% !important;
+  }
+
+  .communityBox {
+    margin-top: 10%;
+  }
+
+  .socialBox {
+    margin-top: 10%;
+    margin-left: 30%;
+  }
+  /* _________________________________End footer responsive section___________________________-  */
+
+  .mangaCardBox {
+    width: 100px;
+    height: 150px;
+    margin-left: 30px;
+    margin-bottom: 25px;
+  }
+
+  .mangaImage {
+    width: 100px;
+    height: 150px;
+  }
+
+  .mangaInfo {
+    width: 80px;
+  }
+
+  /* _________________________________End Manga responsive section___________________________-  */
+
+  .lightnovelCardBox {
+    width: 160px;
+    height: 240px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+  }
+
+  .lightnovelPoster {
+    width: 160px;
+    height: 240px;
+  }
+
+  .lightnovelInfo {
+    width: 140px;
+  }
+
+  /* _________________________________End Lightnovel responsive section___________________________-  */
 }
 
 /* end banner responsive section  */
@@ -778,22 +842,7 @@ section {
   text-decoration: none;
 }
 
-.companyTitles {
-  margin-top: 0% !important;
-}
-
 .copyright {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
-
-/* start footer responsive section  */
-.companyTitles {
-  margin-top: 10%;
-  margin-left: -15%;
-}
-.communityContainer {
-  margin-left: 5%;
-}
-/* end footer responsive section  */
-/* _________________________________End footer responsive section___________________________-  */
