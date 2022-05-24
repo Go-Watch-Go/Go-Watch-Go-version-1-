@@ -1,6 +1,9 @@
 const querystring = window.location.search;
 const urlParams = new URLSearchParams(querystring);
 
+const playbtn = document.querySelector(".watchs");
+const downloadbtn = document.querySelector(".downloads");
+
 const movieid = urlParams.get("movieid");
 // const movieid = "8392";
 
@@ -22,7 +25,10 @@ const rootref = databasefire.ref(movieid);
 
 rootref.orderByKey().on("value", (snapshot) => {
   let val1 = snapshot.val();
-  console.log(val1);
+  // console.log(val1.download);
+  if (val1.download === false) {
+    downloadbtn.style.display = "none";
+  }
   document.querySelector(
     ".tran"
   ).innerText = `Encoded & Translated by ${val1.tran}`;
@@ -70,9 +76,6 @@ getanime()
   .catch((err) => {
     console.log(err);
   });
-
-const playbtn = document.querySelector(".watchs");
-const downloadbtn = document.querySelectorAll(".downloads");
 
 playbtn.addEventListener("click", () => {
   window.open("movie.html" + "?movieid=" + movieid);
