@@ -32,6 +32,10 @@
     <link href="animedetail.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+
+  <div id="app">
+
+    
     <!-- Start Nav Bar Section -->
     <header class="col-12">
       <nav class="navbar navbar-expand-sm navs">
@@ -114,8 +118,8 @@
 
             <span class="gernes mx-2">Action  Supernatural</span>
 
-            <button class="btns mx-2 watchs">
-              <img src="./global/icon/play-solid.svg" alt="play" width="20" height="20" class="mx-2">Play
+            <button class="btns mx-2 watchs" @click="senddata(episodes[0].watch)">
+              Play
             </button>
           </div>
 
@@ -148,7 +152,7 @@
 
     <div class="epfooter">
         <!-- Start episodes container -->
-      <section id="app" class="episodes"> 
+      <section class="episodes"> 
         <div v-for="(ep,index) in episodes" :key="ep.epnum" v-if="episodes">
           <div class="col-12 py-4 eps" v-if="datas">
             <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
@@ -237,6 +241,8 @@
       </footer>
       <!-- End Footer Section -->
     </div>
+
+  </div>  
 
 
 

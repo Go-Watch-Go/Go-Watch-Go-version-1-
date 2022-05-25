@@ -116,6 +116,9 @@ const epcontainrs = Vue.createApp({
         "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + link
       );
     },
+    watch() {
+      console.log("hey");
+    },
   },
 });
 

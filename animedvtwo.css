@@ -97,6 +97,11 @@ iframe {
   right: 12.2%;
 }
 
+.btnhide img {
+  width: 60px;
+  height: 60px;
+}
+
 /* end player  */
 
 /* start meta */
