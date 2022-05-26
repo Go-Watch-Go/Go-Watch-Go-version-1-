@@ -170,7 +170,7 @@
                 <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
                   <img src="./global/icon/play-solid.svg" alt="play" width="20" height="20" class="mx-2">Play Now
                 </button>
-                <button class="btns downloads mx-1 my-2" v-if="ep.download">
+                <button class="btns downloads mx-1 my-2" v-if="ep.download"  @click="downloaddata(ep.download)">
                   <img src="./global/icon/download-solid.svg" alt="download" width="20" height="20" class="mx-2">Download
                 </button>
               </div>
