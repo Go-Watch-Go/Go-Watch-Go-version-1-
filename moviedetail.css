@@ -122,15 +122,8 @@ header {
 
 /* start footer */
 /* for footer section  */
-
 .footer {
-  height: 300px;
-  width: 100vw;
-  border-radius: 0px;
-  background: rgba(33, 33, 33, 1);
-
-  border: 1px solid rgba(15, 15, 15, 1);
-
+  background-color: var(--bg-color);
   color: var(--normalText-color);
   padding: 30px 10px;
 
@@ -139,16 +132,24 @@ header {
 }
 
 .footerBox {
-  /* background-color: var(--bg-color); */
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
+}
+
+.communityAndSocialBox {
+  display: flex;
+  right: 0;
+}
+
+.communityContainer {
+  margin-left: 20%;
 }
 
 .communityBox,
 .socialBox {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 
   flex-direction: column;
 }
@@ -172,6 +173,17 @@ header {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
+/* start footer responsive section  */
+.companyTitles {
+  margin-top: 0%;
+  margin-left: -15%;
+}
+.communityContainer {
+  margin-left: 5%;
+}
+/* end footer responsive section  */
+/* _________________________________End footer responsive section___________________________-  */
+/* ____________________________________________End Footer Section __________________________________________ */
 
 @media (max-width: 500px) {
   header {
@@ -274,6 +286,10 @@ header {
     bottom: -10px;
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .companyTitles {
+    margin-left: -2% !important;
   }
 }
 
