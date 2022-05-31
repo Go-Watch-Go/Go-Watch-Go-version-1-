@@ -29,9 +29,12 @@ rootref.orderByKey().on("value", (snapshot) => {
   if (val1.download === false) {
     downloadbtn.style.display = "none";
   }
-  document.querySelector(
-    ".tran"
-  ).innerText = `Encoded & Translated by ${val1.tran}`;
+
+  downloadbtn.addEventListener("click", () => {
+    window.open(val1.download);
+  });
+
+  document.querySelector(".tranname").innerText = val1.tran;
 });
 
 // TMBD api

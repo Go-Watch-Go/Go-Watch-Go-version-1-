@@ -120,6 +120,10 @@ header {
   text-align: left;
 }
 
+.tranname {
+  color: var(--textFixed-color);
+}
+
 /* start footer */
 /* for footer section  */
 .footer {
