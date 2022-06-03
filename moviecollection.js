@@ -9,7 +9,7 @@ const searchmobile = document.querySelector(".searchmobilebtns");
 
 // api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-const url = "https://api.themoviedb.org/3/tv/";
+// const url = "https://api.themoviedb.org/3/tv/";
 const movieurl = "https://api.themoviedb.org/3/movie/";
 const imgurl = "https://image.tmdb.org/t/p/w500";
 
@@ -153,7 +153,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
     animeccs.forEach((animecard) => {
       animecard.addEventListener("click", function (e) {
-        window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
+        window.open("moviedetail.html" + "?movieid=" + animecard.id, "_self");
       });
     });
 
