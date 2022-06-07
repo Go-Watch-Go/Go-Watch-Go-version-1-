@@ -4,6 +4,7 @@
   height: 380px;
   background: rgba(0, 0, 0, 0.85);
   position: absolute;
+  /* top: -1%; */
 
   z-index: 5;
 }
@@ -84,6 +85,35 @@
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .miniPosterContainer {
+    width: 120px;
+    height: 180px;
+    /* border-radius: 15px; */
+
+    /* position: absolute; */
+    top: 60%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  .miniPoster {
+    width: 120px;
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .miniPosterContainer {
+    width: 120px;
+    height: 180px;
+  }
+
+  .miniPoster {
+    width: 120px;
+    height: 180px;
+  }
+}
 /* end banner responsive section  */
 
 /* __________________________________End Banner Responsive for various device _______________________________ */
