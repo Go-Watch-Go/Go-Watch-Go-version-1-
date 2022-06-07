@@ -70,7 +70,7 @@
                 <a class="nav-link" href="./animecollection.html">Anime</a>
               </li>
               <li class="nav-item py-2 py-md-0">
-                <a class="nav-link" href="">Movie</a>
+                <a class="nav-link" href="./moviecollection.html">Movie</a>
               </li>
               <li class="nav-item py-2 py-md-0">
                 <a class="nav-link" href="#">Manga <sup class="sup">Coming Soon</sup></a>
@@ -151,95 +151,79 @@
     <!--End season title -->
 
     <div class="epfooter">
-        <!-- Start episodes container -->
-      <section class="episodes"> 
-        <div v-for="(ep,index) in episodes" :key="ep.epnum" v-if="episodes">
-          <div class="col-12 py-4 eps" v-if="datas">
-            <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
-            <div class="lineones">
-              <div class="imgcontainers">
-                <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
-              </div>
-    
-              <div class="col-12 col-md-7 descriptions">
-                <p class="overview">{{datas[index].overview}}</p>
-                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
-              </div>
-    
-              <div class="btncontainers">
-                <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
-                  <img src="./global/icon/play-solid.svg" alt="play" width="20" height="20" class="mx-2">Play Now
-                </button>
-                <button class="btns downloads mx-1 my-2" v-if="ep.download"  @click="downloaddata(ep.download)">
-                  <img src="./global/icon/download-solid.svg" alt="download" width="20" height="20" class="mx-2">Download
-                </button>
-              </div>
-            </div>
-    
+        <!-- START FOOTER SRCTION -->
+    <footer class="footer">
+      <div class="row container-fluid footerBox">
+        <!-- start description & about us section  -->
+        <div class="row col-12 col-lg-6 col-md-6">
+          <div class="col-6">
+            <!-- for brand log  -->
+            <a href="index.html" class="logolink">
+              <img
+                src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+                alt="logo"
+                width="55"
+                height="50"
+              />
+              <span class="ms-3 footerLogo logotitle">owatchGo</span>
+            </a>
+
+            <p>
+              Enjoy anime, manga and light novels in both Myanmar and English
+            </p>
+          </div>
+          <div class="col-6 d-flex flex-column text-end companyTitles">
+            <h6 class="ms-5">Company</h6>
+            <ul>
+              <li><a href="#">About Us</a></li>
+            </ul>
           </div>
         </div>
+        <!-- end description & about us section -->
 
-        <div v-else>
-          <p class="eptitles">Loading...</p>
-        </div>
-        
-      </section>
-      <!--End episodes container -->
-
-      <!-- Start Footer Section -->
-      <footer>
-        <div class="footer">
-          <div class="row container-fluid footerBox">
-            <!-- start description & about us section  -->
-            <div class="row col-12 col-lg-6 col-md-6">
-              <div class="col-6">
-                <img src="" />
-                <p>
-                  Enjoy anime, manga and light novels in both Myanmar and English
-                </p>
-              </div>
-              <div class="col-6 d-flex flex-column text-end">
-                <h6 class="">Company</h6>
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                </ul>
-              </div>
+        <!-- start community and social group section  -->
+        <div class="col-12 col-lg-6 col-md-6 col-sm-6 communityAndSocialBox">
+          <div class="col-6 communityContainer">
+            <div class="communityBox me-1">
+              <h6>Community</h6>
+              <ul>
+                <!-- <li><a href="#">Handbook</a></li> -->
+                <li><a href="#">Terms & Condition</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
             </div>
-            <!-- end description & about us section -->
-    
-            <!-- start community and social group section  -->
-            <div class="row col-12 col-lg-6 col-md-6">
-              <div class="col-6">
-                <div class="communityBox me-1">
-                  <h6>Community</h6>
-                  <ul>
-                    <li><a href="#">Handbook</a></li>
-                    <li><a href="#">Terms and Condition</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="socialBox">
-                  <h6>Social</h6>
-                  <ul>
-                    <li>
-                      <span><i class="fa-brands fa-facebook px-2"></i></span
-                      ><a href="#">Facebook</a>
-                    </li>
-                    <li>
-                      <span><i class="fa-brands fa-telegram px-2"></i></span
-                      ><a href="#">Telegram</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- end community and social group section  -->
           </div>
+          <div class="col-6 socialContainer">
+            <div class="socialBox">
+              <h6>Social</h6>
+              <ul>
+                <li>
+                  <span><i class="fa-brands fa-facebook px-2"></i></span
+                  ><a href="#">Facebook</a>
+                </li>
+                <li>
+                  <span><i class="fa-brands fa-telegram px-2"></i></span
+                  ><a href="#">Telegram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end community and social group section  -->
+      </div>
+    </footer>
+    <!-- END FOOTER SECTION  -->
+
+    <!-- ______________________________________END FOOTER______________________________________________ -->
+
+    <!-- START COPYRIGHT SECTION  -->
+    <div class="col-12 copyright text-center">
+      <p>GowatchGo 2022 | All Right Reserved.</p>
     </div>
-      </footer>
-      <!-- End Footer Section -->
+    <!-- END COPYRIGHT SECTION  -->
+
+    <!-- ______________________________________END COPYRIGHT______________________________________________ -->
+
     </div>
 
   </div>  

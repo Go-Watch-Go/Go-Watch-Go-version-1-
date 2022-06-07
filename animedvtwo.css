@@ -316,3 +316,92 @@ iframe {
     font-size: 12px;
   }
 }
+
+/* for footer section  */
+
+.footer {
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
+  padding: 30px 10px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.footerBox {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+.communityAndSocialBox {
+  display: flex;
+  right: 0;
+}
+
+.communityContainer {
+  margin-left: 20%;
+}
+
+.communityBox,
+.socialBox {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul li {
+  list-style-type: none;
+}
+
+.footer ul li a {
+  color: var(--textFixed-color);
+  text-decoration: none;
+}
+
+.copyright {
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
+}
+
+/* __________________________End Footer Section ______________________________________ */
+
+/* start footer responsive section  */
+.companyTitles {
+  margin-left: -15%;
+}
+.communityContainer {
+  margin-left: 5%;
+}
+
+/*start footer responsive for mobile blackbear  */
+@media (max-width: 500px) {
+  .socialContainer {
+    margin-left: -10%;
+  }
+
+  .footer ul li a {
+    font-size: 13px;
+  }
+
+  .companyTitles {
+    /* margin-left: 5%; */
+  }
+
+  .companyTitles > ul > li > a {
+  }
+}
+
+/* end footer responsive for mobile blackbear  */
+
+/* __________________________________End Footer Responsive for various device _______________________________ */
+
+/* end footer responsive section  */
+/* _________________________________End footer responsive section___________________________-  */
