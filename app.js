@@ -43,14 +43,14 @@ searchmobile.addEventListener("click", () => {
   }
 });
 
-searchbtn.addEventListener("click", () => {
-  navbar.setAttribute("id", "navbarToggler");
-  if (searchbtnicon.classList.contains("fa-times")) {
-    searchmobile.style.display = "inline-block";
-    searchbtnicon.classList.remove("fa-times");
-    searchbtnicon.classList.add("fa-bars");
-  }
-});
+// searchbtn.addEventListener("click", () => {
+//   navbar.setAttribute("id", "navbarToggler");
+//   if (searchbtnicon.classList.contains("fa-times")) {
+//     searchmobile.style.display = "inline-block";
+//     searchbtnicon.classList.remove("fa-times");
+//     searchbtnicon.classList.add("fa-bars");
+//   }
+// });
 
 // Firebase section
 const firebaseConfig = {

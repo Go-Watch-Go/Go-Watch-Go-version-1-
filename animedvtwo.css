@@ -7,6 +7,8 @@ header {
   position: absolute;
 
   background: linear-gradient(180deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+
+  z-index: 2;
 }
 
 /* start navbar */
