@@ -218,19 +218,12 @@ header {
 }
 /* end episodes */
 
-/* start footer */
+/* for footer section  */
+
 .footer {
-  width: 100vw;
-  height: 300px;
-  left: 0px;
-  background: rgba(33, 33, 33, 1);
-
-  border: 1px solid rgba(15, 15, 15, 1);
-
+  background-color: var(--bg-color);
   color: var(--normalText-color);
   padding: 30px 10px;
-
-  position: absolute;
 
   display: flex;
   justify-content: center;
@@ -242,11 +235,19 @@ header {
   justify-content: center;
 }
 
+.communityAndSocialBox {
+  display: flex;
+  right: 0;
+}
+
+.communityContainer {
+  margin-left: 20%;
+}
+
 .communityBox,
 .socialBox {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 
   flex-direction: column;
 }
@@ -270,6 +271,41 @@ header {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
+
+/* __________________________End Footer Section ______________________________________ */
+
+/* start footer responsive section  */
+.companyTitles {
+  margin-left: -15%;
+}
+.communityContainer {
+  margin-left: 5%;
+}
+
+/*start footer responsive for mobile blackbear  */
+@media (max-width: 500px) {
+  .socialContainer {
+    margin-left: -10%;
+  }
+
+  .footer ul li a {
+    font-size: 13px;
+  }
+
+  .companyTitles {
+    /* margin-left: 5%; */
+  }
+
+  .companyTitles > ul > li > a {
+  }
+}
+
+/* end footer responsive for mobile blackbear  */
+
+/* __________________________________End Footer Responsive for various device _______________________________ */
+
+/* end footer responsive section  */
+/* _________________________________End footer responsive section___________________________-  */
 
 @media (max-width: 500px) {
   header {

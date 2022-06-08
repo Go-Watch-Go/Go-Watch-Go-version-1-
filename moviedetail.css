@@ -123,9 +123,8 @@ header {
 .tranname {
   color: var(--textFixed-color);
 }
-
-/* start footer */
 /* for footer section  */
+
 .footer {
   background-color: var(--bg-color);
   color: var(--normalText-color);
@@ -177,17 +176,41 @@ header {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
+
+/* __________________________End Footer Section ______________________________________ */
+
 /* start footer responsive section  */
 .companyTitles {
-  margin-top: 0%;
   margin-left: -15%;
 }
 .communityContainer {
   margin-left: 5%;
 }
+
+/*start footer responsive for mobile blackbear  */
+@media (max-width: 500px) {
+  .socialContainer {
+    margin-left: -10%;
+  }
+
+  .footer ul li a {
+    font-size: 13px;
+  }
+
+  .companyTitles {
+    margin-left: -10%;
+  }
+
+  .companyTitles > ul > li > a {
+  }
+}
+
+/* end footer responsive for mobile blackbear  */
+
+/* __________________________________End Footer Responsive for various device _______________________________ */
+
 /* end footer responsive section  */
 /* _________________________________End footer responsive section___________________________-  */
-/* ____________________________________________End Footer Section __________________________________________ */
 
 @media (max-width: 500px) {
   header {
@@ -290,10 +313,6 @@ header {
     bottom: -10px;
     font-size: 14px;
     line-height: 17px;
-  }
-
-  .companyTitles {
-    margin-left: -2% !important;
   }
 }
 
