@@ -22,26 +22,26 @@ const lastupdaecards = document.querySelector(".lastupdatecards");
 menu.addEventListener("click", () => {
   // nav.classList.toggle("fixed-top");
   if (bar.classList.contains("fa-bars") && navbar.id) {
-    searchdiv.removeAttribute("id");
+    // searchdiv.removeAttribute("id");
     bar.classList.remove("fa-bars");
     bar.classList.add("fa-times");
   } else {
-    searchdiv.setAttribute("id", "searchToggler");
+    // searchdiv.setAttribute("id", "searchToggler");
     bar.classList.remove("fa-times");
     bar.classList.add("fa-bars");
   }
 });
 
-searchmobile.addEventListener("click", () => {
-  if (searchdiv.id) {
-    navbar.removeAttribute("id");
-    searchmobile.style.display = "none";
-    searchbtn.setAttribute("data-bs-toggle", "collapse");
-    searchbtn.setAttribute("data-bs-target", "#searchToggler");
-    searchbtnicon.classList.remove("fa-bars");
-    searchbtnicon.classList.add("fa-times");
-  }
-});
+// searchmobile.addEventListener("click", () => {
+//   if (searchdiv.id) {
+//     navbar.removeAttribute("id");
+//     searchmobile.style.display = "none";
+//     searchbtn.setAttribute("data-bs-toggle", "collapse");
+//     searchbtn.setAttribute("data-bs-target", "#searchToggler");
+//     searchbtnicon.classList.remove("fa-bars");
+//     searchbtnicon.classList.add("fa-times");
+//   }
+// });
 
 // searchbtn.addEventListener("click", () => {
 //   navbar.setAttribute("id", "navbarToggler");

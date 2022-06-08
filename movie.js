@@ -22,7 +22,9 @@ const rootref = databasefire.ref(movieid);
 
 rootref.orderByKey().on("value", (snapshot) => {
   let val1 = snapshot.val();
-  console.log(val1.watch);
+  // console.log(val1.tran);
+
+  document.querySelector(".tranname").innerText = val1.tran;
 
   let src = `https://drive.google.com/file/d/${val1.watch}/preview`;
   console.log(src);
@@ -32,6 +34,11 @@ rootref.orderByKey().on("value", (snapshot) => {
 // TMBD api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
 const movieurl = "https://api.themoviedb.org/3/movie/";
+
+const nav = document.querySelector(".navs");
+const navbar = document.querySelector(".navbars");
+const menu = document.querySelector(".menus");
+const bar = document.querySelector(".bars i");
 
 async function getanime() {
   let resource = await fetch(movieurl + movieid + api);
@@ -49,3 +56,16 @@ getanime()
   .catch((err) => {
     console.log(err);
   });
+
+menu.addEventListener("click", () => {
+  // nav.classList.toggle("fixed-top");
+  if (bar.classList.contains("fa-bars") && navbar.id) {
+    // searchdiv.removeAttribute("id");
+    bar.classList.remove("fa-bars");
+    bar.classList.add("fa-times");
+  } else {
+    // searchdiv.setAttribute("id", "searchToggler");
+    bar.classList.remove("fa-times");
+    bar.classList.add("fa-bars");
+  }
+});
