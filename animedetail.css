@@ -127,6 +127,7 @@ header {
   height: 43px;
   left: 20px;
   top: 750px;
+  /* background-color: red; */
 }
 
 .seasons {
@@ -273,32 +274,6 @@ header {
 }
 
 /* __________________________End Footer Section ______________________________________ */
-
-/* start footer responsive section  */
-.companyTitles {
-  margin-left: -15%;
-}
-.communityContainer {
-  margin-left: 5%;
-}
-
-/*start footer responsive for mobile blackbear  */
-@media (max-width: 500px) {
-  .socialContainer {
-    margin-left: -10%;
-  }
-
-  .footer ul li a {
-    font-size: 13px;
-  }
-
-  .companyTitles {
-    /* margin-left: 5%; */
-  }
-
-  .companyTitles > ul > li > a {
-  }
-}
 
 /* end footer responsive for mobile blackbear  */
 

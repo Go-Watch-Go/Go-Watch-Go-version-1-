@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); /*Varela Rounded*/
+:root {
+  --bg-color: #1e1e1e;
+  --title-color: #08eb69;
+  --search-color: #e5e5e5;
+  --searchBox-color: #808080;
+  --normalText-color: #fff;
+  --textFixed-color: #08eb69;
+
+  /* for icon  */
+  --icon-color: #e5e5e5;
+  --ratingIcon-color: #eb088a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgba(30, 30, 30, 1);
+
+  overflow-x: hidden;
+}
+
+header {
+  height: 182px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+
+  position: absolute;
+
+  background: linear-gradient(180deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+}
+
+/* start navbar */
+nav {
+  padding: 5px;
+}
+
+nav.click {
+  z-index: 2;
+}
+
+body.click::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+}
+
+.logolink {
+  position: relative;
+}
+
+.logotitle {
+  font-family: Fredoka One;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  text-decoration: none;
+  color: var(--textFixed-color);
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--textFixed-color);
+}
+
+.bars {
+  margin-top: 10px;
+  color: var(--textFixed-color);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+/* end navbar */
+
+/*start backdrop */
+.backdrops {
+  width: 100vw;
+  height: 610px;
+}
+
+.backdrops img {
+  width: inherit;
+  height: inherit;
+
+  border: 1px solid rgba(229, 229, 229, 0.5);
+}
+/*end backdrop */
+
+/* start meta */
+.metas {
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
+  /* background-colorgb(22, 16, 16)red; */
+
+  position: absolute;
+  left: 0px;
+  top: 300px;
+  padding-bottom: 20px;
+
+  overflow: hidden;
+}
+
+.titles {
+  font-family: "Varela Round", sans-serif;
+  height: 174px;
+  /* background-color: red; */
+  color: var(--normalText-color);
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 87px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  overflow: hidden;
+}
+
+.score {
+  font-family: Varela Round;
+  color: var(--normalText-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.gernes {
+  font-family: Varela Round;
+  color: var(--textFixed-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.btns {
+  background: rgba(252, 252, 252, 1);
+  height: 39px;
+  width: 135px;
+  left: 481px;
+  top: 611px;
+  border-radius: 5px;
+  border: 0;
+
+  font-family: Varela Round;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+/* end meta */
+.ratings {
+  height: 25px;
+  width: 60px;
+  left: 40px;
+  top: 703px;
+  border-radius: 0px;
+
+  border: 1px solid rgba(229, 229, 229, 0.5);
+}
+
+.ratings span,
+.releasedates,
+.numberofseasons,
+.tran,
+.overviews span {
+  font-family: Varela Round;
+  color: var(--normalText-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.overviews {
+  height: 100px;
+}
+
+/* start seasons */
+.seasoncontainers {
+  position: absolute;
+  width: 300px;
+  height: 43px;
+  left: 20px;
+  top: 750px;
+}
+
+.seasons {
+  font-family: Varela Round;
+  color: var(--textFixed-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  /* text-align: left; */
+  margin: 0 10px;
+
+  opacity: 0.5;
+
+  cursor: pointer;
+}
+
+.seasons.active {
+  opacity: 1;
+  font-size: 24px;
+}
+/* end seasons */
+
+.epfooter {
+  position: absolute;
+  width: 100vw;
+  left: 10px;
+  top: 780px;
+}
+
+/* start episodes */
+.eptitles {
+  font-family: Varela Round;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--normalText-color);
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.lineones {
+  display: flex;
+}
+
+.imgcontainers {
+  height: 140px;
+  width: 249px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.imgcontainers img {
+  width: inherit;
+  height: inherit;
+}
+
+.descriptions {
+  /* height: 66px; */
+  /* width: 757px; */
+  margin-left: 10px;
+
+  /* overflow: hidden; */
+}
+
+.descriptions p {
+  font-family: Varela Round;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--normalText-color);
+  height: 92px;
+  overflow: hidden;
+}
+
+.subs {
+  color: var(--textFixed-color);
+}
+
+.subs span {
+  font-family: Varela Round;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+/* end episodes */
+
+/* start footer */
+.footer {
+  width: 100vw;
+  height: 300px;
+  left: 0px;
+  background: rgba(33, 33, 33, 1);
+
+  border: 1px solid rgba(15, 15, 15, 1);
+
+  color: var(--normalText-color);
+  padding: 30px 10px;
+
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+}
+
+.footerBox {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+.communityBox,
+.socialBox {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+
+  flex-direction: column;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul li {
+  list-style-type: none;
+}
+
+.footer ul li a {
+  color: var(--textFixed-color);
+  text-decoration: none;
+}
+
+.copyright {
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
+}
+
+@media (max-width: 500px) {
+  header {
+    height: 90px;
+  }
+
+  .backdrops {
+    height: 540px;
+  }
+
+  .backdrops img {
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .metas {
+    width: 100vw;
+    height: 340px;
+    top: 270px;
+  }
+
+  .titles {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    height: auto;
+  }
+
+  .score {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  .lineones {
+    position: relative;
+  }
+
+  .gernes {
+    position: absolute;
+    bottom: -30px;
+  }
+
+  .btns {
+    width: 95px;
+    height: 28px;
+
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .linetwos {
+    position: relative;
+    padding: 20px 0;
+    /* background-color: red; */
+  }
+
+  .ratings {
+    height: 25px;
+    width: 48px;
+    border-radius: 0px;
+  }
+
+  .ratings span,
+  .releasedates,
+  .runtimes,
+  .overviews span {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .tran {
+    position: absolute;
+    left: -50px;
+    bottom: -10px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .seasoncontainers {
+    position: absolute;
+    width: 300px;
+    height: 43px;
+    left: 0;
+    top: 650px;
+  }
+
+  .epfooter {
+    position: absolute;
+    width: 100vw;
+    left: 10px;
+    top: 680px;
+  }
+
+  .eptitles {
+    font-family: Varela Round;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  .imgcontainers {
+    width: 128px;
+    height: 72px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+  }
+
+  .eps {
+    /* background-color: #08eb69; */
+    margin: 10px 0;
+    overflow: hidden;
+    height: 190px;
+  }
+
+  .descriptions {
+    position: absolute;
+    top: 85px;
+    left: -10px;
+    /* display: none; */
+  }
+
+  .descriptions p {
+    font-size: 12px;
+  }
+
+  .subs {
+    position: absolute;
+    top: -40px;
+    right: 35%;
+  }
+
+  .subs span {
+    font-family: Varela Round;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .btncontainers {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .titles {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .titles {
+    font-size: 72px;
+  }
+}
+
+@media (min-width: 2000px) {
+  header {
+    height: 10vh;
+
+    z-index: 2;
+  }
+
+  .backdrops {
+    height: 70vh;
+    position: relative;
+  }
+
+  .backdrops img {
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .epfooter {
+    /* height: 336px; */
+    left: 0px;
+    top: 60vh;
+    z-index: 2;
+  }
+
+  .metas {
+    height: 60vh;
+  }
+}

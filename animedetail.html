@@ -1,20 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXLS0T78R6"></script>
-      <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-GXLS0T78R6');
-    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>GoWatchGo</title>
     <!-- Fontawesome css  -->
-    <link rel="stylesheet" href="./global/Font-Awesome/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- For Bootstarp Link  CSS 1-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -26,16 +25,11 @@
     <link href="css-circular-prog-bar.css" rel="stylesheet" type="text/css" />
      <!--vue cdn -->
      <script src="https://unpkg.com/vue@3.0.2"></script>
-     <!-- global css -->
-    <link rel="stylesheet" href="global/global.css" type="text/css">
+     <link rel="stylesheet" href="global/global.css">
     <!-- Custom css -->
     <link href="animedetail.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-
-  <div id="app">
-
-    
     <!-- Start Nav Bar Section -->
     <header class="col-12">
       <nav class="navbar navbar-expand-sm navs">
@@ -43,7 +37,7 @@
           <!-- for brand log  -->
           <a href="index.html" class="logolink"
             ><img
-              src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+              src="https://s3-alpha-sig.figma.com/img/0128/59eb/192b1c254923404a556769fee7ab1525?Expires=1648425600&Signature=QBbSwfJmJxfldQhNce8BoYpg0babv0MQYXrKGeAAcuRo7iPokVd~hTgv2NlE--3CnY0kkLyaBi8KGXieYwcBkKU6vPtFrefphLBUtvK2GZsy1ADVziE0-FntoeXXfhNn2OCyLUjEdbUDS7WYt1YXbprNgo2Yl-gSiby3rWKGupcyHwC~01vbmPdrDAhK2rZFN974rgKPNYe6Tkq7NEUaxNdA--iuYACGyheTRkam9nD2q7RWtaY8lK-55GTcTtyh4BLEAbOJT~8DfHhx1Qa4drms3lLd3r1B1w~~UotgzJrKgxT6B8Obcp6nJCwb~0KCOnIKP9HtG1IFddlwIYD1EA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
               alt="logo"
               width="48"
               height="48"
@@ -66,23 +60,24 @@
           <!-- for navbar menu  -->
           <div id="navbarToggler" class="navbar-collapse collapse navbars">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item py-2 py-md-0">
-                <a class="nav-link" href="./animecollection.html">Anime</a>
+              <li class="nav-item p-2 py-md-0">
+                <a class="nav-link" href="">Anime</a>
               </li>
-              <li class="nav-item py-2 py-md-0">
-                <a class="nav-link" href="./moviecollection.html">Movie</a>
+              <li class="nav-item p-2 py-md-0">
+                <a class="nav-link" href="">Movie</a>
               </li>
-              <li class="nav-item py-2 py-md-0">
-                <a class="nav-link" href="#">Manga <sup class="sup">Coming Soon</sup></a>
+              <li class="nav-item p-2 py-md-0">
+                <a class="nav-link" href="">Manga</a>
               </li>
-              <li class="nav-item py-2 py-md-0">
-                <a class="nav-link" href="#">Light Novel <sup class="sup">Coming Soon</sup></a>
+              <li class="nav-item p-2 py-md-0">
+                <a class="nav-link" href="">Light Novel</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+    
     <!-- End Nav Bar Section -->
 
     <!-- Start Backdrop Sectiuon -->
@@ -118,8 +113,8 @@
 
             <span class="gernes mx-2">Action  Supernatural</span>
 
-            <button class="btns mx-2 watchs" @click="senddata(episodes[0].watch)">
-              Play
+            <button class="btns mx-2 watchs">
+              <i class="fa-solid fa-play mx-2"></i>Play
             </button>
           </div>
 
@@ -151,7 +146,38 @@
     <!--End season title -->
 
     <div class="epfooter">
-        <!-- START FOOTER SRCTION -->
+        <!-- Start episodes container -->
+      <section id="app" class="episodes"> 
+        <div v-for="(ep,index) in episodes" :key="ep.epnum">
+          <div class="col-12 py-4 eps" v-if="datas">
+            <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
+            <div class="lineones">
+              <div class="imgcontainers">
+                <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
+              </div>
+    
+              <div class="col-12 col-md-7 descriptions">
+                <p class="overview">{{datas[index].overview}}</p>
+                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
+              </div>
+    
+              <div class="btncontainers">
+                <button class="btns watchs mx-1 my-2" @click="senddata(ep.watch)">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+                <button class="btns downloads mx-1 my-2">
+                  <i class="fa-solid fa-download mx-2"></i>Download
+                </button>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        
+      </section>
+      <!--End episodes container -->
+
+      <!-- START FOOTER SRCTION -->
     <footer class="footer">
       <div class="row container-fluid footerBox">
         <!-- start description & about us section  -->
@@ -199,11 +225,11 @@
               <ul>
                 <li>
                   <span><i class="fa-brands fa-facebook px-2"></i></span
-                  ><a href="#">Facebook</a>
+                  ><a href="https://www.facebook.com/Go-Watch-Go-100581029177286/">Facebook</a>
                 </li>
                 <li>
                   <span><i class="fa-brands fa-telegram px-2"></i></span
-                  ><a href="#">Telegram</a>
+                  ><a href="https://t.me/gowatchgo123456gwg">Telegram</a>
                 </li>
               </ul>
             </div>
@@ -225,10 +251,7 @@
     <!-- ______________________________________END COPYRIGHT______________________________________________ -->
 
     </div>
-
-  </div>  
-
-
+    
 
     <!-- For Bootstrap Link JS 2 -->
     <script

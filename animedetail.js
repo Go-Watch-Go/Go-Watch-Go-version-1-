@@ -31,7 +31,7 @@ let seasoncontiner = document.querySelector(".seasoncontainers");
 const epcontainrs = Vue.createApp({
   data() {
     return {
-      episodes: null,
+      episodes: [],
       datas: null,
     };
   },
@@ -112,12 +112,7 @@ const epcontainrs = Vue.createApp({
   methods: {
     senddata(link) {
       // console.log(epnum);
-      window.open(
-        "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + link
-      );
-    },
-    downloaddata(link) {
-      window.open(link);
+      window.open("anime.html" + "?animeid=" + animeid + "&" + "link=" + link);
     },
   },
 });
