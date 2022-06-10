@@ -30,55 +30,81 @@
     <link href="animedetail.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <!-- Start Nav Bar Section -->
-    <header class="col-12">
-      <nav class="navbar navbar-expand-sm navs">
-        <div class="container-fluid">
-          <!-- for brand log  -->
-          <a href="index.html" class="logolink"
-            ><img
-              src="https://s3-alpha-sig.figma.com/img/0128/59eb/192b1c254923404a556769fee7ab1525?Expires=1648425600&Signature=QBbSwfJmJxfldQhNce8BoYpg0babv0MQYXrKGeAAcuRo7iPokVd~hTgv2NlE--3CnY0kkLyaBi8KGXieYwcBkKU6vPtFrefphLBUtvK2GZsy1ADVziE0-FntoeXXfhNn2OCyLUjEdbUDS7WYt1YXbprNgo2Yl-gSiby3rWKGupcyHwC~01vbmPdrDAhK2rZFN974rgKPNYe6Tkq7NEUaxNdA--iuYACGyheTRkam9nD2q7RWtaY8lK-55GTcTtyh4BLEAbOJT~8DfHhx1Qa4drms3lLd3r1B1w~~UotgzJrKgxT6B8Obcp6nJCwb~0KCOnIKP9HtG1IFddlwIYD1EA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-              alt="logo"
-              width="48"
-              height="48"
-            />
-            <span class="logotitle">GowatchGo</span>
-          </a>
-  
-          <!-- toogle btn div -->
-            <!-- btn for hambergur menu  -->
-            <button
-              class="navbar-toggler ms-auto menus"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarToggler"
-            >
-              <span class="navbar-toggler-icon bars"
-                ><i class="fa-solid fa-bars"></i
-              ></span>
-            </button>
-  
-          <!-- for navbar menu  -->
-          <div id="navbarToggler" class="navbar-collapse collapse navbars">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item p-2 py-md-0">
-                <a class="nav-link" href="">Anime</a>
-              </li>
-              <li class="nav-item p-2 py-md-0">
-                <a class="nav-link" href="">Movie</a>
-              </li>
-              <li class="nav-item p-2 py-md-0">
-                <a class="nav-link" href="">Manga</a>
-              </li>
-              <li class="nav-item p-2 py-md-0">
-                <a class="nav-link" href="">Light Novel</a>
-              </li>
-            </ul>
-          </div>
+     <!-- START NAVBAR SECTION (Black Bear & Hiddan) -->
+     <nav class="navbar navbar-expand-sm bg-dark fixed-top navs">
+      <div class="container-fluid">
+        <!-- for brand log  -->
+        <a href="index.html" class="logolink"
+          ><img
+            src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+            alt="logo"
+            width="55"
+            height="50"
+          />
+          <span class="ms-3 logotitle">owatchGo</span>
+        </a>
+
+        <!-- toogle btn div -->
+        <div class="ms-auto">
+          <!-- btn for search btn  -->
+          <!-- <button
+            class="navbar-toggler ms-auto searchmobilebtns"
+            data-bs-toggle="collapse"
+            data-bs-target="#searchToggler"
+          >
+            <span class="searchtogglers"><i class="fas fa-search"></i></span>
+          </button> -->
+
+          <!-- btn for hambergur menu  -->
+          <button
+            class="navbar-toggler me-auto menus"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggler"
+          >
+            <span class="navbar-toggler-icon bars"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+          </button>
         </div>
-      </nav>
-    </header>
-    
-    <!-- End Nav Bar Section -->
+
+        <!-- for navbar menu  -->
+        <div id="navbarToggler" class="navbar-collapse collapse navbars">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="./animecollection.html">Anime</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="./moviecollection.html">Movie</a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="#">Manga <sup class="sup">Coming Soon</sup></a>
+            </li>
+            <li class="nav-item py-2 py-md-0">
+              <a class="nav-link" href="#">Light Novel <sup class="sup">Coming Soon</sup></a>
+            </li>
+          </ul>
+        </div>
+        <!-- for search bar -->
+        <!-- <div
+          class="navbar-collapse collapse py-2 py-md-0 searchdivs"
+          id="searchToggler"
+        >
+          <div class="d-flex ms-auto searchs">
+            <input
+              type="text"
+              class="form-control searchbars"
+              placeholder="Search ..."
+            />
+            <button class="searchbtns" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </nav>
+
+    <!-- ______________________________________END NAVBAR______________________________________________ -->
+
 
     <!-- Start Backdrop Sectiuon -->
     <section>
@@ -201,7 +227,7 @@
           <div class="col-6 d-flex flex-column text-end companyTitles">
             <h6 class="ms-5">Company</h6>
             <ul>
-              <li><a href="#">About Us</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
             </ul>
           </div>
         </div>
@@ -214,8 +240,8 @@
               <h6>Community</h6>
               <ul>
                 <!-- <li><a href="#">Handbook</a></li> -->
-                <li><a href="#">Terms & Condition</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="termsandcondition.html">Terms & Condition</a></li>
+                <li><a href="privacypolicy.html">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
