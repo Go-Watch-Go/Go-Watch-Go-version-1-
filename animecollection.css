@@ -117,12 +117,16 @@ nav {
   /* height: 100vh; */
   width: 96vw;
   border-radius: 16px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
 
   margin: auto;
 }
 
 .animeadds {
-  max-width: 100vw;
+  /* max-width: 100vw; */
+  /* background-color: aqua; */
 
   display: flex;
   flex-wrap: wrap;
@@ -133,6 +137,7 @@ nav {
   width: 200px;
   border-radius: 16px;
   /* background-color: aqua; */
+  margin: 0 30px;
   margin-bottom: 20px;
 
   position: relative;
@@ -209,14 +214,19 @@ nav {
   }
 
   .animecards {
-    margin: 0;
+    margin-left: 0;
+  }
+
+  .animeadds {
+    margin-left: 9px;
   }
 
   .animeposter {
-    width: 140px;
+    width: 120px;
     height: 200px;
-    transform: scale(0.8);
-    margin: 0;
+    background-color: red;
+    transform: scale(0.9);
+    margin: 0 1px;
     margin-top: -18px;
   }
 
@@ -226,6 +236,18 @@ nav {
 
   .animes {
     font-size: 18px;
+  }
+
+  .animetitle {
+    font-size: 10px;
+  }
+
+  .score {
+    font-size: 8px;
+  }
+
+  .animegernes {
+    font-size: 9px;
   }
 }
 
