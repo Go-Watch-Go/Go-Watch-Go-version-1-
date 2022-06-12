@@ -671,7 +671,8 @@ section {
 
   .moviecontainers {
     overflow-x: scroll;
-    height: 240px;
+    /* background-color: red; */
+    height: 268px;
     margin: 0;
   }
 

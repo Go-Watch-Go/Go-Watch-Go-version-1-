@@ -28,10 +28,12 @@ const databasefire = firebase.database();
 // const movieid = urlParams.get("movieid");
 let seasoncontiner = document.querySelector(".seasoncontainers");
 
+const play = document.querySelector(".playbtn");
+
 const epcontainrs = Vue.createApp({
   data() {
     return {
-      episodes: [],
+      episodes: null,
       datas: null,
     };
   },
@@ -43,6 +45,14 @@ const epcontainrs = Vue.createApp({
       let val2 = val1.season;
       let val3 = val1.tran;
       document.querySelector(".traname").innerText = val3;
+
+      play.addEventListener("click", () => {
+        // console.log("hey");
+        let playlink = val2[1][0].watch;
+        window.open(
+          "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + playlink
+        );
+      });
       // console.log(val3);
       for (v in val2) {
         let btn = document.createElement("div");
@@ -112,7 +122,12 @@ const epcontainrs = Vue.createApp({
   methods: {
     senddata(link) {
       // console.log(epnum);
-      window.open("anime.html" + "?animeid=" + animeid + "&" + "link=" + link);
+      window.open(
+        "animevtwo.html" + "?animeid=" + animeid + "&" + "link=" + link
+      );
+    },
+    downloaddata(link) {
+      window.open(link);
     },
   },
 });

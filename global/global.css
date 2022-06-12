@@ -213,4 +213,23 @@ nav {
     margin-top: 10%;
     margin-left: 30%;
   }
-}
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+  /* scroll bar end */

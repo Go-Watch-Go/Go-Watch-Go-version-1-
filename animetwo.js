@@ -170,6 +170,8 @@ function datacall(eparrays, ss) {
     const windowwidth = window.outerWidth;
 
     if (windowwidth < 600) {
+      popleftbtn.style.display = "none";
+      poprightbtn.style.display = "none";
       cardcontainer.style.width = `${142 * eparrays.length}px`;
       console.log(cardcontainer.clientWidth);
     } else {
