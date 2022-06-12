@@ -79,7 +79,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
   for (anime of animearrays) {
     let div = document.createElement("div");
-    div.className = "mx-2 cards";
+    div.className = "cards";
     let animecard = document.createElement("div");
     animecard.className = "animeposter";
     animecard.innerHTML = `

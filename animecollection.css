@@ -201,12 +201,8 @@ nav {
 @media (max-width: 500px) {
   .animecontainers {
     width: 100vw;
-    margin-left: -10px;
-  }
-
-  .anime {
-    height: 300px;
-    margin: -25px;
+    /* background-color: aquamarine; */
+    margin-top: -10px;
   }
 
   .sectiontitle {
@@ -218,20 +214,25 @@ nav {
   }
 
   .animeadds {
-    margin-left: 9px;
+    width: 96vw;
+    /* background-color: red; */
+    margin: auto;
+    /* margin-left: 5px; */
+    /* background-color: red; */
   }
 
   .animeposter {
     width: 120px;
     height: 200px;
-    background-color: red;
+    /* background-color: red; */
     transform: scale(0.9);
-    margin: 0 1px;
-    margin-top: -18px;
+    margin: 0;
+    /* margin-top: -18px; */
   }
 
   .firstrows {
-    margin-top: 80px;
+    margin-top: 70px;
+    /* background-color: blue; */
   }
 
   .animes {
@@ -250,6 +251,13 @@ nav {
     font-size: 9px;
   }
 }
+
+@media (min-width: 2000px) {
+  .animecontainers {
+    width: 91vw;
+  }
+}
+*/
 
 /* for footer section  */
 
