@@ -171,6 +171,7 @@ getanime()
   });
 
 // navbar background chg
+const nav = document.querySelector("nav");
 const menubtn = document.querySelector(".menus");
 const bar = document.querySelector(".bars i");
 
@@ -179,9 +180,11 @@ menubtn.addEventListener("click", () => {
   document.body.classList.toggle("click");
 
   if (bar.classList.contains("fa-bars")) {
+    nav.classList.add("bg-dark");
     bar.classList.remove("fa-bars");
     bar.classList.add("fa-times");
   } else {
+    nav.classList.remove("bg-dark");
     bar.classList.remove("fa-times");
     bar.classList.add("fa-bars");
   }

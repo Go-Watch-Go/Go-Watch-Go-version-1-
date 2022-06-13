@@ -183,9 +183,13 @@ iframe {
   border-radius: 16px;
 }
 
+.epcard:hover .imgcontainer {
+  border: 2px solid var(--textFixed-color);
+}
+
 .imgcontainer {
   height: 140px;
-  width: 249px;
+  width: 240px;
   border-radius: 16px;
   background-color: aqua;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

@@ -246,7 +246,7 @@ animeref.orderByKey().on("value", (snapshot) => {
         poprightbtn.style.display = "none";
       }
     } else {
-      if (x === cards.length - 5) {
+      if (x === cards.length - 6) {
         poprightbtn.style.display = "none";
       }
     }
@@ -548,7 +548,7 @@ animeref.orderByKey().on("value", (snapshot) => {
         poprightbtn.style.display = "none";
       }
     } else {
-      if (x === cards.length - 5) {
+      if (x === cards.length - 6) {
         poprightbtn.style.display = "none";
       }
     }

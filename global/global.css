@@ -53,6 +53,11 @@ nav {
   padding: 5px;
 }
 
+.nav-link:hover {
+  color: aqua;
+  transition: 0.5s;
+}
+
 .sup {
   color: var(--normalText-color);
 }
@@ -217,19 +222,20 @@ nav {
   ::-webkit-scrollbar {
     width: 0px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: transparent;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: transparent;
   }
-  /* scroll bar end */
+}
+/* scroll bar end */
