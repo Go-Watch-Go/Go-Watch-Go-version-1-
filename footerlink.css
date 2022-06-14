@@ -15,12 +15,12 @@
 }
 
 .linkHeader {
-  color: var(--title-color);
+  color: var(--title-color) !important;
   margin-top: 8rem;
 }
 
 .subHeader {
-  color: var(--title-color);
+  color: var(--title-color) !important;
   font-size: 1.5rem;
 }
 

@@ -135,8 +135,9 @@
               <div class="container">
                 <!-- banner background image  -->
                 <img :src="banner.bgposter" class="bannerBg" alt="..." />
+                <!-- Carousel Info  -->
                 <div
-                  class="col-6 carousel-caption text-start carouselInfos"
+                  class="col-7 carousel-caption text-start carouselInfos"
                   v-if="banner.type !== 'nextpj'"
                 >
                   <h2 class="seriesHeader">{{banner.name}}
@@ -189,8 +190,9 @@
                     <h2 class="seriesHeader">{{banner.name}}
                     </h2>
                      <p class="coming">This <span v-if="banner.type == movie">movie</span v-else><span>series</span> will be avaliable here soon.</p>
-                   </div>
+                  </div>
                 </div>
+                <!-- Mini Poster Container  -->
                 <div class="col-4 miniPosterContainer">
                   <!-- banner small poster  -->
                   <img :src="banner.miniposter" class="miniPoster" />
@@ -202,6 +204,7 @@
             
             </div>
           </div>
+          <!-- Banner Prev button  -->
           <button
             class="carousel-control-prev prevBtn"
             type="button"
@@ -211,6 +214,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
+          <!-- Banner Next button  -->
           <button
             class="carousel-control-next nextBtn"
             type="button"

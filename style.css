@@ -41,6 +41,12 @@
   section {
     height: 380px;
   }
+
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    margin-top: -150%;
+  }
+
   .carousel-inner {
     height: 380px;
   }
@@ -49,7 +55,10 @@
   }
   .carouselInfos {
     width: 70%;
-    margin-left: 10%;
+    margin-left: 11%;
+    margin-right: 10%;
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
   }
   .bannerBg {
     height: 340px;
@@ -153,7 +162,7 @@
 .carouselInfos {
   position: absolute;
   top: 45%;
-  left: 40%;
+  left: 42%;
   transform: translate(-50%, -50%);
 }
 
@@ -197,7 +206,7 @@
 
   position: absolute;
   top: 60%;
-  right: 10%;
+  right: 5%;
   transform: translate(-50%, -50%);
 }
 
