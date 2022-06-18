@@ -113,9 +113,10 @@ iframe {
   font-weight: 400;
   line-height: 58px;
   letter-spacing: 0em;
-  text-align: center;
+  text-align: left;
   color: var(--normalText-color);
   margin-top: 20.5px;
+  margin-left: 40px;
   /* margin-left: 40px; */
 }
 
@@ -203,6 +204,7 @@ iframe {
 }
 
 .epdivs {
+  width: 235px;
   display: flex;
   justify-content: space-between;
 }

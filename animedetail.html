@@ -150,7 +150,7 @@
     <div class="epfooter ms-2">
         <!-- Start episodes container -->
       <section id="app" class="episodes"> 
-        <div v-for="(ep,index) in episodes" :key="ep.epnum">
+        <div v-for="(ep,index) in episodes" :key="ep.epnum" v-if="episodes">
           <div class="col-12 py-4 eps" v-if="datas">
             <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
             <div class="lineones">
@@ -160,7 +160,7 @@
     
               <div class="col-12 col-md-7 descriptions">
                 <p class="overview">{{datas[index].overview}}</p>
-                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm">Burmese</span></div>
+                <div class="subs"><span v-if="ep.eng">English </span><span v-if="ep.mm"> , Burmese</span></div>
               </div>
     
               <div class="btncontainers">
@@ -173,6 +173,13 @@
               </div>
             </div>
     
+          </div>
+        </div>
+
+        <div v-else>
+          <div class="loading">
+            <img src="./global/loading.gif" alt="" width="50" height="50">
+            <p class="text-light my-2">Loading</p>
           </div>
         </div>
         
