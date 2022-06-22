@@ -785,6 +785,11 @@ section {
   justify-content: center;
 }
 
+.logolink {
+  /* margin-bottom: 1rem; */
+  /* padding-bottom: 1rem; */
+}
+
 .communityAndSocialBox {
   display: flex;
   right: 0;
