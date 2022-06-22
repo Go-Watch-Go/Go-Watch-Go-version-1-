@@ -46,6 +46,13 @@ body {
   font-family: "Varela Round", sans-serif;
   background-color: var(--bg-color);
   overflow-x: hidden;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* start navbar */
@@ -54,7 +61,7 @@ nav {
 }
 
 .nav-link:hover {
-  color: aqua;
+  color: white;
   transition: 0.5s;
 }
 
@@ -244,3 +251,13 @@ nav {
   }
 }
 /* scroll bar end */
+
+.loading {
+  width: 100vw;
+  height: 55vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

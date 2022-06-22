@@ -170,12 +170,17 @@
   margin-top: 2%;
 }
 
+.noticeSign .btn {
+  cursor: default;
+}
+
 .noticeSign > span {
   border-radius: 10px !important;
 }
 
 .contentType {
   color: var(--normalText-color);
+  cursor: default;
 }
 
 .typeMovie {
@@ -214,6 +219,8 @@
   width: 200px;
   height: 300px;
   border-radius: 15px;
+
+  pointer-events: none;
 }
 
 .prevBtn,
