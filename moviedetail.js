@@ -68,6 +68,8 @@ getanime()
     }
     document.querySelector(".movieimg").src = imgurl + data.backdrop_path;
     document.querySelector(".titles").innerText = data.title;
+    document.querySelector(".moviesDetailsTitle").innerText =
+      "Go Watch Go - " + data.title + " Details";
     percent.innerHTML = datapercent + `<span>%</span>`;
     document.querySelector(".gernes").innerText =
       data.genres[0].name + " . " + data.genres[1].name;

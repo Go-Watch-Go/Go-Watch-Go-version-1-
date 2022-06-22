@@ -334,12 +334,9 @@ nav {
     font-size: 13px;
   }
 
-  .companyTitles {
-    /* margin-left: 5%; */
-  }
-
-  .companyTitles > ul > li > a {
-  }
+  /* .companyTitles {
+    margin-left: 5%;
+  } */
 }
 
 /* end footer responsive for mobile blackbear  */

@@ -52,6 +52,8 @@ getanime()
   .then((data) => {
     // console.log(data);
     document.querySelector(".titles").innerText = data.title;
+    document.querySelector(".moviesPlayerTitle").innerText =
+      "Go Watch Go - " + data.title;
   })
   .catch((err) => {
     console.log(err);
