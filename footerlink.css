@@ -29,7 +29,8 @@
   margin-bottom: 2rem;
 }
 
-.policyBody > p {
+.policyBody > p,
+.termsAndConditionBody > p {
   color: var(--icon-color);
   margin-left: 15%;
   margin-right: 15%;
@@ -38,4 +39,8 @@
 
 .copyright {
   text-align: center !important;
+}
+
+.emailAddress {
+  color: var(--textFixed-color);
 }
