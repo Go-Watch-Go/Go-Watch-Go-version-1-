@@ -60,7 +60,9 @@ nav {
   padding: 5px;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
   color: white;
   transition: 0.5s;
 }

@@ -84,7 +84,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     animecard.innerHTML = `
         <img src="" class="animeimgs" />
         <div class="animeinfo">
-          <p class="animetitle">Jujutsu Kaisen</p>
+          <p class="animetitle"></p>
           <div class="progresscontainer">
             <div class="progress-circle over50 p80">
               <span class="percent">80<span>%</span></span>

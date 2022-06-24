@@ -116,7 +116,7 @@ app.mount("#banner");
 // for popular row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val().reverse();
-  console.log(populararrays);
+  // console.log(populararrays);
 
   populararrays = populararrays.filter((popular) => {
     return popular.popular === true;
