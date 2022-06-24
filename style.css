@@ -10,7 +10,7 @@
 
 .unicode {
   font-family: Myanmar3, Yunghkio, "Masterpiece Uni Sans";
-  font-size: 24px;
+  font-size: 18px;
   text-align: justify;
 }
 
@@ -925,7 +925,7 @@ section {
   }
 
   .footer ul li a {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .companyTitles {

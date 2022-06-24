@@ -76,6 +76,7 @@ nav {
 
 .description {
   margin-top: 1rem;
+  font-size: 13px;
 }
 
 .logotitle {
@@ -215,6 +216,9 @@ nav {
 }
 
 @media (max-width: 500px) {
+  .footer ul li a {
+    font-size: 14px;
+  }
   .companyTitles {
     margin-top: 10% !important;
   }
