@@ -1,3 +1,77 @@
+.handBookContainers {
+  background-color: var(--title-color);
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unicode {
+  font-family: Myanmar3, Yunghkio, "Masterpiece Uni Sans";
+  font-size: 24px;
+  text-align: justify;
+}
+
+.handbookDirections {
+  color: var(--bg-color);
+  font-size: 3rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.handbookDirections:hover {
+  color: var(--normalText-color);
+}
+
+.unicode > a {
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .handBookContainers {
+    height: 120px;
+  }
+  .unicode {
+    font-size: 12px !important;
+    padding: 5px 10px;
+    margin-top: 10px;
+  }
+
+  .handbookDirections {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .handBookContainers {
+    height: 130px;
+  }
+
+  .unicode {
+    font-size: 16px;
+    padding: 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .handBookContainers {
+    height: 100px;
+  }
+
+  .unicode {
+    font-size: 18px;
+    padding: 5px 20px;
+  }
+
+  .handbookDirections {
+    font-size: 1.5rem;
+  }
+}
+
+/* __________________________________End Handbook Direction Feature _______________________________ */
+
 /* coming soon sign for light novel section  */
 .comingSoonSignContainer {
   width: 100vw;
