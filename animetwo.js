@@ -98,7 +98,7 @@ function datacall(eparrays, ss) {
     <img src="" class="epimg" alt="">
   </div>
 
-  <div class="epdivs">
+  <div class="epdivs my-3">
     <p class="epnum"><span>Episode</span><span></span></p>
   <div class="subs"><span class="eng">English </span><span class="mm"> , Burmese</span></div>
   </div>

@@ -132,20 +132,20 @@ animeref.orderByKey().on("value", (snapshot) => {
     popularcard.innerHTML = `
       <img src="" class="popularimgs" />
       <div class="popularinfo">
-        <p class="populartitle">Jujutsu Kaisen</p>
+        <p class="populartitle"></p>
         <div class="progresscontainer">
-          <div class="progress-circle over50 p80">
-            <span class="percent">80<span>%</span></span>
+          <div class="progress-circle">
+            <span class="percent"></span>
             <div class="left-half-clipper">
               <div class="first50-bar"></div>
               <div class="value-bar"></div>
             </div>
           </div>
   
-          <span class="score">User Score</span>
+          <span class="score"></span>
         </div>
   
-        <p class="populargernes">Action.Supernatural</p>
+        <p class="populargernes"></p>
       </div>
       `;
 
@@ -279,20 +279,20 @@ movref.orderByKey().on("value", (snapshot) => {
     moviecard.innerHTML = `
       <img src="" class="movieimgs" />
       <div class="movieinfo">
-        <p class="movietitle">Jujutsu Kaisen</p>
+        <p class="movietitle"></p>
         <div class="progresscontainer">
-          <div class="progress-circle over50 p80">
-            <span class="percent">80<span>%</span></span>
+          <div class="progress-circle">
+            <span class="percent"></span>
             <div class="left-half-clipper">
               <div class="first50-bar"></div>
               <div class="value-bar"></div>
             </div>
           </div>
   
-          <span class="score">User Score</span>
+          <span class="score"></span>
         </div>
   
-        <p class="moviegernes">Action.Supernatural</p>
+        <p class="moviegernes"></p>
       </div>
       `;
 
@@ -434,20 +434,20 @@ animeref.orderByKey().on("value", (snapshot) => {
     animecard.innerHTML = `
       <img src="" class="animeimgs" />
       <div class="animeinfo">
-        <p class="animetitle">Jujutsu Kaisen</p>
+        <p class="animetitle"></p>
         <div class="progresscontainer">
-          <div class="progress-circle over50 p80">
-            <span class="percent">80<span>%</span></span>
+          <div class="progress-circle">
+            <span class="percent"></span>
             <div class="left-half-clipper">
               <div class="first50-bar"></div>
               <div class="value-bar"></div>
             </div>
           </div>
   
-          <span class="score">User Score</span>
+          <span class="score"></span>
         </div>
   
-        <p class="animegernes">Action.Supernatural</p>
+        <p class="animegernes"></p>
       </div>
       `;
 
