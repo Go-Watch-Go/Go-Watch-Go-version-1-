@@ -324,7 +324,7 @@ header {
   }
 
   .backdrops {
-    height: 70vh;
+    height: 85vh;
     position: relative;
   }
 
@@ -335,12 +335,17 @@ header {
 
   .epfooter {
     /* height: 336px; */
+    /* background-color: aqua; */
     left: 0px;
-    top: 40vh;
+    top: 60vh;
     z-index: 2;
   }
 
   .metas {
-    height: 40vh;
+    height: 25vh;
   }
+}
+
+.loading {
+  position: absolute;
 }

@@ -122,7 +122,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     return popular.popular === true;
   });
 
-  console.log(populararrays);
+  console.log(populararrays[0].id);
 
   // a.push(populararrays);
 
@@ -171,7 +171,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       getanime()
         .then((data) => {
           // console.log(data);
-          let datapercent = data.vote_average * 10;
+          let datapercent = Math.floor(data.vote_average * 10);
           if (datapercent > 50) {
             popularpercent[
               idx
@@ -185,7 +185,9 @@ animeref.orderByKey().on("value", (snapshot) => {
           popularimgs[idx].src = imgurl + data.poster_path;
           populartite[idx].innerText = data.name;
           popularpercent[idx].innerHTML = datapercent + `<span>%</span>`;
-          populargernes[idx].innerText = data.genres[1].name;
+          populargernes[idx].innerText = data.genres[1]
+            ? data.genres[1].name
+            : data.genres[0].name;
         })
         .catch((err) => {});
     }
@@ -216,6 +218,17 @@ animeref.orderByKey().on("value", (snapshot) => {
       cardcontainer.style.width = `${160 * populararrays.length}px`;
     } else {
       cardcontainer.style.width = `${240 * populararrays.length}px`;
+
+      let xxx = 240 * populararrays.length;
+      // console.log(xxx);
+
+      // console.log(windowwidth);
+
+      if (xxx < windowwidth) {
+        poprightbtn.style.display = "none";
+        popleftbtn.style.display = "none";
+      }
+
       // console.log(260 * populararrays.length);
     }
   }
@@ -245,7 +258,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       if (x === cards.length - 4) {
         poprightbtn.style.display = "none";
       }
-    } else {
+    } else if (windowwidth > 1200 && windowwidth < 1500) {
       if (x === cards.length - 6) {
         poprightbtn.style.display = "none";
       }
@@ -255,6 +268,167 @@ animeref.orderByKey().on("value", (snapshot) => {
   function goleft() {
     x--;
     let y = 280 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    poprightbtn.style.display = "block";
+    if (x === 0) {
+      popleftbtn.style.display = "none";
+    }
+  }
+});
+
+// for anime row by(hidan)
+animeref.orderByKey().on("value", (snapshot) => {
+  let animearrays = snapshot.val().reverse();
+
+  animearrays = animearrays.filter((anime) => {
+    return anime.show === true;
+  });
+  // console.log(animearrays);
+
+  // a.push(populararrays);
+
+  for (anime of animearrays) {
+    let animecard = document.createElement("div");
+    animecard.className = "anicards";
+    animecard.innerHTML = `
+      <img src="" class="animeimgs" />
+      <div class="animeinfo">
+        <p class="animetitle"></p>
+        <div class="progresscontainer">
+          <div class="progress-circle">
+            <span class="percent"></span>
+            <div class="left-half-clipper">
+              <div class="first50-bar"></div>
+              <div class="value-bar"></div>
+            </div>
+          </div>
+  
+          <span class="score"></span>
+        </div>
+  
+        <p class="animegernes"></p>
+      </div>
+      `;
+
+    animecards.appendChild(animecard);
+
+    const animeimgs = animecards.querySelectorAll(".animeimgs"),
+      animetite = animecards.querySelectorAll(".animetitle"),
+      animepercent = animecards.querySelectorAll(".percent"),
+      animegernes = animecards.querySelectorAll(".animegernes");
+    animeccs = animecards.querySelectorAll(".anicards");
+
+    function insertdata(Id, idx) {
+      let animeid = Id;
+
+      async function getanime() {
+        let resource = await fetch(url + animeid + api);
+
+        let data = await resource.json();
+
+        return data;
+      }
+
+      getanime()
+        .then((data) => {
+          let datapercent = Math.floor(data.vote_average * 10);
+          // console.log(getgernes);
+          if (datapercent > 50) {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle p${datapercent}`;
+          }
+          animeccs[idx].id = Id;
+          animeimgs[idx].src = imgurl + data.poster_path;
+          animetite[idx].innerText = data.name;
+          animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
+          animegernes[idx].innerText = data.genres[1]
+            ? data.genres[1].name
+            : data.genres[0].name;
+        })
+        .catch((err) => {});
+    }
+
+    animearrays.forEach((aniary, index) => {
+      insertdata(aniary.id, index);
+    });
+
+    animeccs.forEach((animecard) => {
+      animecard.addEventListener("click", function (e) {
+        window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
+      });
+    });
+  }
+
+  const cardcontainer = document.querySelector(".animecards");
+  const cards = document.querySelectorAll(".anicards");
+  const poprightbtn = document.querySelector(".animeright"),
+    popleftbtn = document.querySelector(".animeleft");
+
+  poprightbtn.addEventListener("click", goright);
+  popleftbtn.addEventListener("click", goleft);
+
+  let yyy = null;
+  let xxx = null;
+
+  function getwidth() {
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      cardcontainer.style.width = `${160 * animearrays.length}px`;
+    } else {
+      cardcontainer.style.width = `${260 * animearrays.length}px`;
+      // console.log(260 * populararrays.length);
+      xxx = 240 * animearrays.length;
+      // console.log(xxx);
+
+      // console.log(windowwidth);
+
+      if (xxx < windowwidth) {
+        poprightbtn.style.display = "none";
+        popleftbtn.style.display = "none";
+      } else {
+        yyy = (xxx - windowwidth) / 250;
+      }
+    }
+  }
+
+  getwidth();
+
+  // console.log(yyy);
+
+  let x = 0;
+  // console.log(cards.length);
+
+  function goright() {
+    // console.log(xxx, yyy);
+    x++;
+    let y = 250 * x;
+    cardcontainer.style.transform = `translateX(-${y}px)`;
+
+    popleftbtn.style.display = "block";
+
+    const windowwidth = window.outerWidth;
+
+    if (windowwidth < 600) {
+      poprightbtn.style.display = "none";
+      poprightbtn.style.display = "none";
+    } else if (xxx > 3440) {
+      console.log(x > yyy);
+      if (x > yyy) {
+        poprightbtn.style.display = "none";
+      }
+    }
+  }
+
+  function goleft() {
+    x--;
+    let y = 250 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     poprightbtn.style.display = "block";
@@ -361,14 +535,29 @@ movref.orderByKey().on("value", (snapshot) => {
   movrightbtn.addEventListener("click", gomoviearrowright);
   movleftbtn.addEventListener("click", gomoviearrowleft);
 
+  let xxx = null;
+  let yyy = null;
+
   function getwidth() {
     const windowwidth = window.outerWidth;
 
     if (windowwidth < 600) {
       moviecontainer.style.width = `${200 * moviearrays.length}px`;
     } else {
-      moviecontainer.style.width = `${360 * moviearrays.length}px`;
+      moviecontainer.style.width = `${300 * moviearrays.length}px`;
       // console.log(260 * populararrays.length);
+      xxx = 300 * moviearrays.length;
+      console.log(xxx);
+
+      console.log(windowwidth);
+
+      if (xxx < windowwidth) {
+        movrightbtn.style.display = "none";
+        movleftbtn.style.display = "none";
+      } else {
+        yyy = Math.floor((xxx - windowwidth) / 250);
+        // alert(yyy);
+      }
     }
   }
 
@@ -378,7 +567,7 @@ movref.orderByKey().on("value", (snapshot) => {
 
   function gomoviearrowright() {
     x++;
-    let y = 267 * x;
+    let y = 300 * x;
     moviecontainer.style.transform = `translateX(-${y}px)`;
 
     movleftbtn.style.display = "block";
@@ -390,16 +579,9 @@ movref.orderByKey().on("value", (snapshot) => {
         movrightbtn.style.display = "none";
         // lastrightbtn.style.display = "none";
       }
-    } else if (windowwidth > 600 && windowwidth < 992) {
-      if (x === cards.length - 1) {
-        movrightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (x === cards.length - 2) {
-        movrightbtn.style.display = "none";
-      }
-    } else {
-      if (x === cards.length - 3) {
+    } else if (xxx > windowwidth) {
+      // console.log();
+      if (x === yyy) {
         movrightbtn.style.display = "none";
       }
     }
@@ -407,286 +589,137 @@ movref.orderByKey().on("value", (snapshot) => {
 
   function gomoviearrowleft() {
     x--;
-    let y = 330 * x;
+    let y = 300 * x;
     moviecontainer.style.transform = `translateX(-${y}px)`;
 
     movrightbtn.style.display = "block";
     if (x === 0) {
       movleftbtn.style.display = "none";
-    }
-  }
-});
-
-// for anime row by(hidan)
-animeref.orderByKey().on("value", (snapshot) => {
-  let animearrays = snapshot.val().reverse();
-
-  animearrays = animearrays.filter((anime) => {
-    return anime.show === true;
-  });
-  // console.log(animearrays);
-
-  // a.push(populararrays);
-
-  for (anime of animearrays) {
-    let animecard = document.createElement("div");
-    animecard.className = "anicards";
-    animecard.innerHTML = `
-      <img src="" class="animeimgs" />
-      <div class="animeinfo">
-        <p class="animetitle"></p>
-        <div class="progresscontainer">
-          <div class="progress-circle">
-            <span class="percent"></span>
-            <div class="left-half-clipper">
-              <div class="first50-bar"></div>
-              <div class="value-bar"></div>
-            </div>
-          </div>
-  
-          <span class="score"></span>
-        </div>
-  
-        <p class="animegernes"></p>
-      </div>
-      `;
-
-    animecards.appendChild(animecard);
-
-    const animeimgs = animecards.querySelectorAll(".animeimgs"),
-      animetite = animecards.querySelectorAll(".animetitle"),
-      animepercent = animecards.querySelectorAll(".percent"),
-      animegernes = animecards.querySelectorAll(".animegernes");
-    animeccs = animecards.querySelectorAll(".anicards");
-
-    function insertdata(Id, idx) {
-      let animeid = Id;
-
-      async function getanime() {
-        let resource = await fetch(url + animeid + api);
-
-        let data = await resource.json();
-
-        return data;
-      }
-
-      getanime()
-        .then((data) => {
-          // console.log(data);
-          let datapercent = data.vote_average * 10;
-          if (datapercent > 50) {
-            animepercent[
-              idx
-            ].parentElement.className = `progress-circle over50 p${datapercent}`;
-          } else {
-            animepercent[
-              idx
-            ].parentElement.className = `progress-circle p${datapercent}`;
-          }
-          animeccs[idx].id = Id;
-          animeimgs[idx].src = imgurl + data.poster_path;
-          animetite[idx].innerText = data.name;
-          animepercent[idx].innerHTML = datapercent + `<span>%</span>`;
-          animegernes[idx].innerText = data.genres[1].name;
-        })
-        .catch((err) => {});
-    }
-
-    animearrays.forEach((aniary, index) => {
-      insertdata(aniary.id, index);
-    });
-
-    animeccs.forEach((animecard) => {
-      animecard.addEventListener("click", function (e) {
-        window.open("animedetail.html" + "?animeid=" + animecard.id, "_self");
-      });
-    });
-  }
-
-  const cardcontainer = document.querySelector(".animecards");
-  const cards = document.querySelectorAll(".anicards");
-  const poprightbtn = document.querySelector(".animeright"),
-    popleftbtn = document.querySelector(".animeleft");
-
-  poprightbtn.addEventListener("click", goright);
-  popleftbtn.addEventListener("click", goleft);
-
-  function getwidth() {
-    const windowwidth = window.outerWidth;
-
-    if (windowwidth < 600) {
-      cardcontainer.style.width = `${160 * animearrays.length}px`;
-    } else {
-      cardcontainer.style.width = `${260 * animearrays.length}px`;
-      // console.log(260 * populararrays.length);
-    }
-  }
-
-  getwidth();
-
-  let x = 0;
-  // console.log(cards.length);
-
-  function goright() {
-    x++;
-    let y = 260 * x;
-    cardcontainer.style.transform = `translateX(-${y}px)`;
-
-    popleftbtn.style.display = "block";
-
-    const windowwidth = window.outerWidth;
-
-    if (windowwidth < 600) {
-      poprightbtn.style.display = "none";
-      poprightbtn.style.display = "none";
-    } else if (windowwidth > 600 && windowwidth < 992) {
-      if (x === cards.length - 3) {
-        poprightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (x === cards.length - 4) {
-        poprightbtn.style.display = "none";
-      }
-    } else {
-      if (x === cards.length - 6) {
-        poprightbtn.style.display = "none";
-      }
-    }
-  }
-
-  function goleft() {
-    x--;
-    let y = 280 * x;
-    cardcontainer.style.transform = `translateX(-${y}px)`;
-
-    poprightbtn.style.display = "block";
-    if (x === 0) {
-      popleftbtn.style.display = "none";
     }
   }
 });
 
 // for lastupdate row by (hidan)
-lastref.orderByKey().on("value", (snapshot) => {
-  let val1 = snapshot.val().reverse();
-  // console.log(val1[0].id);
+// lastref.orderByKey().on("value", (snapshot) => {
+//   let val1 = snapshot.val().reverse();
+//   // console.log(val1[0].id);
 
-  let lastupdatearrays = [];
-  for (let i = 0; i < val1.length; i++) {
-    lastupdatearrays.push(val1[i].id);
-    // console.log(lastupdatearrays);
-  }
-  // console.log(lastupdatearrays);
+//   let lastupdatearrays = [];
+//   for (let i = 0; i < val1.length; i++) {
+//     lastupdatearrays.push(val1[i].id);
+//     // console.log(lastupdatearrays);
+//   }
+//   // console.log(lastupdatearrays);
 
-  for (lastupdate of lastupdatearrays) {
-    let lastcard = document.createElement("div");
-    lastcard.className = "lastcards";
-    lastcard.innerHTML = `
-    <img
-    src="https://www.gstatic.com/webp/gallery/4.sm.jpg"
-    class="lastimgs"
-  />
-  <div class="lastinfo">
-    <p class="lasttitle">Jujutsu Kaisen</p>
-    <p class="lastep">Episode 7</p>
-  </div>
-      `;
+//   for (lastupdate of lastupdatearrays) {
+//     let lastcard = document.createElement("div");
+//     lastcard.className = "lastcards";
+//     lastcard.innerHTML = `
+//     <img
+//     src="https://www.gstatic.com/webp/gallery/4.sm.jpg"
+//     class="lastimgs"
+//   />
+//   <div class="lastinfo">
+//     <p class="lasttitle">Jujutsu Kaisen</p>
+//     <p class="lastep">Episode 7</p>
+//   </div>
+//       `;
 
-    lastupdaecards.appendChild(lastcard);
+//     lastupdaecards.appendChild(lastcard);
 
-    const lastimgs = lastupdaecards.querySelectorAll(".lastimgs"),
-      lasttitle = lastupdaecards.querySelectorAll(".lasttitle"),
-      lastep = lastupdaecards.querySelectorAll(".lastep");
+//     const lastimgs = lastupdaecards.querySelectorAll(".lastimgs"),
+//       lasttitle = lastupdaecards.querySelectorAll(".lasttitle"),
+//       lastep = lastupdaecards.querySelectorAll(".lastep");
 
-    function insertdata(Id, idx) {
-      let animeid = Id;
+//     function insertdata(Id, idx) {
+//       let animeid = Id;
 
-      async function getanime() {
-        let resource = await fetch(url + animeid + api);
+//       async function getanime() {
+//         let resource = await fetch(url + animeid + api);
 
-        let data = await resource.json();
+//         let data = await resource.json();
 
-        return data;
-      }
+//         return data;
+//       }
 
-      getanime()
-        .then((data) => {
-          // console.log(data);
-          lastimgs[idx].src = imgurl + data.backdrop_path;
-          lasttitle[idx].innerText = data.name;
-          lastep[idx].innerText = "Episode" + val1[idx].ep;
-        })
-        .catch((err) => {});
-    }
+//       getanime()
+//         .then((data) => {
+//           // console.log(data);
+//           lastimgs[idx].src = imgurl + data.backdrop_path;
+//           lasttitle[idx].innerText = data.name;
+//           lastep[idx].innerText = "Episode" + val1[idx].ep;
+//         })
+//         .catch((err) => {});
+//     }
 
-    lastupdatearrays.forEach((lastary, index) => {
-      insertdata(lastary, index);
-    });
-  }
+//     lastupdatearrays.forEach((lastary, index) => {
+//       insertdata(lastary, index);
+//     });
+//   }
 
-  const moviecontainer = document.querySelector(".lastupdatecards");
-  const cards = document.querySelectorAll(".lastcards");
-  const movrightbtn = document.querySelector(".lastupdateright"),
-    movleftbtn = document.querySelector(".lastupdateleft");
+//   const moviecontainer = document.querySelector(".lastupdatecards");
+//   const cards = document.querySelectorAll(".lastcards");
+//   const movrightbtn = document.querySelector(".lastupdateright"),
+//     movleftbtn = document.querySelector(".lastupdateleft");
 
-  movrightbtn.addEventListener("click", gomoviearrowright);
-  movleftbtn.addEventListener("click", gomoviearrowleft);
+//   movrightbtn.addEventListener("click", gomoviearrowright);
+//   movleftbtn.addEventListener("click", gomoviearrowleft);
 
-  function getwidth() {
-    const windowwidth = window.outerWidth;
+//   function getwidth() {
+//     const windowwidth = window.outerWidth;
 
-    if (windowwidth < 600) {
-      moviecontainer.style.width = `${200 * lastupdatearrays.length}px`;
-    } else {
-      moviecontainer.style.width = `${360 * lastupdatearrays.length}px`;
-      // console.log(260 * populararrays.length);
-    }
-  }
+//     if (windowwidth < 600) {
+//       moviecontainer.style.width = `${200 * lastupdatearrays.length}px`;
+//     } else {
+//       moviecontainer.style.width = `${360 * lastupdatearrays.length}px`;
+//       // console.log(260 * populararrays.length);
+//     }
+//   }
 
-  getwidth();
+//   getwidth();
 
-  let x = 0;
+//   let x = 0;
 
-  function gomoviearrowright() {
-    x++;
-    let y = 330 * x;
-    moviecontainer.style.transform = `translateX(-${y}px)`;
+//   function gomoviearrowright() {
+//     x++;
+//     let y = 330 * x;
+//     moviecontainer.style.transform = `translateX(-${y}px)`;
 
-    movleftbtn.style.display = "block";
+//     movleftbtn.style.display = "block";
 
-    const windowwidth = window.outerWidth;
+//     const windowwidth = window.outerWidth;
 
-    if (windowwidth < 600) {
-      if (x === cards.length - 2) {
-        movrightbtn.style.display = "none";
-        // lastrightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 600 && windowwidth < 992) {
-      if (x === cards.length - 1) {
-        movrightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (x === cards.length - 2) {
-        movrightbtn.style.display = "none";
-      }
-    } else {
-      if (x === cards.length - 3) {
-        movrightbtn.style.display = "none";
-      }
-    }
-  }
+//     if (windowwidth < 600) {
+//       if (x === cards.length - 2) {
+//         movrightbtn.style.display = "none";
+//         // lastrightbtn.style.display = "none";
+//       }
+//     } else if (windowwidth > 600 && windowwidth < 992) {
+//       if (x === cards.length - 1) {
+//         movrightbtn.style.display = "none";
+//       }
+//     } else if (windowwidth > 992 && windowwidth < 1200) {
+//       if (x === cards.length - 2) {
+//         movrightbtn.style.display = "none";
+//       }
+//     } else {
+//       if (x === cards.length - 3) {
+//         movrightbtn.style.display = "none";
+//       }
+//     }
+//   }
 
-  function gomoviearrowleft() {
-    x--;
-    let y = 330 * x;
-    moviecontainer.style.transform = `translateX(-${y}px)`;
+//   function gomoviearrowleft() {
+//     x--;
+//     let y = 330 * x;
+//     moviecontainer.style.transform = `translateX(-${y}px)`;
 
-    movrightbtn.style.display = "block";
-    if (x === 0) {
-      movleftbtn.style.display = "none";
-    }
-  }
-});
+//     movrightbtn.style.display = "block";
+//     if (x === 0) {
+//       movleftbtn.style.display = "none";
+//     }
+//   }
+// });
 
 // for manga row by(black bear)
 let getMangaData = () => {
@@ -700,8 +733,8 @@ let getMangaData = () => {
       let resource = JSON.parse(this.responseText);
       let mangaBox = "";
       let mangaImgContainer = document.querySelector(".mangacards");
-      console.error(resource.length);
-      console.warn(typeof resource);
+      // console.error(resource.length);
+      // console.warn(typeof resource);
       for (let manga of resource) {
         mangaBox += `
         <div class="mangaCardBox">
@@ -731,7 +764,7 @@ let getMangaData = () => {
 
   // function for move manga card to next side
   function mangaGoRight() {
-    console.error();
+    // console.error();
     mangaleftbtn.style.display = "block";
     number++;
     let position = 225 * number;

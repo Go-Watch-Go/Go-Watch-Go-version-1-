@@ -63,7 +63,7 @@ nav {
 .nav-link:hover,
 .nav-link:active,
 .nav-link:focus {
-  color: white;
+  color: rgba(252, 252, 252, 1);
   transition: 0.5s;
 }
 
@@ -260,12 +260,14 @@ nav {
 
 .loading {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  z-index: 2;
 }
 
 .copyright p {
