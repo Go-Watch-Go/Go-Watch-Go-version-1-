@@ -22,7 +22,7 @@
   border-radius: 50%;
   width: 3.8em;
   height: 3.8em;
-  background-color: white;
+  background-color: rgba(252, 252, 252, 1);
   content: " ";
 }
 /* Text inside the control */

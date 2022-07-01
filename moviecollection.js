@@ -13,6 +13,7 @@ const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
 const movieurl = "https://api.themoviedb.org/3/movie/";
 const imgurl = "https://image.tmdb.org/t/p/w500";
 
+const loading = document.querySelector(".loading");
 const animecards = document.querySelector(".animeadds");
 
 // nav function
@@ -126,6 +127,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
       await getanime()
         .then((data) => {
+          loading.style.display = "none";
           //   console.log(data);
           let datapercent = data.vote_average * 10;
           if (datapercent > 50) {

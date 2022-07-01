@@ -149,7 +149,7 @@ getanime()
     let airdate = data.first_air_date;
     let getyear = airdate.slice(0, 4);
     const percent = document.querySelector(".percent");
-    let datapercent = data.vote_average * 10;
+    let datapercent = Math.floor(data.vote_average * 10);
     if (datapercent > 50) {
       percent.parentElement.className = `progress-circle over50 p${datapercent}`;
     } else {
@@ -160,8 +160,9 @@ getanime()
     document.querySelector(".seriesDetailsTitle").innerText =
       "Go Watch Go - " + data.name + " Details";
     percent.innerHTML = datapercent + `<span>%</span>`;
-    document.querySelector(".gernes").innerHTML =
-      data.genres[0].name + "<span> & </span>" + data.genres[1].name;
+    document.querySelector(".gernes").innerHTML = data.genres[1]
+      ? data.genres[1].name
+      : data.genres[0].name;
     document.querySelector(".ratings span").innerText = `PG-${age}`;
     document.querySelector(".releasedates").innerText = getyear;
     document.querySelector(".numberofseasons").innerText =

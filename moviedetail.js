@@ -4,6 +4,7 @@ const urlParams = new URLSearchParams(querystring);
 const playbtn = document.querySelector(".watchs");
 const downloadbtn = document.querySelector(".downloads");
 
+const loading = document.querySelector(".loading");
 const movieid = urlParams.get("movieid");
 // const movieid = "8392";
 
@@ -52,6 +53,7 @@ async function getanime() {
 
 getanime()
   .then((data) => {
+    loading.style.display = "none";
     // console.log(data);
     let runtime = data.runtime / 60;
     let hr = Math.floor(runtime);
@@ -60,7 +62,7 @@ getanime()
     let airdate = data.release_date;
     let getyear = airdate.slice(0, 4);
     const percent = document.querySelector(".percent");
-    let datapercent = data.vote_average * 10;
+    let datapercent = Math.floor(data.vote_average * 10);
     if (datapercent > 50) {
       percent.parentElement.className = `progress-circle over50 p${datapercent}`;
     } else {
