@@ -1,0 +1,52 @@
+body {
+  background-color: var(--bg-color);
+}
+
+.handbookTitles {
+  color: var(--textFixed-color);
+  margin-top: 8rem;
+}
+.announcements {
+  background-color: var(--textFixed-color);
+  padding: 20px 15px;
+  margin-bottom: 10px;
+}
+
+.announcementTexts {
+  text-align: justify;
+}
+
+.subSectionTitles {
+  background-color: var(--normalText-color);
+}
+
+.subTitleEngVers {
+  margin-left: 1rem;
+}
+.accordionContainers {
+  background-color: var(--bg-color);
+}
+
+.imgContainers {
+  margin-bottom: 10px;
+}
+
+.handbookImgs {
+  width: 500px;
+  height: 350px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 500px) {
+  .handbookImgs {
+    width: 300px;
+    height: 200px;
+  }
+
+  .subTitleEngVers {
+    display: none;
+  }
+}

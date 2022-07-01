@@ -316,6 +316,7 @@
   }
 
   .bannerBtns {
+    background-color: var(--search-color);
     margin-top: 5px !important;
     margin-left: -15%;
     transform: scale(0.45);

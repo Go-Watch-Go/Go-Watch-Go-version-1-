@@ -24,6 +24,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- For Jquery Link  -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
     <!-- Unicode font  -->
     <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
     <!-- Progress Bar Css  -->
@@ -177,12 +179,12 @@
                   <p class="seriesSummary">{{banner.overview}}</p>
                   <!-- play now btn to connect with aao link  -->
                   <div v-if="!banner.onair && banner.type == 'Movie'">
-                    <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
+                    <a :href="banner.link" class="btn btn-lg bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                   </div>
                   <div v-if="banner.type !== 'Movie'">
-                    <a :href="banner.link" class="btn btn-lg bg-light bannerBtns"
+                    <a :href="banner.link" class="btn btn-lg bannerBtns"
                     ><i class="fa-solid fa-play mx-2"></i>Play Now</a
                   >
                   </div>
@@ -456,6 +458,11 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
+
+    <!-- J Query Script for banner reload  -->
+    <!-- <script>
+      $('#banner').load('#banner > *')
+    </script> -->
 
     <!-- For Bootstrap Link JS 2 -->
     <script
