@@ -12,7 +12,7 @@
 
 .unicode {
   font-family: Myanmar3, Yunghkio, "Masterpiece Uni Sans";
-  font-size: 18px;
+  font-size: 2rem;
   text-align: justify;
 }
 
@@ -36,7 +36,7 @@
     height: 100px;
   }
   .unicode {
-    font-size: 12px !important;
+    font-size: 12px;
     padding: 5px 10px;
     margin-top: 10px;
   }
@@ -52,7 +52,7 @@
     /* margin-top: 10%; */
   }
   .unicode {
-    font-size: 12px !important;
+    font-size: 12px;
     padding: 5px 10px;
     margin-top: 10px;
   }
@@ -68,7 +68,7 @@
   }
 
   .unicode {
-    font-size: 16px;
+    font-size: 24px;
     padding: 10px 10px;
   }
 }
@@ -79,7 +79,7 @@
   }
 
   .unicode {
-    font-size: 18px;
+    font-size: 20px;
     padding: 5px 20px;
   }
 
@@ -929,94 +929,10 @@ section {
 
 /* for footer section  */
 
-.footer {
-  background-color: var(--bg-color);
-  color: var(--normalText-color);
-  padding: 30px 10px;
-
-  display: flex;
-  justify-content: center;
-}
-
-.footerBox {
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-}
-
-.logolink {
-  /* margin-bottom: 1rem; */
-  /* padding-bottom: 1rem; */
-}
-
-.communityAndSocialBox {
-  display: flex;
-  right: 0;
-}
-
-.communityContainer {
-  margin-left: 20%;
-}
-
-.communityBox,
-.socialBox {
-  display: flex;
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer ul li {
-  list-style-type: none;
-}
-
-.footer ul li a {
-  color: var(--textFixed-color);
-  text-decoration: none;
-}
+/* _________________________________End footer responsive section___________________________-  */
 
 .copyright {
   background-color: var(--bg-color);
   color: var(--normalText-color);
 }
-
-/* __________________________End Footer Section ______________________________________ */
-
-/* start footer responsive section  */
-.companyTitles {
-  margin-left: -15%;
-}
-.communityContainer {
-  margin-left: 5%;
-}
-
-/*start footer responsive for mobile blackbear  */
-@media (max-width: 500px) {
-  .socialContainer {
-    margin-left: -10%;
-  }
-
-  .footer ul li a {
-    font-size: 14px;
-  }
-
-  .companyTitles {
-    /* margin-left: 5%; */
-  }
-
-  .companyTitles > ul > li > a {
-  }
-}
-
-/* end footer responsive for mobile blackbear  */
-
-/* __________________________________End Footer Responsive for various device _______________________________ */
-
-/* end footer responsive section  */
-/* _________________________________End footer responsive section___________________________-  */
+/* _________________________________End Copyright section___________________________-  */

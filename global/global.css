@@ -96,10 +96,6 @@ nav {
   left: 50%;
 }
 
-.footerLogo {
-  bottom: -100%;
-}
-
 .nav-link {
   font-size: 18px;
   font-style: normal;
@@ -161,82 +157,86 @@ nav {
 }
 /* end navbar */
 
-/* for footer section  */
-
-.footer {
+/* start footer section  */
+.footerContainer {
   background-color: var(--bg-color);
-  color: var(--normalText-color);
-  padding: 30px 10px;
+}
 
+.footerTitles {
   display: flex;
-  justify-content: center;
-
-  border-top: 1px solid rgba(15, 15, 15, 1);
+  margin-top: 2rem !important;
 }
 
-.footerBox {
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
+.footerLogo {
+  text-align: left;
 }
 
-.communityAndSocialBox {
-  display: flex;
-  right: 0;
-}
-
-.communityContainer {
-  margin-left: 20%;
-}
-
-.communityBox,
-.socialBox {
-  display: flex;
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer ul li {
-  list-style-type: none;
-}
-
-.footer ul li a {
-  color: var(--textFixed-color);
+.logoLink {
   text-decoration: none;
+
+  position: relative;
+}
+.logoTitle {
+  color: var(--textFixed-color);
+  margin-bottom: 100%;
+  position: absolute;
+  bottom: -4.5rem;
 }
 
-.copyright {
-  background-color: var(--bg-color);
+.footerSubSectionTitles,
+.footerListHeader {
+  margin-left: 3rem;
+}
+
+.footerSubSectionTitles {
   color: var(--normalText-color);
+  font-size: 17px;
+  text-align: left;
+}
+
+.siteDescription {
+  color: var(--normalText-color);
+  text-align: justify;
+  font-size: 16px;
+}
+
+.footerListHeader {
+  list-style: none;
+}
+
+.footerListEach {
+  list-style-type: none !important;
+  text-align: left;
+  cursor: pointer;
+}
+
+.footerListAttribute {
+  text-decoration: none !important;
+  color: var(--textFixed-color);
+  font-size: 16px;
 }
 
 @media (max-width: 500px) {
-  .footer ul li a {
+  .footerTitles {
+    width: 50% !important;
+  }
+
+  .footerSubSectionTitles,
+  .footerListHeader {
+    margin-left: 0;
+  }
+
+  .logoTitle {
+    font-size: 13px;
+  }
+
+  .footerListAttribute {
     font-size: 14px;
   }
-  .companyTitles {
-    margin-top: 10% !important;
-  }
-  .communityContainer {
-    margin-left: 5% !important;
-  }
+}
 
-  .communityBox {
-    margin-top: 10%;
-  }
-
-  .socialBox {
-    margin-top: 10%;
-    margin-left: 30%;
-  }
-
+/* end footer section  */
+@media (max-width: 500px) {
   ::-webkit-scrollbar {
     width: 0px;
   }
@@ -270,6 +270,14 @@ nav {
   z-index: 2;
 }
 
+/* start copyright section  */
+
+.copyright {
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
+}
 .copyright p {
   opacity: 0.5;
 }
+
+/* end copyright section  */

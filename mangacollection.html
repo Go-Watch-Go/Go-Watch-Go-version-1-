@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXLS0T78R6"></script>
-      <script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GXLS0T78R6"
+    ></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-GXLS0T78R6');
+      gtag("config", "G-GXLS0T78R6");
     </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manga</title>
+    <!-- global css -->
+    <link rel="stylesheet" href="global/global.css" type="text/css" />
+
     <!-- Custom CSS  -->
     <link href="mangacollection.css" rel="stylesheet" type="text/css" />
     <!-- Fontawesome css  -->
@@ -141,6 +149,95 @@
         </div>
       </section>
     </div>
+
+    <!-- START FOOTER SRCTION -->
+    <footer class="container-fluid footerContainer">
+      <div class="row col-12 text-center mx-auto">
+        <!-- Start Logo and Descriptions  -->
+        <div class="col-xs-5 col-md-3 col-lg-3 flex-column footerTitles">
+          <ul class="footerLogo">
+            <a href="index.html" class="logoLink">
+              <img
+                src="https://bannerimgbucket.s3.ap-northeast-1.amazonaws.com/logo+copy.png"
+                alt="logo"
+                width="55"
+                height="50"
+              />
+              <span class="logoTitle">owatchGo</span>
+            </a>
+          </ul>
+          <ul>
+            <p class="siteDescription">
+              Enjoy anime, manga and light novels in both Myanmar and English
+            </p>
+          </ul>
+        </div>
+        <!-- End Logo and Descriptions  -->
+
+        <!-- Start Company Section  -->
+        <div class="col-xs-5 col-md-3 col-lg-3 flex-column footerTitles">
+          <ul class="footerSubSectionTitles">
+            Company
+          </ul>
+          <ul class="footerListHeader">
+            <li class="footerListEach">
+              <a class="footerListAttribute" href="aboutus.html">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End Company Section  -->
+
+        <!-- Start Community Section  -->
+        <div class="col-xs-5 col-md-3 col-lg-3 flex-column footerTitles">
+          <ul class="footerSubSectionTitles">
+            Community
+          </ul>
+          <ul class="footerListHeader">
+            <li class="footerListEach">
+              <a class="footerListAttribute" href="handbook.html">Handbook</a>
+            </li>
+            <li class="footerListEach">
+              <a class="footerListAttribute" href="privacypolicy.html"
+                >Privacy Policy</a
+              >
+            </li>
+            <li class="footerListEach">
+              <a class="footerListAttribute" href="termsandcondition.html"
+                >Terms & Conditions</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- End Community Section  -->
+
+        <!-- Start Social Section  -->
+        <div class="col-xs-5 col-md-3 col-lg-3 flex-column footerTitles">
+          <ul class="footerSubSectionTitles">
+            Social
+          </ul>
+          <ul class="footerListHeader">
+            <li class="footerListEach">
+              <a
+                class="footerListAttribute"
+                href="https://www.facebook.com/Go-Watch-Go-100581029177286/"
+                >Facebook</a
+              >
+            </li>
+            <li class="footerListEach">
+              <a
+                class="footerListAttribute"
+                href="https://t.me/gowatchgo123456gwg"
+                >Telegram</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- End Social Section  -->
+      </div>
+    </footer>
+    <!-- END FOOTER SECTION  -->
+
+    <!-- ______________________________________END FOOTER______________________________________________ -->
 
     <!-- firebase js -->
     <script
