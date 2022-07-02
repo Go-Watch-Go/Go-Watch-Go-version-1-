@@ -122,7 +122,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     return popular.popular === true;
   });
 
-  console.log(populararrays[0].id);
+  // console.log(populararrays[0].id);
 
   // a.push(populararrays);
 
@@ -220,9 +220,9 @@ animeref.orderByKey().on("value", (snapshot) => {
       cardcontainer.style.width = `${240 * populararrays.length}px`;
 
       let xxx = 240 * populararrays.length;
-      // console.log(xxx);
+      console.log(xxx);
 
-      // console.log(windowwidth);
+      console.log("windowWidth = " + windowwidth);
 
       if (xxx < windowwidth) {
         poprightbtn.style.display = "none";
