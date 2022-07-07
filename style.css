@@ -1,3 +1,5 @@
+/* start handbook section  */
+
 .handBookContainers {
   background-color: var(--title-color);
   width: 100%;
@@ -11,20 +13,26 @@
 }
 
 .unicode {
+  color: var(--normalText-color);
   font-family: Myanmar3, Yunghkio, "Masterpiece Uni Sans";
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 550;
   text-align: justify;
+  letter-spacing: 0.3px;
 }
 
-.handbookDirections {
-  color: var(--bg-color);
+.handbookNotifyEng {
+  font-family: "Varela Round", sans-serif;
+}
+.handbookDirectionIcons {
+  color: var(--normalText-color);
   font-size: 3rem;
   margin-top: 10px;
   cursor: pointer;
 }
 
-.handbookDirections:hover {
-  color: var(--normalText-color);
+.handbookDirectionIcons:hover {
+  color: var(--bg-color);
 }
 
 .unicode > a {
@@ -36,12 +44,12 @@
     height: 100px;
   }
   .unicode {
-    font-size: 12px;
+    font-size: 10px;
     padding: 5px 10px;
     margin-top: 10px;
   }
 
-  .handbookDirections {
+  .handbookDirectionIcons {
     font-size: 0.8rem;
   }
 }
@@ -57,7 +65,7 @@
     margin-top: 10px;
   }
 
-  .handbookDirections {
+  .handbookDirectionIcons {
     font-size: 0.8rem;
   }
 }
@@ -68,7 +76,7 @@
   }
 
   .unicode {
-    font-size: 24px;
+    font-size: 12px;
     padding: 10px 10px;
   }
 }
@@ -79,11 +87,11 @@
   }
 
   .unicode {
-    font-size: 20px;
+    font-size: 16px;
     padding: 5px 20px;
   }
 
-  .handbookDirections {
+  .handbookDirectionIcons {
     font-size: 1.5rem;
   }
 }
@@ -165,25 +173,31 @@
 
 .noticeSign .btn {
   cursor: default;
+  background-color: var(--search-color);
 }
 
 .noticeSign > span {
   border-radius: 10px !important;
 }
 
+.bannerBtns {
+  background-color: var(--search-color);
+}
+
 .contentType {
-  color: var(--normalText-color);
-  cursor: default;
+  background-color: var(--search-color);
+
+  /* cursor: default; */
 }
 
 .typeMovie {
-  background-color: lemonchiffon;
+  background-color: var(--search-color);
   color: var(--bg-color);
 }
 
 .typeSeries {
   color: #000;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .seriesHeader {
@@ -257,7 +271,7 @@
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: aqua;
+  /* color: aqua; */
   text-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
 }
 /* end banner section  */

@@ -2,6 +2,10 @@ body {
   background-color: var(--bg-color);
 }
 
+.container {
+  margin-bottom: 60%;
+}
+
 .handbookTitles {
   color: var(--textFixed-color);
   margin-top: 8rem;
