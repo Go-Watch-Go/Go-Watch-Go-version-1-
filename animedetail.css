@@ -333,13 +333,13 @@ header {
 /* end footer responsive section  */
 /* _________________________________End footer responsive section___________________________-  */
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   header {
     height: 90px;
   }
 
   .backdrops {
-    height: 540px;
+    /* height: 650px; */
   }
 
   .backdrops img {
@@ -349,7 +349,7 @@ header {
 
   .metas {
     width: 100vw;
-    height: 340px;
+    /* height: 340px; */
     top: 270px;
   }
 
@@ -366,7 +366,8 @@ header {
     line-height: 17px;
   }
 
-  .lineones {
+  .lineones,
+  .epcontainers {
     position: relative;
   }
 
@@ -403,6 +404,14 @@ header {
     line-height: 17px;
   }
 
+  .article {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .tran {
     position: absolute;
     left: -50px;
@@ -412,18 +421,18 @@ header {
   }
 
   .seasoncontainers {
-    position: absolute;
+    /* position: absolute; */
     width: 300px;
     height: 43px;
     left: 0;
-    top: 650px;
+    /* top: 650px; */
   }
 
   .epfooter {
-    position: absolute;
+    /* position: absolute; */
     width: 100vw;
     left: 10px;
-    top: 680px;
+    /* top: 680px; */
   }
 
   .loading {
@@ -504,6 +513,14 @@ header {
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
+  }
+
+  .article {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

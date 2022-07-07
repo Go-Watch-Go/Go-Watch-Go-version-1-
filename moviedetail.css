@@ -53,6 +53,8 @@ header {
   letter-spacing: 0em;
   text-align: left;
 
+  text-shadow: 0 0 10px #1e1e1e;
+
   overflow: hidden;
 }
 
@@ -212,7 +214,7 @@ header {
 /* end footer responsive section  */
 /* _________________________________End footer responsive section___________________________-  */
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   header {
     height: 90px;
 
@@ -303,7 +305,7 @@ header {
   .releasedates,
   .runtimes,
   .overviews span {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 17px;
   }
 
@@ -313,6 +315,36 @@ header {
     bottom: -10px;
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media (min-width: 768px) {
+  .titles {
+    font-size: 50px;
+  }
+
+  .overviews span {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) {
+  .titles {
+    font-size: 60px;
+  }
+
+  .overviews span {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .titles {
+    font-size: 72px;
+  }
+
+  .overviews span {
+    font-size: 18px;
   }
 }
 
