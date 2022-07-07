@@ -167,7 +167,7 @@ function datacall(eparrays, ss) {
   popleftbtn.addEventListener("click", goleft);
 
   function getwidth() {
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
 
     if (windowwidth < 600) {
       popleftbtn.style.display = "none";
@@ -205,7 +205,7 @@ function datacall(eparrays, ss) {
 
     popleftbtn.style.display = "block";
 
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
 
     console.log(eparrays.length);
 

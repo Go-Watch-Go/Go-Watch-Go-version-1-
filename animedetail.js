@@ -112,6 +112,7 @@ const epcontainrs = Vue.createApp({
 
       getanime()
         .then((data) => {
+          // console.log(data);
           this.datas = data.episodes;
         })
         .catch((err) => {
@@ -152,6 +153,9 @@ getanime()
     let datapercent = Math.floor(data.vote_average * 10);
     if (datapercent > 50) {
       percent.parentElement.className = `progress-circle over50 p${datapercent}`;
+    } else if (datapercent === 0) {
+      percent.parentElement.className = `progress-circle over50 p${datapercent}`;
+      datapercent = 50;
     } else {
       percent.parentElement.className = `progress-circle p${datapercent}`;
     }

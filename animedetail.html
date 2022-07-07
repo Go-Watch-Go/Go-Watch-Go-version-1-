@@ -100,7 +100,9 @@
     <section>
       <div class="container-fluid metas">
         <div class="detailcontainers ms-0 ms-md-3">
-          <h1 class="titles"></h1>
+          <div class="titlecontainers">
+            <h1 class="titles"></h1>
+          </div>
 
           <div class="col-12 d-flex align-items-center lineones">
             <div class="progresscontainer d-flex align-items-center">
@@ -156,7 +158,7 @@
         <div v-for="(ep,index) in episodes" :key="ep.epnum" v-if="episodes">
           <div class="col-12 py-4 eps" v-if="datas">
             <h5 class="eptitles"><span>{{ep.epnum}}</span class="eptit" > {{datas[index].name}}</h5>
-            <div class="lineones">
+            <div class="epcontainers">
               <div class="imgcontainers">
                 <img :src="`https://image.tmdb.org/t/p/w500${datas[index].still_path}`"  alt="epimgs">
               </div>

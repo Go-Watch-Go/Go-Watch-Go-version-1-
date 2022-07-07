@@ -325,13 +325,9 @@ iframe {
 
 /* for footer section  */
 
-.footer {
-  background-color: var(--bg-color);
-  color: var(--normalText-color);
-  padding: 30px 10px;
-
-  display: flex;
-  justify-content: center;
+.footerContainer {
+  position: absolute;
+  bottom: 0;
 }
 
 .footerBox {
@@ -406,6 +402,31 @@ iframe {
   }
 
   .companyTitles > ul > li > a {
+  }
+}
+
+@media (min-width: 2000px) {
+  .iframe {
+    width: 80%;
+    height: 800px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    /* margin-top: ; */
+
+    margin: auto;
+    margin-top: 80px;
+  }
+
+  iframe {
+    width: 75%;
+    height: inherit;
+  }
+
+  .btnhide {
+    /* right: 17.5%; */
   }
 }
 

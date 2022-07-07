@@ -134,7 +134,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     return popular.popular === true;
   });
 
-  console.log(populararrays[0].id);
+  // console.log(populararrays[0].id);
 
   // a.push(populararrays);
 
@@ -224,7 +224,7 @@ animeref.orderByKey().on("value", (snapshot) => {
   popleftbtn.addEventListener("click", goleft);
 
   function getwidth() {
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
 
     if (windowwidth < 600) {
       cardcontainer.style.width = `${160 * populararrays.length}px`;
@@ -234,7 +234,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       let xxx = 240 * populararrays.length;
       // console.log(xxx);
 
-      // console.log(windowwidth);
+      // console.log("windowWidth = " + windowwidth);
 
       if (xxx < windowwidth) {
         poprightbtn.style.display = "none";
@@ -389,7 +389,7 @@ animeref.orderByKey().on("value", (snapshot) => {
   let xxx = null;
 
   function getwidth() {
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
 
     if (windowwidth < 600) {
       cardcontainer.style.width = `${160 * animearrays.length}px`;
@@ -431,7 +431,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       poprightbtn.style.display = "none";
       poprightbtn.style.display = "none";
     } else if (xxx > 3440) {
-      console.log(x > yyy);
+      // console.log(x > yyy);
       if (x > yyy) {
         poprightbtn.style.display = "none";
       }
@@ -551,7 +551,9 @@ movref.orderByKey().on("value", (snapshot) => {
   let yyy = null;
 
   function getwidth() {
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
+    // const width = screen.width;
+    // console.log("screenwidth = " + width);
 
     if (windowwidth < 600) {
       moviecontainer.style.width = `${200 * moviearrays.length}px`;
@@ -559,9 +561,9 @@ movref.orderByKey().on("value", (snapshot) => {
       moviecontainer.style.width = `${300 * moviearrays.length}px`;
       // console.log(260 * populararrays.length);
       xxx = 300 * moviearrays.length;
-      console.log(xxx);
+      // console.log(xxx);
 
-      console.log(windowwidth);
+      // console.log(windowwidth);
 
       if (xxx < windowwidth) {
         movrightbtn.style.display = "none";
