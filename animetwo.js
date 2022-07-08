@@ -142,7 +142,7 @@ function datacall(eparrays, ss) {
           }
         })
         .catch((err) => {
-          console.log(err.message);
+          // console.log(err.message);
         });
     }
 
@@ -166,71 +166,57 @@ function datacall(eparrays, ss) {
   poprightbtn.addEventListener("click", goright);
   popleftbtn.addEventListener("click", goleft);
 
+  let yyy = null;
+  let xxx = null;
+
   function getwidth() {
     const windowwidth = screen.width;
-
     if (windowwidth < 600) {
-      popleftbtn.style.display = "none";
-      poprightbtn.style.display = "none";
       cardcontainer.style.width = `${142 * eparrays.length}px`;
-      console.log(cardcontainer.clientWidth);
     } else {
       cardcontainer.style.width = `${250 * eparrays.length}px`;
-      if (eparrays.length === 5) {
-        popleftbtn.style.display = "none";
-        poprightbtn.style.display = "none";
-      } else if (eparrays.length < 5) {
-        console.log("hey");
-        popleftbtn.style.display = "none";
-        poprightbtn.style.display = "none";
-      } else {
-        popleftbtn.style.display = "none";
-        poprightbtn.style.display = "block";
-      }
       // console.log(260 * populararrays.length);
+      xxx = 257 * eparrays.length;
+      // console.log(xxx);
+
+      // console.log(windowwidth);
+
+      if (xxx < windowwidth) {
+        poprightbtn.style.display = "none";
+        popleftbtn.style.display = "none";
+      } else {
+        yyy = (xxx - windowwidth) / 257;
+      }
     }
   }
 
   getwidth();
 
   let x = 0;
-  let c = 5;
+  // let c = 5;
   // console.log(cards.length);
 
   function goright() {
     x++;
-    c++;
+    // c++;
     let y = 257 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     popleftbtn.style.display = "block";
 
-    const windowwidth = screen.width;
+    // const windowwidth = screen.width;
 
-    console.log(eparrays.length);
+    // console.log(eparrays.length);
+    console.log(x, yyy);
 
-    if (windowwidth < 600) {
+    if (x > yyy) {
       poprightbtn.style.display = "none";
-      poprightbtn.style.display = "none";
-    } else if (windowwidth > 600 && windowwidth < 992) {
-      if (x === eparrays.length - 3) {
-        poprightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (x === eparrays.length - 4) {
-        poprightbtn.style.display = "none";
-      }
-    } else {
-      if (x === eparrays.length - 5) {
-        console.log(c);
-        poprightbtn.style.display = "none";
-      }
     }
   }
 
   function goleft() {
     x--;
-    let y = 249 * x;
+    let y = 257 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     poprightbtn.style.display = "block";
@@ -259,3 +245,25 @@ getanime()
   .catch((err) => {
     console.log(err);
   });
+
+if (window.orientation !== undefined) {
+  // console.log("mobile");
+}
+
+const isMobile = function () {
+  const match = window.matchMedia("(pointer:coarse)");
+  return match && match.matches;
+};
+
+const boxs = document.querySelector(".boxs");
+
+if (isMobile() === true) {
+  console.log("mobile");
+  boxs.classList.add("mobile");
+  popleftbtn.classList.add("mobile");
+  poprightbtn.classList.add("mobile");
+} else {
+  boxs.classList.remove("mobile");
+  popleftbtn.classList.remove("mobile");
+  poprightbtn.classList.remove("mobile");
+}

@@ -418,7 +418,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     if (windowwidth < 600) {
       poprightbtn.style.display = "none";
       poprightbtn.style.display = "none";
-    } else if (xxx > 3440) {
+    } else if (xxx > windowwidth) {
       // console.log(x > yyy);
       if (x > yyy) {
         poprightbtn.style.display = "none";
@@ -846,17 +846,3 @@ let getLightnovelData = () => {
 };
 
 getLightnovelData();
-
-// api
-// const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
-// const url = "https://api.themoviedb.org/3/tv/";
-// const movieurl = "https://api.themoviedb.org/3/movie/";
-// const imgurl = "https://image.tmdb.org/t/p/w500";
-
-// const popularcards = document.querySelector(".popularcards");
-// const moviecards = document.querySelector(".moviecards");
-// const animecards = document.querySelector(".animecards");
-// const lastupdaecards = document.querySelector(".lastupdatecards");
-// const mangacards = document.querySelector(".mangacards");
-
-// firestore test

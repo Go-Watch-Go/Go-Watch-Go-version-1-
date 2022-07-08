@@ -1,3 +1,11 @@
+body {
+  min-height: 100vh;
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
 header {
   height: 182px;
   left: 0px;
@@ -167,6 +175,10 @@ iframe {
   overflow: hidden;
 }
 
+.boxs.mobile {
+  overflow-x: scroll;
+}
+
 .epcards {
   /* margin-left: 40px; */
   /* display: flex; */
@@ -239,7 +251,14 @@ iframe {
   transform: translateY(-50%);
   z-index: 1;
 
+  display: none;
+
   /* display: none; */
+}
+
+.right.mobile,
+.left.mobile {
+  display: none;
 }
 
 .epnum {
@@ -255,8 +274,68 @@ iframe {
 }
 /* end epcontainer */
 
+/* for footer section  */
+
+.footerBox {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+.communityAndSocialBox {
+  display: flex;
+  right: 0;
+}
+
+.communityContainer {
+  margin-left: 20%;
+}
+
+.communityBox,
+.socialBox {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.footerLogo {
+  bottom: -100%;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul li {
+  list-style-type: none;
+}
+
+.footer ul li a {
+  color: var(--textFixed-color);
+  text-decoration: none;
+}
+
+.copyright {
+  background-color: var(--bg-color);
+  color: var(--normalText-color);
+}
+
+/* __________________________End Footer Section ______________________________________ */
+
+/* start footer responsive section  */
+.companyTitles {
+  margin-left: -15%;
+}
+.communityContainer {
+  margin-left: 5%;
+}
 @media (max-width: 500px) {
   .boxs {
+    /* background-color: red; */
+    height: 150px;
     overflow-x: scroll;
     /* background-color: red; */
   }
@@ -321,74 +400,8 @@ iframe {
   .subs span {
     font-size: 12px;
   }
-}
 
-/* for footer section  */
-
-.footerContainer {
-  position: absolute;
-  bottom: 0;
-}
-
-.footerBox {
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-}
-
-.communityAndSocialBox {
-  display: flex;
-  right: 0;
-}
-
-.communityContainer {
-  margin-left: 20%;
-}
-
-.communityBox,
-.socialBox {
-  display: flex;
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.footerLogo {
-  bottom: -100%;
-}
-
-.footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer ul li {
-  list-style-type: none;
-}
-
-.footer ul li a {
-  color: var(--textFixed-color);
-  text-decoration: none;
-}
-
-.copyright {
-  background-color: var(--bg-color);
-  color: var(--normalText-color);
-}
-
-/* __________________________End Footer Section ______________________________________ */
-
-/* start footer responsive section  */
-.companyTitles {
-  margin-left: -15%;
-}
-.communityContainer {
-  margin-left: 5%;
-}
-
-/*start footer responsive for mobile blackbear  */
-@media (max-width: 500px) {
+  /* ____________________ */
   .socialContainer {
     margin-left: -10%;
   }
@@ -396,12 +409,43 @@ iframe {
   .footer ul li a {
     font-size: 13px;
   }
+}
 
-  .companyTitles {
-    /* margin-left: 5%; */
+@media (min-width: 992px) {
+  .boxs {
+    width: 90vw;
+    /* background-color: red; */
   }
 
-  .companyTitles > ul > li > a {
+  .epcard {
+    width: 240px;
+  }
+
+  .imgcontainer {
+    width: 231px;
+  }
+
+  .epdivs {
+    width: 228px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .boxs {
+    width: 94vw;
+    /* background-color: red; */
+  }
+
+  .epcard {
+    width: 249px;
+  }
+
+  .imgcontainer {
+    width: 240px;
+  }
+
+  .epdivs {
+    width: 235px;
   }
 }
 
@@ -427,6 +471,11 @@ iframe {
 
   .btnhide {
     /* right: 17.5%; */
+  }
+
+  .footerContainer {
+    position: absolute;
+    bottom: 0;
   }
 }
 

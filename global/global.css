@@ -236,26 +236,11 @@ nav {
 }
 
 /* end footer section  */
-@media (max-width: 500px) {
-  ::-webkit-scrollbar {
-    width: 0px;
-  }
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: transparent;
-  }
+::-webkit-scrollbar:horizontal {
+  display: none;
 }
+
 /* scroll bar end */
 
 .loading {
