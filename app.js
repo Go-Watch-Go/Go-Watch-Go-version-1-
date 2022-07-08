@@ -113,6 +113,18 @@ app.mount("#banner");
 
 // courselimgae[0].classList.add("active");
 
+// for handbook reminder
+// function handbookDirectBtn() {
+//   const handbooklink = document.querySelectorAll("#handbooklink");
+//   const handbookDirectory = document.querySelectorAll(".handbookDirectory");
+
+//   handbookDirectory.addEventListener("click", () => {
+//     console.log("Handbook btn is ok");
+//     // handbooklink.style.border = "1px solid #fff";
+//   });
+// }
+
+// handbookDirectBtn();
 // for popular row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val().reverse();

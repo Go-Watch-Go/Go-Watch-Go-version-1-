@@ -2,18 +2,32 @@ body {
   background-color: var(--bg-color);
 }
 
+.container {
+  margin-bottom: 60%;
+}
+
 .handbookTitles {
   color: var(--textFixed-color);
   margin-top: 8rem;
 }
 .announcements {
-  background-color: var(--textFixed-color);
   padding: 20px 15px;
+  margin-top: 0.2rem;
   margin-bottom: 10px;
 }
 
 .announcementTexts {
   text-align: justify;
+  color: var(--normalText-color);
+}
+
+.mainText {
+  color: var(--textFixed-color);
+}
+
+.handbookNotifyEng,
+.mainText {
+  font-family: "Varela Round", sans-serif;
 }
 
 .subSectionTitles {
@@ -31,9 +45,20 @@ body {
   margin-bottom: 10px;
 }
 
+.textContainers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.handbookTexts {
+  color: var(--normalText-color);
+  text-align: justify;
+}
+
 .handbookImgs {
-  width: 400px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
 
   display: block;
   margin-left: auto;
