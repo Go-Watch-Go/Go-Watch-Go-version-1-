@@ -113,18 +113,6 @@ app.mount("#banner");
 
 // courselimgae[0].classList.add("active");
 
-// for handbook reminder
-// function handbookDirectBtn() {
-//   const handbooklink = document.querySelectorAll("#handbooklink");
-//   const handbookDirectory = document.querySelectorAll(".handbookDirectory");
-
-//   handbookDirectory.addEventListener("click", () => {
-//     console.log("Handbook btn is ok");
-//     // handbooklink.style.border = "1px solid #fff";
-//   });
-// }
-
-// handbookDirectBtn();
 // for popular row by(hidan)
 animeref.orderByKey().on("value", (snapshot) => {
   let populararrays = snapshot.val().reverse();
@@ -223,6 +211,9 @@ animeref.orderByKey().on("value", (snapshot) => {
   poprightbtn.addEventListener("click", goright);
   popleftbtn.addEventListener("click", goleft);
 
+  let xxx = null;
+  let yyy = null;
+
   function getwidth() {
     const windowwidth = screen.width;
 
@@ -230,18 +221,18 @@ animeref.orderByKey().on("value", (snapshot) => {
       cardcontainer.style.width = `${160 * populararrays.length}px`;
     } else {
       cardcontainer.style.width = `${240 * populararrays.length}px`;
-
-      let xxx = 240 * populararrays.length;
+      // console.log(260 * populararrays.length);
+      xxx = 240 * populararrays.length;
       // console.log(xxx);
 
-      // console.log("windowWidth = " + windowwidth);
+      // console.log(windowwidth);
 
       if (xxx < windowwidth) {
         poprightbtn.style.display = "none";
         popleftbtn.style.display = "none";
+      } else {
+        yyy = (xxx - windowwidth) / 250;
       }
-
-      // console.log(260 * populararrays.length);
     }
   }
 
@@ -252,26 +243,19 @@ animeref.orderByKey().on("value", (snapshot) => {
 
   function goright() {
     x++;
-    let y = 260 * x;
+    let y = 250 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     popleftbtn.style.display = "block";
 
-    const windowwidth = window.outerWidth;
+    const windowwidth = screen.width;
 
     if (windowwidth < 600) {
       poprightbtn.style.display = "none";
       poprightbtn.style.display = "none";
-    } else if (windowwidth > 600 && windowwidth < 992) {
-      if (x === cards.length - 3) {
-        poprightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 992 && windowwidth < 1200) {
-      if (x === cards.length - 4) {
-        poprightbtn.style.display = "none";
-      }
-    } else if (windowwidth > 1200 && windowwidth < 1500) {
-      if (x === cards.length - 6) {
+    } else if (xxx > windowwidth) {
+      // console.log(x > yyy);
+      if (x > yyy) {
         poprightbtn.style.display = "none";
       }
     }
@@ -279,7 +263,7 @@ animeref.orderByKey().on("value", (snapshot) => {
 
   function goleft() {
     x--;
-    let y = 280 * x;
+    let y = 240 * x;
     cardcontainer.style.transform = `translateX(-${y}px)`;
 
     poprightbtn.style.display = "block";
@@ -394,7 +378,7 @@ animeref.orderByKey().on("value", (snapshot) => {
     if (windowwidth < 600) {
       cardcontainer.style.width = `${160 * animearrays.length}px`;
     } else {
-      cardcontainer.style.width = `${260 * animearrays.length}px`;
+      cardcontainer.style.width = `${240 * animearrays.length}px`;
       // console.log(260 * populararrays.length);
       xxx = 240 * animearrays.length;
       // console.log(xxx);
@@ -431,7 +415,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       poprightbtn.style.display = "none";
       poprightbtn.style.display = "none";
     } else if (xxx > windowwidth) {
-      // console.log(x > yyy);
+      // alert(yyy);
       if (x > yyy) {
         poprightbtn.style.display = "none";
       }
@@ -569,7 +553,7 @@ movref.orderByKey().on("value", (snapshot) => {
         movrightbtn.style.display = "none";
         movleftbtn.style.display = "none";
       } else {
-        yyy = Math.floor((xxx - windowwidth) / 250);
+        yyy = (xxx - windowwidth) / 300;
         // alert(yyy);
       }
     }
@@ -595,7 +579,7 @@ movref.orderByKey().on("value", (snapshot) => {
       }
     } else if (xxx > windowwidth) {
       // console.log();
-      if (x === yyy) {
+      if (x > yyy) {
         movrightbtn.style.display = "none";
       }
     }
@@ -858,3 +842,32 @@ let getLightnovelData = () => {
 };
 
 getLightnovelData();
+
+const isMobile = function () {
+  const match = window.matchMedia("(pointer:coarse)");
+  return match && match.matches;
+};
+
+const cons = document.querySelectorAll(".cons");
+const arrows = document.querySelectorAll(".arrow");
+
+if (isMobile() === true) {
+  console.log("mobile");
+  cons.forEach((con) => {
+    con.classList.add("mobile");
+  });
+  arrows.forEach((arrow) => {
+    arrow.classList.add("mobile");
+  });
+  // popleftbtn.classList.add("mobile");
+  // poprightbtn.classList.add("mobile");
+} else {
+  cons.forEach((con) => {
+    con.classList.remove("mobile");
+  });
+  arrows.forEach((arrow) => {
+    arrow.classList.remove("mobile");
+  });
+  // popleftbtn.classList.remove("mobile");
+  // poprightbtn.classList.remove("mobile");
+}

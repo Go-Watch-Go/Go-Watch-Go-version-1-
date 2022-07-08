@@ -484,6 +484,7 @@ section {
 .animecontainers,
 .lastupdatecontainers {
   /* background-color: aqua; */
+  padding: 20px 0;
   position: relative;
 
   overflow: hidden;
@@ -516,6 +517,8 @@ section {
   overflow: hidden;
 
   cursor: pointer;
+
+  transition: all 0.4s ease;
 }
 
 .movcards {
@@ -532,6 +535,8 @@ section {
   overflow: hidden;
 
   cursor: pointer;
+
+  transition: all 0.4s ease;
 }
 
 .lastcards {
@@ -547,6 +552,18 @@ section {
   overflow: hidden;
 
   cursor: pointer;
+
+  transition: all 0.4s ease;
+}
+
+.cards:hover,
+.movcards:hover,
+.anicards:hover,
+.lastcards:hover,
+.singleMangaCard:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .cards::after,
@@ -766,6 +783,10 @@ section {
   cursor: pointer;
 }
 
+.arrow.mobile {
+  display: none;
+}
+
 .arrow:hover {
   opacity: 0.8;
 }
@@ -950,3 +971,7 @@ section {
   color: var(--normalText-color);
 }
 /* _________________________________End Copyright section___________________________-  */
+
+.cons.mobile {
+  overflow-x: scroll;
+}
