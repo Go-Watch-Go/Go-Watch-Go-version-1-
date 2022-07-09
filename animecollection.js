@@ -128,11 +128,16 @@ animeref.orderByKey().on("value", (snapshot) => {
         .then((data) => {
           //   console.log(data);
           loading.style.display = "none";
-          let datapercent = data.vote_average * 10;
+          let datapercent = Math.floor(data.vote_average * 10);
           if (datapercent > 50) {
             animepercent[
               idx
             ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else if (datapercent === 0) {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+            datapercent = 50;
           } else {
             animepercent[
               idx

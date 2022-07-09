@@ -176,6 +176,11 @@ animeref.orderByKey().on("value", (snapshot) => {
             popularpercent[
               idx
             ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else if (datapercent === 0) {
+            popularpercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+            datapercent = 50;
           } else {
             popularpercent[
               idx
@@ -334,6 +339,11 @@ animeref.orderByKey().on("value", (snapshot) => {
             animepercent[
               idx
             ].parentElement.className = `progress-circle over50 p${datapercent}`;
+          } else if (datapercent === 0) {
+            animepercent[
+              idx
+            ].parentElement.className = `progress-circle over50 p${datapercent}`;
+            datapercent = 50;
           } else {
             animepercent[
               idx

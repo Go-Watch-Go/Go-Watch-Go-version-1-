@@ -556,16 +556,6 @@ section {
   transition: all 0.4s ease;
 }
 
-.cards:hover,
-.movcards:hover,
-.anicards:hover,
-.lastcards:hover,
-.singleMangaCard:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
 .cards::after,
 .movcards::after,
 .anicards::after,
@@ -836,15 +826,39 @@ section {
   font-weight: 400px;
 }
 
+@media (hover: hover) {
+  .cards:hover,
+  .movcards:hover,
+  .anicards:hover,
+  .lastcards:hover,
+  .singleMangaCard:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@media (hover: none) {
+  .cards:hover,
+  .movcards:hover,
+  .anicards:hover,
+  .lastcards:hover {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
 @media (max-width: 500px) {
   section {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 
   .popular,
   .anime {
     height: 300px;
-    margin: -25px;
+    /* margin: -25px; */
+    /* background-color: red; */
   }
 
   .lastupdate {
@@ -854,7 +868,7 @@ section {
 
   .movie {
     height: 380px;
-    margin: -25px;
+    /* margin: -25px; */
   }
 
   .sectiontitle {
@@ -863,8 +877,9 @@ section {
 
   .popularcontainers,
   .animecontainers {
-    height: 200px;
+    height: 250px;
     overflow-x: scroll;
+    /* background-color: red; */
   }
 
   .lastupdatecontainers {

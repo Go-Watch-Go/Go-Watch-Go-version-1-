@@ -316,16 +316,6 @@ header {
 
 /* __________________________End Footer Section ______________________________________ */
 
-@media (max-width: 500px) {
-  .footer {
-    margin-left: -10%;
-  }
-
-  .companyTitles {
-    margin-left: -5%;
-  }
-}
-
 /* end footer responsive for mobile blackbear  */
 
 /* __________________________________End Footer Responsive for various device _______________________________ */
@@ -336,10 +326,6 @@ header {
 @media (max-width: 768px) {
   header {
     height: 90px;
-  }
-
-  .backdrops {
-    /* height: 650px; */
   }
 
   .backdrops img {
@@ -429,10 +415,7 @@ header {
   }
 
   .epfooter {
-    /* position: absolute; */
-    width: 100vw;
-    left: 10px;
-    /* top: 680px; */
+    width: 98vw;
   }
 
   .loading {
@@ -492,6 +475,8 @@ header {
   .btncontainers {
     margin-left: 10px;
   }
+
+  /* ________________________________ */
 }
 
 /* need to rebug */
