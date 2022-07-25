@@ -500,7 +500,7 @@ movref.orderByKey().on("value", (snapshot) => {
       getmovie()
         .then((data) => {
           // console.log(data);
-          let datapercent = data.vote_average * 10;
+          let datapercent = Math.floor(data.vote_average * 10);
           if (datapercent > 50) {
             moviepercent[
               idx

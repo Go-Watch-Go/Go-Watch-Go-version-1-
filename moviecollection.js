@@ -129,7 +129,7 @@ animeref.orderByKey().on("value", (snapshot) => {
         .then((data) => {
           loading.style.display = "none";
           //   console.log(data);
-          let datapercent = data.vote_average * 10;
+          let datapercent = Math.floor(data.vote_average * 10);
           if (datapercent > 50) {
             animepercent[
               idx
