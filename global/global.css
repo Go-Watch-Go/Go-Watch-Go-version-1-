@@ -168,7 +168,9 @@ nav {
 }
 
 .footerLogo {
+  margin-top: 0.8rem;
   text-align: left;
+  transform: scale(1.1);
 }
 
 .logoLink {
@@ -196,8 +198,8 @@ nav {
 
 .siteDescription {
   color: var(--normalText-color);
-  text-align: justify;
-  font-size: 16px;
+  /* text-align: justify; */
+  font-size: 14px;
 }
 
 .footerListHeader {
@@ -214,6 +216,7 @@ nav {
   text-decoration: none !important;
   color: var(--textFixed-color);
   font-size: 16px;
+  margin-top: -1rem !important;
 }
 
 @media (max-width: 500px) {
