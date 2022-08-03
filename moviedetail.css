@@ -16,6 +16,10 @@ header {
   background: linear-gradient(180deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
 }
 
+.loading {
+  position: absolute;
+}
+
 /*start backdrop */
 .backdrops {
   width: 100vw;
@@ -376,8 +380,4 @@ header {
   .metas {
     height: 25vh;
   }
-}
-
-.loading {
-  position: absolute;
 }
