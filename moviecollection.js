@@ -6,6 +6,7 @@ const bar = document.querySelector(".bars i");
 const searchbtn = document.querySelector(".searchbtns");
 const searchbtnicon = document.querySelector(".searchbtns i");
 const searchmobile = document.querySelector(".searchmobilebtns");
+const animecontainer = document.querySelector(".animecontainers");
 
 // api
 const api = "?api_key=73146692a33e76d73a4399ffb91168cb";
@@ -128,6 +129,7 @@ animeref.orderByKey().on("value", (snapshot) => {
       await getanime()
         .then((data) => {
           loading.style.display = "none";
+          animecontainer.style.display = "block";
           //   console.log(data);
           let datapercent = Math.floor(data.vote_average * 10);
           if (datapercent > 50) {
