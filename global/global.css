@@ -182,7 +182,7 @@ nav {
   color: var(--textFixed-color);
   margin-bottom: 100%;
   position: absolute;
-  bottom: -4.5rem;
+  bottom: -4.3rem;
 }
 
 .footerSubSectionTitles,
@@ -191,6 +191,7 @@ nav {
 }
 
 .footerSubSectionTitles {
+  margin-top: 2.2rem;
   color: var(--normalText-color);
   font-size: 17px;
   text-align: left;
@@ -198,7 +199,7 @@ nav {
 
 .siteDescription {
   color: var(--normalText-color);
-  /* text-align: justify; */
+  text-align: left;
   font-size: 14px;
 }
 
