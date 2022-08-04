@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXLS0T78R6"></script>
-      <script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GXLS0T78R6"
+    ></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-GXLS0T78R6');
+      gtag("config", "G-GXLS0T78R6");
     </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,7 +21,22 @@
     <!-- VUE CDN link  -->
     <script src="https://unpkg.com/vue@3"></script>
     <!-- Fontawesome css  -->
-    <link rel="stylesheet" href="./global/Font-Awesome/css/all.min.css">
+    <link rel="stylesheet" href="./global/Font-Awesome/css/all.min.css" />
+    <!-- Owl Carousel  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- For Bootstarp Link  CSS 1-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -26,6 +46,8 @@
     />
     <!-- For Jquery Link  -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- Banner CSS  -->
+    <link rel="stylesheet" href="banner.css" type="text/css" />
     <!-- Unicode font  -->
     <!-- <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' /> -->
     <!-- Progress Bar Css  -->
@@ -83,10 +105,14 @@
               <a class="nav-link" href="./moviecollection.html">Movie</a>
             </li>
             <li class="nav-item py-2 py-md-0">
-              <a class="nav-link" href="#">Manga <sup class="sup">Coming Soon</sup></a>
+              <a class="nav-link" href="#"
+                >Manga <sup class="sup">Coming Soon</sup></a
+              >
             </li>
             <li class="nav-item py-2 py-md-0">
-              <a class="nav-link" href="#">Light Novel <sup class="sup">Coming Soon</sup></a>
+              <a class="nav-link" href="#"
+                >Light Novel <sup class="sup">Coming Soon</sup></a
+              >
             </li>
           </ul>
         </div>
@@ -112,132 +138,234 @@
     <!-- ______________________________________END NAVBAR______________________________________________ -->
 
     <!-- START BANNER SECTION (Black Bear) -->
-    <div id="banner">
-      <section>
-        <div
-          id="carouselExampleCaptions"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators" v-for="(banner,index) in banners">
-            <!-- <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              class="carouselIndicator"
-              aria-current="true"
-            ></button> -->
-            
-          </div>
-          <div class="carousel-inner banner" v-if="banners">
-            <div
-              v-for="(banner,index) in banners"
-              :key="banner.id"
-              class="row carouselImages carousel-item"
-              :class="{ 'active': index === active }"
-            >
-              <div class="container">
-                <!-- banner background image  -->
-                <img :src="banner.bgposter" class="bannerBg" alt="..." />
-                <!-- Carousel Info  -->
-                <div
-                  class="col-7 carousel-caption text-start carouselInfos"
-                  v-if="banner.type !== 'nextpj'"
-                >
-                  <h2 class="seriesHeader">{{banner.name}}
-                    <span class="ms-3 btn contentType typeMovie"
-                      >{{banner.type}}</span
-                    >
-                  </h2>
-
-                  <!-- eng sub, Myanmar sub sign  -->
-                  <div class="noticeSign">
-                    <div v-if="banner.type == 'Movie'">
-                      <span class="btn bg-success text-light me-2">
-                        <span v-if="banner.onair">Air on {{banner.onair}}</span>
-                        <span v-else>Avaliable</span>
-                      </span>
-                    </div>
-                    <div v-if="banner.type == 'Ongoing'">
-                      <span class="btn bg-success text-light me-2" v-if="banner.engsub">
-                        <span >English Sub (Available)</span>
-                      </span>
-                      <span class="btn bg-danger text-light" v-if="banner.burmesesub">
-                        <span 
-                          >Burmese Sub (Available)</span
-                        >
-                      </span>
-                    </div>
-                    <div v-if="banner.type == 'Series'">
-                      <span class="btn bg-danger text-light me-2">
-                        <span v-if="banner.onair">Every {{banner.onair}}</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- overview  -->
-                  <p class="seriesSummary">{{banner.overview}}</p>
-                  <!-- play now btn to connect with aao link  -->
-                  <div v-if="!banner.onair && banner.type == 'Movie'">
-                    <a :href="banner.link" class="btn btn-lg bannerBtns"
-                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                  >
-                  </div>
-                  <div v-if="banner.type !== 'Movie'">
-                    <a :href="banner.link" class="btn btn-lg bannerBtns"
-                    ><i class="fa-solid fa-play mx-2"></i>Play Now</a
-                  >
-                  </div>
+    <div class="box" id="banner">
+      <div
+        class="owl-carousel owl-theme container-fluid col-12 bannerContainer"
+      >
+        <!-- For Card 1  -->
+        <div class="slide slide-1 col-12">
+          <div class="slide-content">
+            <!-- Banner Background Image  -->
+            <img
+              src="https://i.ibb.co/NNJpYJ9/mary-witches-facebook.jpg"
+              alt="background-image"
+              class="bannerBg"
+            />
+            <div class="col-12 contentContainer">
+              <!-- Content in Banner Container  -->
+              <div class="col-9 col-md-7 contentTitle">
+                <h2 class="contentName">Mary and the Witch's Flower</h2>
+                <div class="tabStatus">
+                  <span class="tab">Ongoing</span>
+                  <span class="tab">Burmese Sub Available</span>
+                  <span class="tab">Eng Sub Available</span>
                 </div>
-                <div v-else>
-                  <div class="col-6 carousel-caption text-start carouselInfos">
-                    <h2 class="seriesHeader">{{banner.name}}
-                    </h2>
-                     <p class="coming">This <span v-if="banner.type == movie">movie</span v-else><span>series</span> will be avaliable here soon.</p>
-                  </div>
-                </div>
-                <!-- Mini Poster Container  -->
-                <div class="col-4 miniPosterContainer">
-                  <!-- banner small poster  -->
-                  <img :src="banner.miniposter" class="miniPoster" />
-                </div>
-                <div class="carousel-caption indicators">
-                  <h5><span>{{index + 1}}</span> of <span>{{banners.length}}</span></h5>
-                </div>
+                <p class="overviewText">
+                  Young Mary follows a mysterious cat into the nearby forest and
+                  discovers an old broomstick and the strange Fly-by-Night
+                  flower, a rare plant that blossoms once every seven years.
+                  Together, the flower and the broomstick whisk Mary above the
+                  clouds, and far away to Endor College -- a school of magic
+                </p>
+                <button class="btn btn-lg bannerPLayBtn">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
               </div>
-            
+              <!-- Miniposter Container  -->
+              <div class="col-3 col-md-3 miniPosterContainer">
+                <img
+                  class="miniPoster"
+                  src="https://i.ibb.co/b6b4sV5/Mary-And-The-Witch-s-Flower.jpg
+      "
+                  alt="Mini Poster"
+                />
+              </div>
             </div>
           </div>
-          <!-- Banner Prev button  -->
-          <button
-            class="carousel-control-prev prevBtn"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <!-- Banner Next button  -->
-          <button
-            class="carousel-control-next nextBtn"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-            @click="addnum"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-      </section>
+        <!-- For Card 2  -->
+        <div class="slide slide-2 col-12">
+          <div class="slide-content">
+            <!-- Banner Background Image  -->
+            <img
+              src="https://i.ibb.co/LvVbHXG/spy-x-family-banner.jpg"
+              alt="background-image"
+              class="bannerBg"
+            />
+            <div class="col-12 contentContainer">
+              <!-- Content in Banner Container  -->
+              <div class="col-9 col-md-7 contentTitle">
+                <h2 class="contentName">Spy x Family</h2>
+                <div class="tabStatus">
+                  <span class="tab">Ongoing</span>
+                  <span class="tab">Burmese Sub Available</span>
+                  <span class="tab">Eng Sub Available</span>
+                </div>
+                <p class="overviewText">
+                  A spy on an undercover mission gets married and adopts a child
+                  as part of his cover. His wife and daughter have secrets of
+                  their own, and all three must strive to keep together.
+                </p>
+                <button class="btn btn-lg bannerPLayBtn">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+              </div>
+              <!-- Miniposter Container  -->
+              <div class="col-3 col-md-3 miniPosterContainer">
+                <img
+                  class="miniPoster"
+                  src="https://i.ibb.co/yhrVwp9/spy-x-family.jpg
+      "
+                  alt="Mini Poster"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- For Card 3  -->
+        <div class="slide slide-3 col-12">
+          <div class="slide-content">
+            <!-- Banner Background Image  -->
+            <img
+              src="https://i.ibb.co/NmFrLKF/summer-time-rendering-banner.jpg"
+              alt="background-image"
+              class="bannerBg"
+            />
+            <div class="col-12 contentContainer">
+              <!-- Content in Banner Container  -->
+              <div class="col-9 col-md-7 contentTitle">
+                <h2 class="contentName">Summer Time Rendering</h2>
+                <div class="tabStatus">
+                  <span class="tab">Ongoing</span>
+                  <span class="tab">Burmese Sub Available</span>
+                  <span class="tab">Eng Sub Available</span>
+                </div>
+                <p class="overviewText">
+                  Upon hearing of Ushio's death, Shinpei returns to his hometown
+                  of Wakayama City on Hitogashima and reunites with his
+                  childhood friend's family. The funeral goes smoothly, but
+                  under the surface something strange is brewing on the island.
+                  What mysteries await him on this secluded summer island?
+                </p>
+                <button class="btn btn-lg bannerPLayBtn">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+              </div>
+              <!-- Miniposter Container  -->
+              <div class="col-3 col-md-3 miniPosterContainer">
+                <img
+                  class="miniPoster"
+                  src="https://i.ibb.co/HC3JC6d/summer-time-rendering.jpg
+      "
+                  alt="Mini Poster"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- For Card 4  -->
+        <div class="slide slide-4 col-12">
+          <div class="slide-content">
+            <!-- Banner Background Image  -->
+            <img
+              src="https://i.ibb.co/6wrFZ6C/blackrock-shooter-anime-bannerjpg.jpg"
+              alt="background-image"
+              class="bannerBg"
+            />
+            <div class="col-12 contentContainer">
+              <!-- Content in Banner Container  -->
+              <div class="col-9 col-md-7 contentTitle">
+                <h2 class="contentName">
+                  Black Rock Shooter: Dawn Fall (2022)
+                </h2>
+                <div class="tabStatus">
+                  <span class="tab">Ongoing</span>
+                  <span class="tab">Burmese Sub Available</span>
+                  <span class="tab">Eng Sub Available</span>
+                </div>
+                <p class="overviewText">
+                  In 2062, two decades after the failure of a massive workforce
+                  automation project. However, Artemis, the artificial
+                  intelligence at the core of that project, had decided to
+                  attack humanity, and the resulting war laid waste to Earth.
+                </p>
+                <button class="btn btn-lg bannerPLayBtn">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+              </div>
+              <!-- Miniposter Container  -->
+              <div class="col-3 col-md-3 miniPosterContainer">
+                <img
+                  class="miniPoster"
+                  src="https://i.ibb.co/WkYrFSv/blackrock-shooter-anime-mini-poster.jpg
+      "
+                  alt="Mini Poster"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- For Card 5  -->
+        <div class="slide slide-5 col-12">
+          <div class="slide-content">
+            <!-- Banner Background Image  -->
+            <img
+              src="https://i.ibb.co/QYr9kft/darling-in-the-franxx-banner.jpg"
+              alt="background-image"
+              class="bannerBg"
+            />
+            <div class="col-12 contentContainer">
+              <!-- Content in Banner Container  -->
+              <div class="col-9 col-md-7 contentTitle">
+                <h2 class="contentName">Darling in the FranXX</h2>
+                <div class="tabStatus">
+                  <span class="tab">Ongoing</span>
+                  <span class="tab">Burmese Sub Available</span>
+                  <span class="tab">Eng Sub Available</span>
+                </div>
+                <p class="overviewText">
+                  A boy named Hiro is called Code:016, and he was once known as
+                  a prodigy. However, he has fallen behind, and his existence
+                  seems unnecessary. Not piloting a Franxx is the same as
+                  ceasing to exist. One day, a mysterious girl known as "Zero
+                  Two" appears before him. Two horns grow out of her head.
+                </p>
+                <button class="btn btn-lg bannerPLayBtn">
+                  <i class="fa-solid fa-play mx-2"></i>Play Now
+                </button>
+              </div>
+              <!-- Miniposter Container  -->
+              <div class="col-3 col-md-3 miniPosterContainer">
+                <img
+                  class="miniPoster"
+                  src="https://i.ibb.co/MSGJ9mN/darling-in-the-franxx.jpg
+      "
+                  alt="Mini Poster"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- END BANNER SECTION  -->
 
     <!-- ______________________________________END BANNER______________________________________________ -->
 
     <div class="col-12 handBookContainers">
-      <p class="unicode">ပိုမို ကောင်းမွန်သော <span class="handbookNotifyEng">User Experience</span> ကိုရရှိရန်၊ <span class="handbookNotifyEng">Movie</span> ကြည့်နည်း၊ <span class="handbookNotifyEng">Download</span> လုပ်နည်း အစရှိသည်တို့ကို <a class="handbookDirectory" href="handbook.html" ><span class="handbookNotifyEng">Handbook</span></a> တွင် ကြည့်ရှုနိုင်ပါသည်။ <a href="#handbooklink" class="handbookDirectory"><i class="fa-solid fa-angle-down handbookDirectionIcons"></i></a></p>
+      <p class="unicode">
+        ပိုမို ကောင်းမွန်သော
+        <span class="handbookNotifyEng">User Experience</span> ကိုရရှိရန်၊
+        <span class="handbookNotifyEng">Movie</span> ကြည့်နည်း၊
+        <span class="handbookNotifyEng">Download</span> လုပ်နည်း အစရှိသည်တို့ကို
+        <a class="handbookDirectory" href="handbook.html"
+          ><span class="handbookNotifyEng">Handbook</span></a
+        >
+        တွင် ကြည့်ရှုနိုင်ပါသည်။
+        <a href="#handbooklink" class="handbookDirectory"
+          ><i class="fa-solid fa-angle-down handbookDirectionIcons"></i
+        ></a>
+      </p>
     </div>
 
     <!-- ______________________________________END HANDBOOK REMINDER______________________________________________ -->
@@ -334,7 +462,7 @@
     <section class="lightnovel">
       <div class="container-fluid">
         <h4 class="sectiontitle">Light Novel</h4>
-        
+
         <!-- coming soon sign  -->
         <div class="comingSoonSignContainer">
           <h1>Coming Soon ...</h1>
@@ -395,7 +523,12 @@
           </ul>
           <ul class="footerListHeader">
             <li class="footerListEach">
-              <a class="footerListAttribute" id="handbooklink" href="handbook.html">Handbook</a>
+              <a
+                class="footerListAttribute"
+                id="handbooklink"
+                href="handbook.html"
+                >Handbook</a
+              >
             </li>
             <li class="footerListEach">
               <a class="footerListAttribute" href="privacypolicy.html"
@@ -447,36 +580,67 @@
     <!-- END COPYRIGHT SECTION  -->
 
     <!-- ______________________________________END COPYRIGHT______________________________________________ -->
-    
+
+    <!-- Jquery CDN link  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Owl Carousel  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Script for carousel  -->
+    <script>
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          items: 1,
+          loop: true,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          smartSpeed: 1500,
+          autoplayHoverPause: true,
+        });
+      });
+    </script>
     <!-- Messenger Chat plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
+      var chatbox = document.getElementById("fb-customer-chat");
       chatbox.setAttribute("page_id", "100581029177286");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
+      window.fbAsyncInit = function () {
         FB.init({
-          xfbml            : true,
-          version          : 'v14.0'
+          xfbml: true,
+          version: "v14.0",
         });
       };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      })(document, "script", "facebook-jssdk");
     </script>
 
     <!-- J Query Script for banner reload  -->
