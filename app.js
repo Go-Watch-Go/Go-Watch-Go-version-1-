@@ -82,12 +82,85 @@ const bannerRef = databasefire.ref("banner");
 //for banner by (blackbear)
 
 // console.log(courselimgae);
-const app = Vue.createApp({
+Vue.component("owl-wrapper", {
+  template: `
+      <div
+        class="owl-carousel owl-theme container-fluid col-12 bannerContainer" 
+      >
+      <div class="slide col-12" v-for="(banner,index) in banners"
+      :key="index">
+        
+          <!-- Banner Background Image  -->
+          <img
+            :src="banner.bgposter"
+            alt="background-image"
+            class="bannerBg"
+          />
+          <div class="col-12 contentContainer">
+            <!-- Content in Banner Container  -->
+            <div class="col-9 col-md-7 contentTitle" v-if="banner.type !== 'nextpj'">
+              <h2 class="contentName">{{banner.name}}</h2>
+              <div class="tabStatus">
+                <div v-if="banner.type == 'Movie'">
+                  <span class="tab">
+                  <span v-if="banner.onair">Air on {{banner.onair}}</span>
+                  <span v-else>Avaliable</span>
+                  </span>
+                  </div>
+                  <div v-if="banner.type == 'Ongoing'">
+                    <span class="tab" v-if="banner.engsub">
+                    <span>English Sub (Available)</span>
+                    </span>
+                    <span class="btn bg-danger text-light" v-if="banner.burmesesub">
+                    <span>Burmese Sub (Available)</span
+                                            >
+                    </span>
+                    </div>
+                    <div v-if="banner.type == 'Series'">
+                      <span class="tab">
+                      <span v-if="banner.onair">Every {{banner.onair}}</span>
+                      </span>
+                      </div>
+                <!-- <span class="tab">{{banner.type}}</span>
+                <span class="tab">Burmese Sub Available</span>
+                <span class="tab">Eng Sub Available</span> -->
+              </div>
+              <p class="overviewText">
+                {{banner.overview}}
+              </p>
+              <div v-if="!banner.onair && banner.type == 'Movie'">
+                <a :href="banner.link" class="btn btn-lg bannerPLayBtn"><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                                  >
+              </div>
+              <div v-if="banner.type !== 'Movie'">
+                <a :href="banner.link" class="btn btn-lg bannerPLayBtn"><i class="fa-solid fa-play mx-2"></i>Play Now</a
+                                  >
+              </div>
+            </div>
+
+            <div v-else>
+              <div class="col-9 col-md-7 contentTitle">
+              <h2 class="contentName">{{banner.name}}
+              </h2>
+              <p class="coming">This <span v-if="banner.type == movie">movie</span v-else><span>series</span> will be avaliable here soon.</p>
+              </div>
+              </div>
+
+            <!-- Miniposter Container  -->
+            <div class="col-3 col-md-3 miniPosterContainer">
+              <img
+                class="miniPoster"
+                :src="banner.miniposter"
+                alt="Mini Poster"
+              />
+            </div>
+          </div>
+      </div>
+      </div>
+  `,
   data() {
     return {
-      banners: null,
-      active: 0,
-      num: 1,
+      banners: 5,
     };
   },
 
@@ -95,12 +168,10 @@ const app = Vue.createApp({
     fetchdata: function () {
       bannerRef.orderByKey().on("value", (snapshot) => {
         let bannerData = snapshot.val();
+        // this.banners = bannerData.length;
         this.banners = bannerData;
-        // console.log(bannerData[3].miniposter);
+        console.log(bannerData);
       });
-    },
-    addnum() {
-      this.num + 1;
     },
   },
 
@@ -109,7 +180,167 @@ const app = Vue.createApp({
   },
 });
 
-app.mount("#banner");
+let app = new Vue({
+  el: "#banner",
+  data: {},
+});
+
+// const ap1 = Vue.createApp("owl-wrapper", {
+//   template: `
+//   <div
+//   class="owl-carousel owl-theme container-fluid col-12 bannerContainer"
+// >
+//   <!-- For Card 1  -->
+//   <div class="slide slide-1 col-12">
+//     <div class="slide-content">
+//       <!-- Banner Background Image  -->
+//       <img
+//         src="https://i.ibb.co/NNJpYJ9/mary-witches-facebook.jpg"
+//         alt="background-image"
+//         class="bannerBg"
+//       />
+//       <div class="col-12 contentContainer">
+//         <!-- Content in Banner Container  -->
+//         <div class="col-9 col-md-7 contentTitle">
+//           <h2 class="contentName">Mary and the Witch's Flower</h2>
+//           <div class="tabStatus">
+//             <span class="tab">Ongoing</span>
+//             <span class="tab">Burmese Sub Available</span>
+//             <span class="tab">Eng Sub Available</span>
+//           </div>
+//           <p class="overviewText">
+//             Young Mary follows a mysterious cat into the nearby forest and
+//             discovers an old broomstick and the strange Fly-by-Night
+//             flower, a rare plant that blossoms once every seven years.
+//             Together, the flower and the broomstick whisk Mary above the
+//             clouds, and far away to Endor College -- a school of magic
+//           </p>
+//           <button class="btn btn-lg bannerPLayBtn">
+//             <i class="fa-solid fa-play mx-2"></i>Play Now
+//           </button>
+//         </div>
+//         <!-- Miniposter Container  -->
+//         <div class="col-3 col-md-3 miniPosterContainer">
+//           <img
+//             class="miniPoster"
+//             src="https://i.ibb.co/b6b4sV5/Mary-And-The-Witch-s-Flower.jpg
+//     "
+//             alt="Mini Poster"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <!-- For Card 2  -->
+//   <div class="slide slide-2 col-12">
+//     <div class="slide-content">
+//       <!-- Banner Background Image  -->
+//       <img
+//         src="https://i.ibb.co/LvVbHXG/spy-x-family-banner.jpg"
+//         alt="background-image"
+//         class="bannerBg"
+//       />
+//       <div class="col-12 contentContainer">
+//         <!-- Content in Banner Container  -->
+//         <div class="col-9 col-md-7 contentTitle">
+//           <h2 class="contentName">Spy x Family</h2>
+//           <div class="tabStatus">
+//             <span class="tab">Ongoing</span>
+//             <span class="tab">Burmese Sub Available</span>
+//             <span class="tab">Eng Sub Available</span>
+//           </div>
+//           <p class="overviewText">
+//             A spy on an undercover mission gets married and adopts a child
+//             as part of his cover. His wife and daughter have secrets of
+//             their own, and all three must strive to keep together.
+//           </p>
+//           <button class="btn btn-lg bannerPLayBtn">
+//             <i class="fa-solid fa-play mx-2"></i>Play Now
+//           </button>
+//         </div>
+//         <!-- Miniposter Container  -->
+//         <div class="col-3 col-md-3 miniPosterContainer">
+//           <img
+//             class="miniPoster"
+//             src="https://i.ibb.co/yhrVwp9/spy-x-family.jpg
+//     "
+//             alt="Mini Poster"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <!-- For Card 3  -->
+//   <div class="slide slide-3 col-12">
+//     <div class="slide-content">
+//       <!-- Banner Background Image  -->
+//       <img
+//         src="https://i.ibb.co/NmFrLKF/summer-time-rendering-banner.jpg"
+//         alt="background-image"
+//         class="bannerBg"
+//       />
+//       <div class="col-12 contentContainer">
+//         <!-- Content in Banner Container  -->
+//         <div class="col-9 col-md-7 contentTitle">
+//           <h2 class="contentName">Summer Time Rendering</h2>
+//           <div class="tabStatus">
+//             <span class="tab">Ongoing</span>
+//             <span class="tab">Burmese Sub Available</span>
+//             <span class="tab">Eng Sub Available</span>
+//           </div>
+//           <p class="overviewText">
+//             Upon hearing of Ushio's death, Shinpei returns to his hometown
+//             of Wakayama City on Hitogashima and reunites with his
+//             childhood friend's family. The funeral goes smoothly, but
+//             under the surface something strange is brewing on the island.
+//             What mysteries await him on this secluded summer island?
+//           </p>
+//           <button class="btn btn-lg bannerPLayBtn">
+//             <i class="fa-solid fa-play mx-2"></i>Play Now
+//           </button>
+//         </div>
+//         <!-- Miniposter Container  -->
+//         <div class="col-3 col-md-3 miniPosterContainer">
+//           <img
+//             class="miniPoster"
+//             src="https://i.ibb.co/HC3JC6d/summer-time-rendering.jpg
+//     "
+//             alt="Mini Poster"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//   `,
+
+//   data() {
+//     return {
+//       banners: null,
+//       active: 0,
+//       num: 1,
+//     };
+//   },
+
+//   methods: {
+//     fetchdata: function () {
+//       bannerRef.orderByKey().on("value", (snapshot) => {
+//         let bannerData = snapshot.val();
+//         this.banners = bannerData;
+//         console.log(bannerData);
+//       });
+//     },
+//     addnum() {
+//       this.num + 1;
+//     },
+//   },
+
+//   created: function () {
+//     this.fetchdata();
+//   },
+// });
+
+// app.mount("#banner");
 
 // courselimgae[0].classList.add("active");
 
