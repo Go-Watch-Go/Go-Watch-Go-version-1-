@@ -1,23 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .bannerContainer {
+  width: 100% !important;
   height: 500px !important;
   margin-top: 4rem;
+
+  /* z-index: 1; */
+}
+
+.bannerBg::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* z-index: 2 !important; */
+}
+
+.bannerContainer > div {
+  width: 100% !important;
 }
 
 .slide-content {
   position: relative;
 }
 
+.owl-item {
+  /* width: 102%; */
+}
+
 .bannerBg {
+  padding: 0;
+  margin: 0;
   width: 105%;
   height: 500px;
-  background-color: rgba(0, 0, 0, 1) !important;
-  /* -webkit-backdrop-filter: blur(25px) !important;
-  backdrop-filter: blur(25px) !important; */
+  position: relative;
+  -webkit-backdrop-filter: blur(25px) !important;
+  backdrop-filter: blur(25px) !important;
   background-position: center center !important;
   background-size: contain !important;
-  opacity: 1 !important;
+
   /* filter: opacity(90%) contrast(180%); */
-  z-index: 2 !important;
+  z-index: 1 !important;
 }
 
 .contentContainer {
@@ -27,14 +64,18 @@
 
   position: absolute;
   top: 40%;
-  left: 40%;
+  left: 45%;
 
   transform: translate(-50%, -50%);
+
+  z-index: 100 !important;
 }
 
 .contentTitle {
   margin-right: 1.3rem !important;
   /* margin-left: -2rem !important; */
+
+  z-index: 300 !important;
 }
 
 .contentName {
@@ -75,7 +116,7 @@
   justify-content: center !important;
   align-items: center !important;
   /* margin-left: 6rem !important; */
-  margin-right: -5rem !important;
+  margin-right: -8rem !important;
 }
 
 .miniPoster {
@@ -127,10 +168,22 @@
 
 /* For Banner Responsive Section  */
 @media (max-width: 600px) {
+  .bannerContainer {
+    margin-top: 4.3rem;
+  }
+  .bannerBg {
+  }
+
   .contentContainer {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
   }
 
   .contentTitle {
@@ -176,6 +229,14 @@
 
   .bannerPLayBtn {
     font-size: 14px;
+  }
+
+  .contentContainer {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+
+    transform: translate(-50%, -50%);
   }
 
   .contentTitle {
