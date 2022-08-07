@@ -38,9 +38,8 @@
   position: relative;
   /* -webkit-backdrop-filter: blur(25px) !important; */
   /* backdrop-filter: blur(25px) !important; */
-  background-position: center center !important;
-  background-size: contain !important;
-
+  background-position: center !important;
+  background-size: auto !important;
   filter: opacity(70%);
   z-index: 0 !important;
 }
