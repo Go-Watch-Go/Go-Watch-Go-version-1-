@@ -108,10 +108,10 @@ Vue.component("owl-wrapper", {
                   </span>
                   </div>
                   <div v-if="banner.type == 'Ongoing'">
-                    <span class="tab" v-if="banner.engsub">
+                    <span class="tab engTab" v-if="banner.engsub">
                     <span>English Sub (Available)</span>
                     </span>
-                    <span class="btn bg-danger text-light" v-if="banner.burmesesub">
+                    <span class="tab burTab" v-if="banner.burmesesub">
                     <span>Burmese Sub (Available)</span
                                             >
                     </span>
