@@ -46,7 +46,7 @@ const epcontainrs = Vue.createApp({
       let val1 = snapshot.val();
       let val2 = val1.season;
       let val3 = val1.tran;
-      console.log(val1.season);
+      // console.log(val1.season);
       document.querySelector(".traname").innerText = val3;
 
       play.addEventListener("click", () => {

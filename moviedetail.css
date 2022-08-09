@@ -59,7 +59,7 @@ header {
 
   text-shadow: 0 0 10px #1e1e1e;
 
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .score {
@@ -330,6 +330,43 @@ header {
   .overviews span {
     font-size: 14px;
   }
+
+  .backdrops {
+    height: 55vh;
+    position: relative;
+  }
+
+  .backdrops img {
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .epfooter {
+    /* height: 100vh; */
+    /* background-color: aqua; */
+    left: 0px;
+    bottom: 0;
+    z-index: 2;
+
+    /* position: relative; */
+  }
+
+  .metas {
+    height: 35vh;
+    position: relative;
+    /* background-color: aquamarine; */
+  }
+
+  .detailcontainers {
+    /* margin-top: 10vh; */
+    position: absolute;
+    bottom: 0;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 @media (min-width: 992px) {
@@ -339,6 +376,43 @@ header {
 
   .overviews span {
     font-size: 16px;
+  }
+
+  .backdrops {
+    height: 55vh;
+    position: relative;
+  }
+
+  .backdrops img {
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .epfooter {
+    /* height: 100vh; */
+    /* background-color: aqua; */
+    left: 0px;
+    bottom: 0;
+    z-index: 2;
+
+    /* position: relative; */
+  }
+
+  .metas {
+    height: 35vh;
+    position: relative;
+    /* background-color: aquamarine; */
+  }
+
+  .detailcontainers {
+    /* margin-top: 10vh; */
+    position: absolute;
+    bottom: 0;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
   }
 }
 
