@@ -369,17 +369,30 @@ header {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 769px) {
+  header {
+    height: 182px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+
+    position: absolute;
+  }
+
+  .navs {
+    background: linear-gradient(180deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+  }
+
   .titles {
-    font-size: 60px;
+    font-size: 72px;
   }
 
   .overviews span {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .backdrops {
-    height: 55vh;
+    height: 610px;
     position: relative;
   }
 
@@ -389,40 +402,17 @@ header {
   }
 
   .epfooter {
-    /* height: 100vh; */
-    /* background-color: aqua; */
+    height: 100vh;
     left: 0px;
-    bottom: 0;
-    z-index: 2;
+    top: 312px;
 
     /* position: relative; */
   }
 
   .metas {
-    height: 35vh;
-    position: relative;
-    /* background-color: aquamarine; */
-  }
-
-  .detailcontainers {
-    /* margin-top: 10vh; */
-    position: absolute;
-    bottom: 0;
-  }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .titles {
-    font-size: 72px;
-  }
-
-  .overviews span {
-    font-size: 18px;
+    height: 60vh;
+    width: 100vw;
+    background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 75.64%);
   }
 }
 
