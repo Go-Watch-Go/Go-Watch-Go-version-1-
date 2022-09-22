@@ -142,7 +142,6 @@ header {
 
 .overviews {
   height: 150px;
-  /* background-color: red; */
 }
 
 /* start seasons */
@@ -152,8 +151,7 @@ header {
   height: 43px;
   left: 20px;
   margin: 20px 0;
-  /* top: 750px; */
-  /* background-color: red; */
+  
 }
 
 .seasons {
@@ -164,7 +162,6 @@ header {
   font-weight: 400;
   line-height: 29px;
   letter-spacing: 0em;
-  /* text-align: left; */
   margin: 0 10px;
 
   opacity: 0.5;
@@ -183,8 +180,7 @@ header {
   width: 100vw;
   left: 10px;
   margin-top: 60px;
-  /* background-color: red; */
-  /* top: 780px; */
+  
 }
 
 .epcontainers {
@@ -220,11 +216,7 @@ header {
 }
 
 .descriptions {
-  /* height: 66px; */
-  /* width: 757px; */
   margin-left: 10px;
-
-  /* overflow: hidden; */
 }
 
 .descriptions p {
@@ -242,7 +234,6 @@ header {
 }
 
 .subs {
-  /* background-color: red; */
   color: var(--textFixed-color);
 }
 
@@ -336,7 +327,6 @@ header {
 
   .metas {
     width: 100vw;
-    /* height: 340px; */
     top: 270px;
   }
 
@@ -344,7 +334,6 @@ header {
     font-size: 24px;
     font-weight: 400;
     line-height: 35px;
-    /* height: auto; */
   }
 
   .score {
@@ -374,7 +363,6 @@ header {
   .linetwos {
     position: relative;
     padding: 20px 0;
-    /* background-color: red; */
   }
 
   .ratings {
@@ -408,11 +396,9 @@ header {
   }
 
   .seasoncontainers {
-    /* position: absolute; */
     width: 300px;
     height: 43px;
     left: 0;
-    /* top: 650px; */
   }
 
   .epfooter {
@@ -443,7 +429,6 @@ header {
   }
 
   .eps {
-    /* background-color: #08eb69; */
     margin: 10px 0;
     overflow: hidden;
     height: 190px;
@@ -453,7 +438,6 @@ header {
     position: absolute;
     top: 85px;
     left: -10px;
-    /* display: none; */
   }
 
   .descriptions p {
@@ -566,7 +550,6 @@ header {
   .backdrops {
     height: 60vh;
     position: relative;
-    /* background-color: red; */
   }
 
   .backdrops img {
@@ -576,10 +559,8 @@ header {
 
   .epfooter {
     margin: 40px auto;
-    /* height: 336px; */
-    /* background-color: red; */
+    
     left: 5px;
-    /* top: 65vh; */
     z-index: 2;
   }
 
@@ -611,8 +592,6 @@ header {
 
   .descriptions {
     margin-left: 30px;
-
-    /* overflow: hidden; */
   }
 
   .descriptions p {
@@ -633,7 +612,5 @@ header {
     width: 200px;
     height: 80px;
     border-radius: 20px;
-
-    /* margin: 0 50px; */
   }
 }

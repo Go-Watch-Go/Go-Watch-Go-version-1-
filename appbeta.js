@@ -91,6 +91,7 @@ Vue.component("owl-wrapper", {
       :key="index">
         
           <!-- Banner Background Image  -->
+          
           <img
             :src="banner.bgposter"
             alt="background-image"
