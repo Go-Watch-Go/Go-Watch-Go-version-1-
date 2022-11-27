@@ -38,11 +38,13 @@
   position: relative;
   /* -webkit-backdrop-filter: blur(25px) !important; */
   /* backdrop-filter: blur(25px) !important; */
-  background-position: center !important;
-  background-size: auto !important;
+  background-position: center center !important;
+  background-size: contain !important;
   filter: opacity(70%);
   z-index: 0 !important;
 }
+
+
 
 .bannerBg::after {
   content: "";
@@ -179,6 +181,10 @@
     margin-top: 4.3rem;
   }
   .bannerBg {
+    max-width: 100%;
+   
+    object-fit: fill;
+    background-size: cover !important;
   }
 
   .contentContainer {
